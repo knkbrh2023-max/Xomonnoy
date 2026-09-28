@@ -1,0 +1,34 @@
+name: Auto Add Daily Assamese MCQs
+
+on:
+  schedule:
+    - cron: '30 23 * * *' # প্রতিদিনে ভাৰতীয় সময় মতে পুৱা ৫:০০ বজাত নিজে নিজে চলিব
+  workflow_dispatch:      # আপুনি যেতিয়াই ইচ্ছা বুটাম টিপিও লগে লগে চলাব পাৰিব
+
+permissions:
+  contents: write
+
+jobs:
+  update-mcqs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate and Append New MCQs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python generate_mcq.py
+
+      - name: Commit and Push Updated Questions
+        run: |
+          git config --global user.name "Assam Exam AutoBot"
+          git config --global user.email "bot@assamexamhub.com"
+          git add questions.json
+          git commit -m "Auto-added new daily Assamese MCQs" || exit 0
+          git push
