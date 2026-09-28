@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অসম সাধাৰণ জ্ঞান ১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ | ই-বুক</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Razorpay Official Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #e2e8f0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .book-sheet { max-width: 210mm; margin: 0 auto; background: white; }
+        .cover-bg { background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%); }
+        .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+        @media print {
+            body { background: white; }
+            .no-print { display: none !important; }
+            .book-sheet { max-width: 100%; box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ওপৰৰ বাৰ (Top Bar) -->
+    <header class="no-print sticky top-0 z-40 bg-slate-900 text-white px-4 py-3 shadow-lg border-b border-slate-700">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html#ebooks" class="text-xs md:text-sm font-bold text-slate-200 hover:text-amber-400 flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> ই-বুক ষ্ট’ৰলৈ ঘূৰি যাওক
+            </a>
+            <div id="top-action-btn">
+                <button onclick="payWithRazorpay()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Razorpay-ৰে কিনক (₹49)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- মূল ই-বুক পেজ -->
+    <div class="book-sheet my-0 md:my-6 shadow-2xl rounded-none md:rounded-2xl overflow-hidden">
+
+        <!-- কভাৰ ডিজাইন -->
+        <div class="cover-bg text-white p-8 md:p-12">
+            <div class="flex justify-between items-center mb-4">
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded">PDF E-BOOK • ₹49</span>
+                <span id="lock-status-badge" class="bg-white/15 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+                    🔒 নমুনা সংস্কৰণ (Sample Preview)
+                </span>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-extrabold leading-snug">অসম সাধাৰণ জ্ঞান ১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ</h1>
+            <p class="text-blue-100 text-xs md:text-sm mt-2">অসম বুৰঞ্জী, ভূগোল, সাহিত্য আৰু কলা-সংস্কৃতিৰ সম্পূৰ্ণ প্রশ্নবেংক সহজ অসমীয়া ব্যাখ্যাসহ।</p>
+        </div>
+
+        <div class="p-6 md:p-10 space-y-8">
+
+            <!-- ফ্ৰী নমুনা অংশ (সকলোৱে পঢ়িব পাৰিব) -->
+            <div>
+                <div class="flex justify-between items-center border-b-2 border-blue-800 pb-2 mb-4">
+                    <h2 class="text-lg font-extrabold text-blue-900">📖 অধ্যায় ১: অসম বুৰঞ্জী আৰু ভূগোল (বিনামূলীয়া নমুনা)</h2>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded">FREE PREVIEW</span>
+                </div>
+
+                <div class="mb-6 avoid-break">
+                    <h3 class="text-xs font-bold text-slate-700 mb-2">📌 এক নজৰত: অসমৰ ঐতিহাসিক যুদ্ধ আৰু চনসমূহ:</h3>
+                    <table class="w-full text-xs border-collapse border border-slate-300">
+                        <tr class="bg-slate-100 font-bold">
+                            <td class="p-2 border">চন</td>
+                            <td class="p-2 border">ঐতিহাসিক ঘটনা / যুদ্ধ</td>
+                            <td class="p-2 border">গুৰুত্বপূৰ্ণ তথ্য</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border font-bold">১২২৮ খ্ৰীঃ</td>
+                            <td class="p-2 border">চুকাফাৰ অসম আগমন</td>
+                            <td class="p-2 border">১২৫৩ খ্ৰীষ্টাব্দত চৰাইদেউত স্থায়ী ৰাজধানী স্থাপন।</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border font-bold">১৬৭১ খ্ৰীঃ</td>
+                            <td class="p-2 border">শৰাইঘাটৰ যুদ্ধ</td>
+                            <td class="p-2 border">লাচিত বৰফুকনৰ নেতৃত্বত মোগল সেনাপতি ৰাম সিংহক পৰাস্ত।</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border font-bold">১৮২৬ খ্ৰীঃ</td>
+                            <td class="p-2 border">ইয়াণ্ডাবু সন্ধি (২৪ ফেব্ৰুৱাৰী)</td>
+                            <td class="p-2 border">আহোম শাসনৰ অন্ত আৰু অসম ব্ৰিটিছৰ অধীনলৈ যায়।</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="free-sample-mcqs" class="space-y-3"></div>
+            </div>
+
+            <!-- লক হৈ থকা বক্স (পেমেণ্ট নকৰালৈকে এইটো দেখুৱাব) -->
+            <div id="locked-overlay-box" class="no-print bg-gradient-to-b from-amber-50 to-amber-100/70 border-2 border-amber-300 rounded-2xl p-6 text-center shadow-md">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">সম্পূৰ্ণ ই-বুকখন আনলক কৰি PDF ডাউনলোড কৰক!</h3>
+                <p class="text-xs text-slate-600 max-w-md mx-auto mt-1 mb-5">
+                    তলৰ বুটামত ক্লিক কৰি <strong>Razorpay (UPI / GPay / PhonePe / Card)</strong> যোগে মাত্ৰ <strong>₹49</strong> পেমেণ্ট কৰাৰ লগে লগে সম্পূৰ্ণ ই-বুকখন স্বয়ংক্ৰিয়ভাৱে আনলক হৈ যাব।
+                </p>
+                <button onclick="payWithRazorpay()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> Pay ₹49 with Razorpay (Instant Unlock)
+                </button>
+            </div>
+
+            <!-- পেমেণ্ট সফল হ'লে নিজে নিজে ওলাই অহা সম্পূৰ্ণ অংশ -->
+            <div id="premium-full-content" class="hidden space-y-8">
+                <div class="border-b-2 border-emerald-800 pb-2">
+                    <h2 class="text-lg font-extrabold text-emerald-900">📚 অধ্যায় ২: অসমীয়া সাহিত্য, সংস্কৃতি, ভূগোল আৰু সম্পূৰ্ণ প্রশ্নবেংক</h2>
+                </div>
+                <div id="premium-mcqs-container" class="space-y-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // ইয়াত তোমাৰ নিজৰ Razorpay Key ID টো দিবা (Razorpay Dashboard -> Settings -> API Keys ত পাবা)
+        const RAZORPAY_KEY_ID = "rzp_test_XXXXXXXXXXXXXX"; 
+
+        const sampleQs = [
+            { q: "চৰাইদেউ মৈদামক কোন চনত ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি দিয়া হয়?", ans: "২০২৪ চনত", exp: "২০২৪ চনৰ জুলাই মাহত নতুন দিল্লীত অনুষ্ঠিত ইউনেস্ক’ৰ ৪৬ সংখ্যক অধিৱেশনত চৰাইদেউ মৈদামক বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে ঘোষণা কৰা হয়।" },
+            { q: "অসমীয়া ভাষাক ভাৰত চৰকাৰে কোন চনত 'ধ্ৰুপদী ভাষা' (Classical Language) হিচাপে স্বীকৃতি দিয়ে?", ans: "২০২৪ চনত", exp: "২০২৪ চনৰ অক্টোবৰ মাহত কেন্দ্ৰীয় কেবিনেটে অসমীয়া ভাষাক ধ্ৰুপদী ভাষাৰ মৰ্যাদা প্ৰদান কৰে।" },
+            { q: "আহোম ৰাজ্যত প্ৰথমবাৰৰ বাবে জনগণনা কোনে আৰম্ভ কৰিছিল?", ans: "স্বৰ্গদেউ সুহুংমুং (দিহিঙীয়া ৰজা)", exp: "১৫১০ খ্ৰীষ্টাব্দত স্বৰ্গদেউ সুহুংমুঙৰ শাসনকালত অসমত প্ৰথম জনগণনা কৰা হৈছিল।" }
+        ];
+
+        const premiumQs = [
+            { q: "জ্ঞানপীঠ বঁটা লাভ কৰা প্ৰথমগৰাকী অসমীয়া সাহিত্যিক কোন?", ans: "ড° বীৰেন্দ্ৰ কুমাৰ ভট্টাচাৰ্য", exp: "১৯৭৯ চনত 'মৃত্যুঞ্জয়' উপন্যাসৰ বাবে তেখেতে প্ৰথম জ্ঞানপীঠ বঁটা লাভ কৰিছিল।" },
+            { q: "অসমৰ ষষ্ঠখন আৰু সপ্তমখন ৰাষ্ট্ৰীয় উদ্যান দুখনৰ নাম কি?", ans: "ৰাইমনা আৰু দিহিং পাটকাই ৰাষ্ট্ৰীয় উদ্যান", exp: "২০২১ চনৰ জুন মাহত ৰাইমনা (কোকৰাঝাৰ)ক ষষ্ঠ আৰু দিহিং পাটকাইক সপ্তম ৰাষ্ট্ৰীয় উদ্যান হিচাপে স্বীকৃতি দিয়া হয়।" },
+            { q: "প্ৰথম অসমীয়া ছপা আলোচনী 'অৰুণোদই' কোন চনত প্ৰকাশ পাইছিল?", ans: "১৮৪৬ চনত (শিৱসাগৰৰ পৰা)", exp: "ড° নাথান ব্ৰাউনৰ সম্পাদনাত ১৮৪৬ চনত অৰুণোদই প্রকাশ পায়।" },
+            { q: "সোণালী বান্দৰৰ বাবে বিখ্যাত অসমৰ অভয়াৰণ্যখনৰ নাম কি?", ans: "চক্ৰশিলা অভয়াৰণ্য", exp: "কোকৰাঝাৰ আৰু ধুবুৰী জিলাত অৱস্থিত চক্ৰশিলা অভয়াৰণ্য সোণালী বান্দৰৰ বাবে বিখ্যাত।" }
+        ];
+
+        function renderQList(list, containerId, startNum) {
+            document.getElementById(containerId).innerHTML = list.map((item, i) => `
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 avoid-break text-xs">
+                    <p class="font-bold text-slate-900 text-sm">${startNum + i}. ${item.q}</p>
+                    <p class="text-emerald-700 font-bold mt-1">✔ উত্তৰ: ${item.ans}</p>
+                    <p class="text-slate-600 mt-0.5"><strong>ব্যাখ্যা:</strong> ${item.exp}</p>
+                </div>
+            `).join('');
+        }
+
+        // questions.json-ৰ সকলো প্রশ্নও এই ই-বুকখনত স্বয়ংক্ৰিয়ভাৱে যোগ হৈ যাব
+        async function initBook() {
+            try {
+                const res = await fetch('questions.json?t=' + new Date().getTime());
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.questions) {
+                        data.questions.forEach(q => {
+                            premiumQs.push({ q: q.q, ans: q.options[q.ans], exp: q.exp });
+                        });
+                    }
+                }
+            } catch (e) {}
+            renderQList(sampleQs, 'free-sample-mcqs', 1);
+            renderQList(premiumQs, 'premium-mcqs-container', 4);
+            checkUnlockState();
+        }
+
+        // পেমেণ্ট হৈ গ'লে লগে লগে আনলক কৰি PDF Download বুটাম দেখুওৱা ফাংচন
+        function checkUnlockState() {
+            if (localStorage.getItem('paid_ebook_gk') === 'true') {
+                document.getElementById('locked-overlay-box').classList.add('hidden');
+                document.getElementById('premium-full-content').classList.remove('hidden');
+                document.getElementById('lock-status-badge').innerText = "✔ ক্ৰয় কৰা হৈছে (Unlocked)";
+                document.getElementById('top-action-btn').innerHTML = `
+                    <button onclick="window.print()" class="bg-green-500 hover:bg-green-600 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                        <i class="fa-solid fa-file-pdf mr-1.5"></i> এতিয়া PDF ডাউনলোড কৰক
+                    </button>
+                `;
+            }
+        }
+
+        // RAZORPAY INSTANT CHECKOUT FUNCTION
+        function payWithRazorpay() {
+            const options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": 49 * 100, // ₹49 (পইচাত 4900)
+                "currency": "INR",
+                "name": "অসম এক্সাম হাব",
+                "description": "অসম সাধাৰণ জ্ঞান ১০০০+ MCQ ই-বুক",
+                "handler": function (response) {
+                    // পেমেণ্ট সফল হোৱাৰ লগে লগে ইয়াত নিজে নিজে আনলক হ'ব!
+                    localStorage.setItem('paid_ebook_gk', 'true');
+                    localStorage.setItem('payment_id_gk', response.razorpay_payment_id);
+                    checkUnlockState();
+                    alert("🎉 পেমেণ্ট সফল হ'ল! (Payment ID: " + response.razorpay_payment_id + ")\n\nআপোনাৰ সম্পূৰ্ণ ই-বুকখন আনলক হৈ গৈছে। এতিয়া ওপৰৰ সেউজীয়া বাটামটো টিপি PDF ডাউনলোড কৰি লওক!");
+                },
+                "theme": {
+                    "color": "#1d4ed8"
+                }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        window.onload = initBook;
+    </script>
+</body>
+</html>
