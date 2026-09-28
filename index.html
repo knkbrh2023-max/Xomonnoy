@@ -745,7 +745,13 @@
             window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function filterPacks(cat) {
+        function filterPacks(cat, clickedBtn) {
+            if (clickedBtn) {
+                document.querySelectorAll('#pack-filter-tabs .pack-tab').forEach(btn => {
+                    btn.className = "pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100";
+                });
+                clickedBtn.className = "pack-tab bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm";
+            }
             const cards = document.querySelectorAll('.pack-card');
             cards.forEach(card => {
                 const cardCats = card.getAttribute('data-cat');
