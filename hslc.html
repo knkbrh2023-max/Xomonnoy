@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSLC & HS ৫০% OMR মাষ্টাৰ পেক | অসম এক্সাম হাব</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Noto Sans Assamese', sans-serif; background-color: #f8fafc; }
+        .school-hero { background: linear-gradient(135deg, #0e7490 0%, #155e75 60%, #0f172a 100%); }
+        .option-btn.selected { border-color: #0891b2; background-color: #ecfeff; font-weight: 700; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-cyan-700">
+                <i class="fa-solid fa-arrow-left text-sm mr-1"></i>
+                <div class="w-8 h-8 rounded-lg bg-cyan-700 flex items-center justify-center text-white font-bold">অ</div>
+                <div>
+                    <h1 class="font-bold text-sm md:text-base leading-none">SEBA HSLC & HS OMR ডেশ্বব’ৰ্ড</h1>
+                    <span class="text-[11px] text-slate-500">50% OMR MCQ Booster Pack</span>
+                </div>
+            </a>
+            <div id="vip-badge-area">
+                <button onclick="openUnlockModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow">
+                    <i class="fa-solid fa-lock-open mr-1"></i> আনলক কৰক (₹49)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="school-hero text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">SEBA & AHSEC BOARD SPECIAL</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold mt-2">HSLC & HS ৫০% OMR মাষ্টাৰ পেক (২০ টা মক টেষ্ট)</h2>
+                <p class="text-cyan-100 text-xs md:text-sm mt-1">
+                    সাধাৰণ বিজ্ঞান • গণিত • সমাজ বিজ্ঞান • ইংৰাজী আৰু অসমীয়া ব্যাকৰণৰ অধ্যায়ভিত্তিক অনুশীলন
+                </p>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p class="text-2xl font-extrabold text-amber-300">20 টা</p>
+                    <p class="text-[11px] text-cyan-100">OMR মক টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p class="text-2xl font-extrabold text-green-300">৪৫/৪৫</p>
+                    <p class="text-[11px] text-cyan-100">OMR নম্বৰৰ লক্ষ্য</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <main id="bundle-dashboard" class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-3">📚 মেট্ৰিক পৰীক্ষাৰ ৫ টা মূল বিষয়ৰ OMR কভাৰেজ</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="subject-progress-bars"></div>
+            </div>
+
+            <!-- Formula Sheet Modal Trigger -->
+            <div class="bg-gradient-to-br from-cyan-950 to-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded">BOARD REVISION SHEET</span>
+                    <h3 class="text-lg font-bold mt-2">📐 বিজ্ঞান আৰু গণিতৰ লাষ্ট-মিনিট ফৰ্মুলা শ্বীট</h3>
+                    <p class="text-xs text-cyan-200 mt-1">পৰীক্ষাৰ আগদিনা চাবলৈ গুৰুত্বপূৰ্ণ সূত্র, ৰাসায়নিক সংকেত আৰু এককসমূহ।</p>
+                </div>
+                <button onclick="document.getElementById('formula-modal').classList.remove('hidden')" class="mt-4 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-2.5 rounded-xl w-full">
+                    ফৰ্মুলা শ্বীটখন চাওক
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">📝 ২০ টা অধ্যায়ভিত্তিক OMR মক টেষ্ট (Mock #1 ফ্ৰী ডেমো)</h3>
+            <div id="mock-tests-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+        </div>
+    </main>
+
+    <!-- EXAM INTERFACE -->
+    <section id="exam-interface" class="hidden max-w-4xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
+            <div class="flex justify-between items-center pb-4 mb-4 border-b">
+                <span id="exam-q-subject" class="text-xs font-bold bg-cyan-100 text-cyan-800 px-2.5 py-1 rounded">Science</span>
+                <span id="exam-q-number" class="text-xs font-bold text-slate-500">1 / 5</span>
+            </div>
+            <h4 id="exam-q-text" class="text-base font-bold text-slate-900 mb-5 leading-relaxed"></h4>
+            <div id="exam-q-options" class="space-y-3 mb-6"></div>
+            <div class="flex justify-between pt-4 border-t">
+                <button onclick="prevExamQ()" class="px-4 py-2 text-xs font-bold bg-slate-100 rounded-xl">পূর্ববৰ্তী</button>
+                <button onclick="nextExamQ()" id="exam-next-btn" class="px-6 py-2.5 text-xs font-bold bg-cyan-700 text-white rounded-xl">পৰৱৰ্তী</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="exam-result-screen" class="hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border p-6">
+            <h3 class="text-xl font-bold text-center mb-4">আপোনাৰ HSLC OMR ফলাফল: <span id="res-final-score" class="text-cyan-700"></span></h3>
+            <div id="res-solutions-list" class="space-y-3 max-h-96 overflow-y-auto mb-6"></div>
+            <div class="text-center">
+                <button onclick="exitExamToDashboard()" class="bg-cyan-700 text-white text-xs font-bold px-6 py-2.5 rounded-xl">ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULA MODAL -->
+    <div id="formula-modal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[85vh] overflow-y-auto">
+            <button onclick="document.getElementById('formula-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-extrabold text-cyan-900 mb-3">📐 HSLC বিজ্ঞান আৰু গণিতৰ কুইক-ফৰ্মুলা শ্বীট</h3>
+            <div class="space-y-3 text-xs text-slate-700">
+                <div class="p-3 bg-cyan-50 rounded-xl border border-cyan-200">
+                    <strong>১. সাধাৰণ বিজ্ঞান (ৰাসায়নিক নাম আৰু সংকেত):</strong><br>
+                    • খোৱা ছ’ডা (Baking Soda): ছ’ডিয়াম হাইড্ৰ’জেন কাৰ্বনেট (NaHCO₃)<br>
+                    • কাপোৰ ধোৱা ছ’ডা: Na₂CO₃·10H₂O<br>
+                    • প্লাষ্টাৰ অৱ পেৰিছ: CaSO₄·½H₂O<br>
+                    • দাপোণৰ সূত্র: 1/v + 1/u = 1/f | লেন্ছৰ ক্ষমতা: P = 1/f (ডায়প্টাৰ)
+                </div>
+                <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                    <strong>২. গণিতৰ গুৰুত্বপূৰ্ণ সূত্র:</strong><br>
+                    • দ্বিঘাত সমীকৰণৰ ভেদক (Discriminant): D = b² - 4ac<br>
+                    • সমান্তৰ প্ৰগতিৰ n-তম পদ: aₙ = a + (n - 1)d<br>
+                    • ত্ৰিকোণমিতিৰ অভেদ: sin²θ + cos²θ = 1 | sec²θ - tan²θ = 1
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNLOCK MODAL -->
+    <div id="unlock-modal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+            <button onclick="document.getElementById('unlock-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold">HSLC OMR মাষ্টাৰ পেক আনলক কৰক (₹49)</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-4">আপুনি পোৱা ৪-অংকৰ আনলক পিনটো দিয়ক (টেষ্টিং পিন: 2026):</p>
+            <div class="flex gap-2">
+                <input type="text" id="pin-input" placeholder="2026" class="w-full border rounded-xl px-3 py-2 text-center font-bold">
+                <button onclick="verifyPin()" class="bg-cyan-700 text-white text-xs font-bold px-5 py-2 rounded-xl">আনলক</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hslcQuestions = [
+            { subject: "সাধাৰণ বিজ্ঞান (General Science)", q: "মানুহৰ চকুৱে বস্তু এটাৰ প্ৰতিবিম্ব চকুৰ কোনটো অংশত গঠন কৰে?", options: ["কৰ্ণিয়া", "চকুৰ পতা", " অক্ষিপট বা ৰেটিনা (Retina)", "পিউপিল"], ans: 2, exp: "মানুহৰ চকুৰ লেন্ছে অক্ষিপট বা ৰেটিনাৰ ওপৰত বাস্তৱ আৰু ওলোটা প্ৰতিবিম্ব গঠন কৰে।" },
+            { subject: "সাধাৰণ বিজ্ঞান (General Science)", q: "বিশুদ্ধ পানীৰ pH মান কিমান?", options: ["০", "৫.৫", "৭", "১৪"], ans: 2, exp: "বিশুদ্ধ পানী প্রশম (Neutral), গতিকে ইয়াৰ pH মান হ'ল ৭।" },
+            { subject: "গণিত (Mathematics)", q: "যদি দুটা সদৃশ ত্ৰিভুজৰ বাহুৰ অনুপাত 4:9 হয়, তেন্তে ত্ৰিভুজ দুটাৰ কালিৰ অনুপাত কিমান হ'ব?", options: ["2:3", "4:9", "16:81", "81:16"], ans: 2, exp: "সদৃশ ত্ৰিভুজৰ কালিৰ অনুপাত সিহঁতৰ অনুৰূপ বাহুৰ বৰ্গৰ অনুপাতৰ সমান: 4² : 9² = 16:81।" },
+            { subject: "সমাজ বিজ্ঞান (Social Science)", q: "১৯০৫ চনত বঙ্গ বিভাজন কোনগৰাকী ভাইচৰয়ৰ শাসনকালত সংঘটিত হৈছিল?", options: ["লৰ্ড মাউণ্টবেটেন", "লৰ্ড কাৰ্জন (Lord Curzon)", "লৰ্ড ডেলহাউচি", "লৰ্ড ৰিপন"], ans: 1, exp: "১৯০৫ চনৰ ১৬ অক্টোবৰত লৰ্ড কাৰ্জনৰ দিনত বঙ্গ বিভাজন কাৰ্যকৰী কৰা হৈছিল।" },
+            { subject: "ইংৰাজী ব্যাকৰণ (English)", q: "Choose the correct determiner: 'He gave me _____ one-rupee note.'", options: ["an", "a", "the", "many"], ans: 1, exp: "'One' শব্দটোৰ উচ্চাৰণ 'ৱান' (W-ধ্বনি বা ব্যঞ্জন ধ্বনি) হোৱা বাবে ইয়াৰ আগত 'a' বহে।" }
+        ];
+
+        const hslcTopics = [
+            "All-Subject OMR Demo #1 (Free)", "General Science: Chemical Reactions", "General Science: Light & Electricity",
+            "General Science: Life Processes", "Maths: Real Numbers & Polynomials", "Maths: Trigonometry & Mensuration",
+            "Maths: Quadratic Equations & AP", "Social Science: History of Assam & India", "Social Science: Geography & Economy",
+            "English Grammar: Determiners & Tense", "English Grammar: Voice & Narration", "Assamese Grammar (অসমীয়া ব্যাকৰণ)",
+            "SEBA HSLC PYQ OMR Paper (2023)", "SEBA HSLC PYQ OMR Paper (2024)", "SEBA HSLC PYQ OMR Paper (2025)",
+            "Full Science 45-Marks OMR Mock", "Full Maths 45-Marks OMR Mock", "Full Social Science 45-Marks OMR",
+            "Pre-Board Final OMR Test #19", "Grand Final HSLC OMR Booster #20"
+        ];
+
+        let currIdx = 0, userAns = [];
+        function isUnlocked() { return localStorage.getItem('unlocked_school') === 'true'; }
+        function openUnlockModal() { document.getElementById('unlock-modal').classList.remove('hidden'); }
+        function verifyPin() {
+            if (document.getElementById('pin-input').value.trim() === '2026') {
+                localStorage.setItem('unlocked_school', 'true');
+                document.getElementById('unlock-modal').classList.add('hidden');
+                renderDashboard();
+                alert("🎉 HSLC & HS OMR পেক সফলভাৱে আনলক হ'ল!");
+            }
+        }
+
+        function renderDashboard() {
+            const unlocked = isUnlocked();
+            const grid = document.getElementById('mock-tests-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 20; i++) {
+                const canPlay = (i === 1) || unlocked;
+                grid.innerHTML += `
+                    <div class="bg-white p-4 rounded-2xl border ${i===1 ? 'border-cyan-400' : 'border-slate-200'} shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold ${i===1 ? 'bg-green-100 text-green-700' : 'bg-cyan-50 text-cyan-700'} px-2 py-0.5 rounded">${i===1 ? 'FREE DEMO' : 'OMR PATTERN'}</span>
+                            <h4 class="font-bold text-sm mt-2">HSLC OMR Test #${i}</h4>
+                            <p class="text-xs text-cyan-700 mt-0.5">${hslcTopics[i-1]}</p>
+                        </div>
+                        <button onclick="${canPlay ? `startTest()` : `openUnlockModal()`}" class="w-full mt-4 ${canPlay ? 'bg-cyan-700 text-white' : 'bg-slate-900 text-amber-400'} text-xs font-bold py-2.5 rounded-xl">
+                            ${canPlay ? 'টেষ্ট আৰম্ভ কৰক' : '🔒 আনলক কৰক (₹49)'}
+                        </button>
+                    </div>
+                `;
+            }
+
+            document.getElementById('subject-progress-bars').innerHTML = [
+                "সাধাৰণ বিজ্ঞান (General Science)", "গণিত (Mathematics)", "সমাজ বিজ্ঞান (Social Science)", "ইংৰাজী আৰু অসমীয়া ব্যাকৰণ"
+            ].map(s => `<div class="p-3 rounded-xl bg-slate-50 border text-xs font-bold">${s} <span class="float-right text-cyan-700">45 Marks OMR</span></div>`).join('');
+        }
+
+        function startTest() {
+            currIdx = 0; userAns = new Array(hslcQuestions.length).fill(null);
+            document.getElementById('bundle-dashboard').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            renderQ();
+        }
+
+        function renderQ() {
+            const q = hslcQuestions[currIdx];
+            document.getElementById('exam-q-subject').innerText = q.subject;
+            document.getElementById('exam-q-number').innerText = `${currIdx + 1} / ${hslcQuestions.length}`;
+            document.getElementById('exam-q-text').innerText = q.q;
+            document.getElementById('exam-q-options').innerHTML = q.options.map((o, i) => `
+                <button onclick="userAns[${currIdx}]=${i};renderQ()" class="option-btn ${userAns[currIdx]===i?'selected':''} w-full text-left p-3.5 rounded-xl border text-sm">${o}</button>
+            `).join('');
+            document.getElementById('exam-next-btn').innerText = currIdx === hslcQuestions.length - 1 ? 'চাবমিট কৰক' : 'পৰৱৰ্তী';
+        }
+
+        function prevExamQ() { if (currIdx > 0) { currIdx--; renderQ(); } }
+        function nextExamQ() { if (currIdx < hslcQuestions.length - 1) { currIdx++; renderQ(); } else { finishTest(); } }
+
+        function finishTest() {
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            let score = 0;
+            const sol = document.getElementById('res-solutions-list');
+            sol.innerHTML = '';
+            hslcQuestions.forEach((q, i) => {
+                if (userAns[i] === q.ans) score++;
+                sol.innerHTML += `<div class="p-3 bg-slate-50 rounded-xl border text-xs"><strong>প্রশ্ন ${i+1}:</strong> শুদ্ধ উত্তৰ: ${q.options[q.ans]}<br><span class="text-slate-600">${q.exp}</span></div>`;
+            });
+            document.getElementById('res-final-score').innerText = `${score} / ${hslcQuestions.length}`;
+        }
+
+        function exitExamToDashboard() {
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('bundle-dashboard').classList.remove('hidden');
+        }
+
+        window.onload = renderDashboard;
+    </script>
+</body>
+</html>
