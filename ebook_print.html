@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অসম সাধাৰণ জ্ঞান ই-বুক | Assam Exam Hub PDF</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Noto Sans Assamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #e2e8f0;
+            color: #0f172a;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* A4 Page Container for Screen Preview */
+        .book-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .cover-gradient {
+            background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 55%, #1d4ed8 100%);
+        }
+
+        /* Avoid cutting questions or tables in the middle of a page */
+        .avoid-break {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .page-break {
+            break-after: page;
+            page-break-after: always;
+        }
+
+        /* PRINT MEDIA RULES FOR PERFECT COLORFUL PDF */
+        @page {
+            size: A4 portrait;
+            margin: 12mm;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .book-container {
+                max-width: 100%;
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= FLOATING ACTION BAR (Hidden in PDF) ================= -->
+    <div class="no-print sticky top-0 z-50 bg-slate-900 text-white px-4 py-3 shadow-lg border-b border-slate-700">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-2">
+                <span class="bg-amber-400 text-slate-950 font-extrabold text-xs px-2.5 py-1 rounded">E-BOOK STUDIO</span>
+                <span class="text-xs md:text-sm text-slate-300">১-ক্লিকত ৰঙীন PDF হিচাপে ডাউনলোড কৰক</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="importFromJson()" class="bg-slate-700 hover:bg-slate-600 text-amber-300 text-xs font-bold px-3.5 py-2 rounded-lg border border-slate-600 transition">
+                    <i class="fa-solid fa-database mr-1"></i> questions.json-ৰ প্রশ্নও যোগ কৰক
+                </button>
+                <button onclick="window.print()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs md:text-sm font-extrabold px-5 py-2 rounded-lg shadow-md flex items-center transition">
+                    <i class="fa-solid fa-file-pdf mr-2 text-base"></i> Download / Save as PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN E-BOOK CONTAINER ================= -->
+    <div class="book-container my-0 md:my-6">
+
+        <!-- ================= PAGE 1: COLORFUL COVER PAGE ================= -->
+        <div class="cover-gradient text-white p-8 md:p-12 min-h-[270mm] flex flex-col justify-between relative overflow-hidden page-break">
+            
+            <!-- Top Branding -->
+            <div class="flex justify-between items-center border-b border-white/20 pb-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-9 h-9 rounded-lg bg-amber-400 text-slate-950 font-extrabold flex items-center justify-center text-lg">অ</div>
+                    <div>
+                        <p class="font-bold text-sm tracking-wide">অসম এক্সাম হাব (ASSAM EXAM HUB)</p>
+                        <p class="text-[11px] text-blue-200">প্ৰিমিয়াম ডিজিটেল পাব্লিকেশ্যন • ২০২৬ সংস্কৰণ</p>
+                    </div>
+                </div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full">
+                    BESTSELLER E-BOOK
+                </span>
+            </div>
+
+            <!-- Center Title Section -->
+            <div class="my-auto py-8 text-center">
+                <div class="inline-block bg-blue-500/30 border border-blue-300/40 text-amber-300 text-xs font-bold px-4 py-1.5 rounded-full mb-5">
+                    🎯 ADRE 3.0 • ASSAM POLICE • APSC PRELIMS • ASSAM TET • HSLC
+                </div>
+                
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-white">
+                    অসম সাধাৰণ জ্ঞান<br>
+                    <span class="text-amber-400">১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-blue-100 font-medium max-w-xl mx-auto mb-8">
+                    অধ্যায়ভিত্তিক কুইক-ৰিভিজন তালিকা, বিগত বৰ্ষৰ নিৰ্বাচিত প্রশ্ন (PYQs) আৰু সহজ অসমীয়া ভাষাত বিতং ব্যাখ্যাসহ সম্পূৰ্ণ গাইডবুক
+                </p>
+
+                <!-- Feature Highlights Box -->
+                <div class="grid grid-cols-2 gap-4 max-w-lg mx-auto text-left bg-white/10 border border-white/20 rounded-2xl p-5 backdrop-blur-sm">
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold">অসম বুৰঞ্জী আৰু ভূগোল</p>
+                            <p class="text-[11px] text-blue-200">প্ৰাচীন কামৰূপৰ পৰা আধুনিক অসমলৈ</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold">এক নজৰত শ্বৰ্ট-নোটছ</p>
+                            <p class="text-[11px] text-blue-200">যুদ্ধ, সন্ধি, ৰাজবংশ আৰু ৰাষ্ট্ৰীয় উদ্যান</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold">১০০% শুদ্ধ অসমীয়া ব্যাখ্যা</p>
+                            <p class="text-[11px] text-blue-200">প্ৰতিটো প্রশ্নৰ তলত সহজ বিশ্লেষণ</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-circle-check text-amber-400 mt-1"></i>
+                        <div>
+                            <p class="text-xs font-bold">শেহতীয়া তথ্য অন্তৰ্ভুক্ত</p>
+                            <p class="text-[11px] text-blue-200">চৰাইদেউ মৈদাম আৰু ধ্ৰুপদী ভাষা স্বীকৃতি</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer of Cover -->
+            <div class="border-t border-white/20 pt-4 flex justify-between items-center text-xs text-blue-200">
+                <div>
+                    <p class="font-bold text-white">সম্পাদনা আৰু সংকলন: অসম এক্সাম হাব টীম</p>
+                    <p>Daily Free Mock Test ল’বলৈ আমাৰ ৱেবছাইট ভিজিট কৰক</p>
+                </div>
+                <div class="text-right">
+                    <span class="bg-white text-slate-950 font-extrabold px-3 py-1.5 rounded-lg text-sm">মূল্য: ₹৪৯/-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: TABLE OF CONTENTS & CHAPTER 1 TABLES ================= -->
+        <div class="p-6 md:p-10">
+            
+            <!-- Table of Contents -->
+            <div class="mb-8 avoid-break">
+                <div class="flex items-center justify-between border-b-2 border-blue-800 pb-2 mb-4">
+                    <h2 class="text-xl font-extrabold text-slate-900">📑 ই-বুকখনৰ সূচীপত্ৰ (Table of Contents)</h2>
+                    <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded">খণ্ড - ১</span>
+                </div>
+                <table class="w-full text-xs md:text-sm border-collapse border border-slate-300">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="p-2.5 text-left border border-slate-300">অধ্যায়</th>
+                            <th class="p-2.5 text-left border border-slate-300">বিষয়বস্তু (Topics Covered)</th>
+                            <th class="p-2.5 text-right border border-slate-300">বিশেষত্ব</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-blue-50/50 font-semibold">
+                            <td class="p-2.5 border border-slate-300 text-blue-800">অধ্যায় ১</td>
+                            <td class="p-2.5 border border-slate-300">অসম বুৰঞ্জী (প্ৰাচীন, আহোম যুগ আৰু স্বাধীনতা সংগ্ৰাম)</td>
+                            <td class="p-2.5 border border-slate-300 text-right">তালিকা + বিতং MCQ</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2.5 border border-slate-300 font-semibold text-blue-800">অধ্যায় ২</td>
+                            <td class="p-2.5 border border-slate-300">অসমৰ ভূগোল, ৭ খন ৰাষ্ট্ৰীয় উদ্যান, নদ-নদী আৰু দলং</td>
+                            <td class="p-2.5 border border-slate-300 text-right">তালিকা + বিতং MCQ</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2.5 border border-slate-300 font-semibold text-blue-800">অতিৰিক্ত অংশ</td>
+                            <td class="p-2.5 border border-slate-300">অসমীয়া সাহিত্য-সংস্কৃতি, সংবিধান, বিজ্ঞান আৰু গণিত</td>
+                            <td class="p-2.5 border border-slate-300 text-right">নিৰ্বাচিত প্রশ্নবেংক</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CHAPTER 1 HEADER -->
+            <div class="bg-blue-900 text-white p-4 rounded-xl mb-6 avoid-break">
+                <span class="text-[11px] uppercase tracking-wider text-amber-300 font-bold">Chapter 01 • Assam History</span>
+                <h2 class="text-xl font-extrabold mt-0.5">অধ্যায় ১: অসম বুৰঞ্জী (প্ৰাচীন, মধ্যযুগীয় আৰু আধুনিক অসম)</h2>
+            </div>
+
+            <!-- Table 1.1: Ancient Dynasties -->
+            <div class="mb-6 avoid-break">
+                <h3 class="text-sm font-bold text-blue-900 mb-2 flex items-center">
+                    <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i> ১.১ এক নজৰত: প্ৰাচীন কামৰূপৰ ৩ টা প্রধান ৰাজবংশ
+                </h3>
+                <table class="w-full text-xs border-collapse border border-slate-300">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800">
+                            <th class="p-2 border border-slate-300 text-left">ৰাজবংশ</th>
+                            <th class="p-2 border border-slate-300 text-left">প্ৰতিষ্ঠাপক</th>
+                            <th class="p-2 border border-slate-300 text-left">শ্ৰেষ্ঠ ৰজা</th>
+                            <th class="p-2 border border-slate-300 text-left">ৰাজধানী</th>
+                            <th class="p-2 border border-slate-300 text-left">পৰীক্ষাত সঘনাই অহা তথ্য</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">বৰ্মন বংশ</td>
+                            <td class="p-2 border border-slate-300">পুষ্যবৰ্মন</td>
+                            <td class="p-2 border border-slate-300">ভাস্কৰবৰ্মন</td>
+                            <td class="p-2 border border-slate-300">প্ৰাগজ্যোতিষপুৰ</td>
+                            <td class="p-2 border border-slate-300">ভাস্কৰবৰ্মনৰ দিনত হিউৱেন চাঙে (৬৪০ খ্ৰীঃত) কামৰূপ ভ্ৰমণ কৰিছিল।</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">শালস্তম্ভ বংশ</td>
+                            <td class="p-2 border border-slate-300">শালস্তম্ভ</td>
+                            <td class="p-2 border border-slate-300">শ্ৰীহৰ্ষদেৱ</td>
+                            <td class="p-2 border border-slate-300">হাৰুপ্পেশ্বৰ (তেজপুৰ)</td>
+                            <td class="p-2 border border-slate-300">হৰ্জৰবৰ্মনে তেজপুৰত ঐতিহাসিক 'হৰ্জৰ পুখুৰী' খন্দাইছিল।</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">পাল বংশ</td>
+                            <td class="p-2 border border-slate-300">ব্ৰহ্মপাল</td>
+                            <td class="p-2 border border-slate-300">ৰত্নপাল</td>
+                            <td class="p-2 border border-slate-300">দুৰ্জয়া (উঃ গুৱাহাটী)</td>
+                            <td class="p-2 border border-slate-300">ব্ৰহ্মপাল আছিল প্ৰজাৰ দ্বাৰা নিৰ্বাচিত প্ৰথমগৰাকী কামৰূপৰ ৰজা।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table 1.2: Battles & Treaties -->
+            <div class="mb-8 avoid-break">
+                <h3 class="text-sm font-bold text-blue-900 mb-2 flex items-center">
+                    <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i> ১.২ এক নজৰত: অসম বুৰঞ্জীৰ গুৰুত্বপূৰ্ণ যুদ্ধ আৰু সন্ধি
+                </h3>
+                <table class="w-full text-xs border-collapse border border-slate-300">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800">
+                            <th class="p-2 border border-slate-300 text-left">চন / তাৰিখ</th>
+                            <th class="p-2 border border-slate-300 text-left">যুদ্ধ / সন্ধি</th>
+                            <th class="p-2 border border-slate-300 text-left">কাৰ মাজত হৈছিল?</th>
+                            <th class="p-2 border border-slate-300 text-left">মূল ফলাফল / গুৰুত্ব</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">১৫৩২ খ্ৰীঃ</td>
+                            <td class="p-2 border border-slate-300">তুৰ্বকৰ যুদ্ধ</td>
+                            <td class="p-2 border border-slate-300">সুহুংমুং বনাম মোগল সেনাপতি তুৰ্বক</td>
+                            <td class="p-2 border border-slate-300">বীৰাংগনা মূলাগাভৰুৱে যুদ্ধত প্ৰাণ আহুতি দিয়ে; শেষত আহোমৰ বিজয়।</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">১৬৬৩ (২৩ জানুঃ)</td>
+                            <td class="p-2 border border-slate-300">ঘিলাধাৰী ঘাটৰ সন্ধি</td>
+                            <td class="p-2 border border-slate-300">জয়ধ্বজ সিংহ বনাম মীৰজুমলা</td>
+                            <td class="p-2 border border-slate-300">আহোমৰ পৰাজয়; জয়ধ্বজ সিংহক 'ভগনীয়া ৰজা' আখ্যা দিয়া হয়।</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">১৬৭১ খ্ৰীঃ</td>
+                            <td class="p-2 border border-slate-300">শৰাইঘাটৰ যুদ্ধ</td>
+                            <td class="p-2 border border-slate-300">লাচিত বৰফুকন বনাম ৰাম সিংহ</td>
+                            <td class="p-2 border border-slate-300">ব্ৰহ্মপুত্ৰ নদীত হোৱা নৌ-যুদ্ধত আহোম সেনাৰ ঐতিহাসিক বিজয়।</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">১৬৮২ খ্ৰীঃ</td>
+                            <td class="p-2 border border-slate-300">ইটাখুলিৰ অন্তিম ৰণ</td>
+                            <td class="p-2 border border-slate-300">গদাধৰ সিংহ বনাম মনচুৰ খাঁ</td>
+                            <td class="p-2 border border-slate-300">মোগলক অসমৰ পৰা খেদি পঠোৱা হয়; মানাহ নদী সীমা নির্ধাৰিত হয়।</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">১৮২৬ (২৪ ফেব্ৰুঃ)</td>
+                            <td class="p-2 border border-slate-300">ইয়াণ্ডাবু সন্ধি</td>
+                            <td class="p-2 border border-slate-300">ব্ৰিটিছ বনাম মান ৰজা</td>
+                            <td class="p-2 border border-slate-300">আহোম শাসনৰ অন্ত পৰে আৰু অসম ব্ৰিটিছ ইষ্ট ইণ্ডিয়া কোম্পানীৰ অধীনলৈ যায়।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CHAPTER 1 MCQs Container -->
+            <h3 class="text-base font-extrabold text-slate-900 mb-3 border-b pb-1">📝 অসম বুৰঞ্জীৰ নিৰ্বাচিত প্রশ্নোত্তৰ (ব্যাখ্যাসহ):</h3>
+            <div id="ch1-mcq-container" class="space-y-3 mb-10"></div>
+
+            <!-- CHAPTER 2 HEADER -->
+            <div class="bg-emerald-900 text-white p-4 rounded-xl mb-6 avoid-break">
+                <span class="text-[11px] uppercase tracking-wider text-amber-300 font-bold">Chapter 02 • Assam Geography</span>
+                <h2 class="text-xl font-extrabold mt-0.5">অধ্যায় ২: অসমৰ ভূগোল, ৰাষ্ট্ৰীয় উদ্যান আৰু নদ-নদী</h2>
+            </div>
+
+            <!-- Table 2.1: 7 National Parks -->
+            <div class="mb-8 avoid-break">
+                <h3 class="text-sm font-bold text-emerald-900 mb-2 flex items-center">
+                    <i class="fa-solid fa-leaf text-emerald-600 mr-1.5"></i> ২.১ এক নজৰত: অসমৰ ৭ খন ৰাষ্ট্ৰীয় উদ্যান (National Parks)
+                </h3>
+                <table class="w-full text-xs border-collapse border border-slate-300">
+                    <thead>
+                        <tr class="bg-emerald-50 text-slate-800">
+                            <th class="p-2 border border-slate-300 text-left">নং</th>
+                            <th class="p-2 border border-slate-300 text-left">ৰাষ্ট্ৰীয় উদ্যান</th>
+                            <th class="p-2 border border-slate-300 text-left">জিলা</th>
+                            <th class="p-2 border border-slate-300 text-left">স্বীকৃতি চন</th>
+                            <th class="p-2 border border-slate-300 text-left">বিশেষ আকৰ্ষণ / স্বীকৃতি</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">১</td>
+                            <td class="p-2 border border-slate-300 font-bold">কাজিৰঙা</td>
+                            <td class="p-2 border border-slate-300">গোলাঘাট, নগাঁও, শোণিতপুৰ</td>
+                            <td class="p-2 border border-slate-300">১৯৭৪</td>
+                            <td class="p-2 border border-slate-300">এশিঙীয়া গঁড় (১৯৮৫ চনত UNESCO World Heritage Site)</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">২</td>
+                            <td class="p-2 border border-slate-300 font-bold">মানস</td>
+                            <td class="p-2 border border-slate-300">বাক্সা আৰু চিৰাং</td>
+                            <td class="p-2 border border-slate-300">১৯৯০</td>
+                            <td class="p-2 border border-slate-300">সোণালী বান্দৰ, নল-গাহৰি (UNESCO World Heritage Site)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">৩</td>
+                            <td class="p-2 border border-slate-300 font-bold">নামেৰি</td>
+                            <td class="p-2 border border-slate-300">শোণিতপুৰ</td>
+                            <td class="p-2 border border-slate-300">১৯৯৮</td>
+                            <td class="p-2 border border-slate-300">দেওহাঁহ (White-winged Wood Duck) আৰু বাঘ প্ৰকল্প</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">৪</td>
+                            <td class="p-2 border border-slate-300 font-bold">ডিব্ৰু-চৈখোৱা</td>
+                            <td class="p-2 border border-slate-300">ডিব্ৰুগড়, তিনিচুকীয়া</td>
+                            <td class="p-2 border border-slate-300">১৯৯৯</td>
+                            <td class="p-2 border border-slate-300">বনৰীয়া ঘোঁৰা (Feral Horses) আৰু জৈৱমণ্ডল সংৰক্ষিত অঞ্চল</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">৫</td>
+                            <td class="p-2 border border-slate-300 font-bold">ওৰাং</td>
+                            <td class="p-2 border border-slate-300">দৰং আৰু শোণিতপুৰ</td>
+                            <td class="p-2 border border-slate-300">১৯৯৯</td>
+                            <td class="p-2 border border-slate-300">'মিনি কাজিৰঙা' নামেৰে পৰিচিত</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-2 border border-slate-300 font-bold">৬</td>
+                            <td class="p-2 border border-slate-300 font-bold">ৰাইমনা</td>
+                            <td class="p-2 border border-slate-300">কোকৰাঝাৰ</td>
+                            <td class="p-2 border border-slate-300">২০২১ (৫ জুন)</td>
+                            <td class="p-2 border border-slate-300">সোণালী বান্দৰ আৰু পখিলাৰ বাবে বিখ্যাত</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border border-slate-300 font-bold">৭</td>
+                            <td class="p-2 border border-slate-300 font-bold">দিহিং পাটকাই</td>
+                            <td class="p-2 border border-slate-300">ডিব্ৰুগড়, তিনিচুকীয়া</td>
+                            <td class="p-2 border border-slate-300">২০২১ (১৫ জুন)</td>
+                            <td class="p-2 border border-slate-300">পূবৰ আমাজন (বৰ্ষাৰণ্য) আৰু ৭ বিধ বনৰীয়া মেকুৰীৰ প্ৰজাতি</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CHAPTER 2 MCQs Container -->
+            <h3 class="text-base font-extrabold text-slate-900 mb-3 border-b pb-1">📝 অসমৰ ভূগোল আৰু অন্যান্য নিৰ্বাচিত প্রশ্নোত্তৰ:</h3>
+            <div id="ch2-mcq-container" class="space-y-3 mb-8"></div>
+
+            <!-- Ebook Footer Stamp -->
+            <div class="mt-10 pt-4 border-t-2 border-slate-200 text-center text-xs text-slate-500 avoid-break">
+                <p class="font-bold text-slate-800">© অসম এক্সাম হাব (Assam Exam Hub) — সৰ্বস্বত্ব সংৰক্ষিত</p>
+                <p>প্ৰতিদিনে ফ্ৰী অসমীয়া মক টেষ্ট দিবলৈ আমাৰ অফিচিয়েল প’ৰ্টেল ভিজিট কৰক।</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT TO RENDER MCQs CLEANLY ================= -->
+    <script>
+        const historyMCQs = [
+            { q: "চৰাইদেউ মৈদামক কোন চনত ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ (UNESCO World Heritage Site) হিচাপে স্বীকৃতি দিয়া হয়?", options: ["২০২২ চনত", "২০২৩ চনত", "২০২৪ চনত", "২০২৫ চনত"], ans: 2, exp: "২০২৪ চনৰ জুলাই মাহত নতুন দিল্লীত অনুষ্ঠিত ইউনেস্ক’ৰ ৪৬ সংখ্যক অধিৱেশনত চৰাইদেউ মৈদামক বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে ঘোষণা কৰা হয়।" },
+            { q: "প্ৰাচীন কামৰূপৰ বিষয়ে কোনখন তন্ত্ৰ গ্ৰন্থত বিস্তৃত উল্লেখ পোৱা যায়?", options: ["অৰ্থশাস্ত্ৰ", "কালিকা পুৰাণ আৰু যোগিনী তন্ত্ৰ", "হৰ্ষচৰিত", "ৰাজতৰংগিণী"], ans: 1, exp: "দশম শতিকাৰ 'কালিকা পুৰাণ' আৰু ষোড়শ শতিকাৰ 'যোগিনী তন্ত্ৰ'ত প্ৰাচীন কামৰূপৰ ভৌগোলিক আৰু ঐতিহাসিক বিবৰণ পোৱা যায়।" },
+            { q: "হিউৱেন চাঙে ৰচনা কৰা ভ্ৰমণ কাহিনীখনৰ নাম কি আছিল, য’ত কামৰূপৰ বিষয়ে উল্লেখ আছে?", options: ["ইণ্ডিকা", "চি-ইউ-কি (Si-Yu-Ki)", "তহকিক-ই-হিন্দ", "ফো-কুৱো-কি"], ans: 1, exp: "ভাস্কৰবৰ্মনৰ আমন্ত্ৰণক্ৰমে ৬৪০ খ্ৰীষ্টাব্দত কামৰূপ ভ্ৰমণ কৰা হিউৱেন চাঙে তেওঁৰ 'চি-ইউ-কি' গ্ৰন্থত কামৰূপৰ বিষয়ে লিখিছিল।" },
+            { q: "স্বৰ্গদেউ চুকাফাই কোন চনত চৰাইদেউত আহোম ৰাজ্যৰ প্ৰথম স্থায়ী ৰাজধানী পাতিছিল?", options: ["১২২৮ খ্ৰীষ্টাব্দত", "১২৫৩ খ্ৰীষ্টাব্দত", "১২৬৮ খ্ৰীষ্টাব্দত", "১২৪০ খ্ৰীষ্টাব্দত"], ans: 1, exp: "চুকাফাই ১২২৮ খ্ৰীষ্টাব্দত অসমত প্ৰৱেশ কৰিছিল আৰু ১২৫৩ খ্ৰীষ্টাব্দত চৰাইদেউত স্থায়ী ৰাজধানী স্থাপন কৰিছিল।" },
+            { q: "কোনজন আহোম স্বৰ্গদেউক 'দিহিঙীয়া ৰজা' নামেৰে জনা গৈছিল?", options: ["চুদাংফা", "সুহুংমুং", "চুক্লেণমুং", "প্ৰতাপ সিংহ"], ans: 1, exp: "সুহুংমুঙে দিহিং নৈৰ পাৰত বকতাত ৰাজধানী পাতিছিল বাবে তেওঁক 'দিহিঙীয়া ৰজা' বোলা হয়। তেৱেঁই প্ৰথম 'স্বৰ্গনাৰায়ণ' উপাধি গ্ৰহণ কৰিছিল।" },
+            { q: "আহোম ৰাজ্যত প্ৰথমবাৰৰ বাবে জনগণনা (Census) কোনে আৰম্ভ কৰিছিল?", options: ["সুহুংমুং", "গদাধৰ সিংহ", "ৰুদ্ৰ সিংহ", "শিৱ সিংহ"], ans: 0, exp: "১৫১০ খ্ৰীষ্টাব্দত স্বৰ্গদেউ সুহুংমুঙৰ শাসনকালত অসমত প্ৰথমবাৰৰ বাবে জনগণনা কৰা হৈছিল।" },
+            { q: "মহাপুৰুষ শ্ৰীমন্ত শংকৰদেৱ আৰু মাধৱদেৱৰ ঐতিহাসিক মিলনক কি বুলি কোৱা হয়?", options: ["মণিকাঞ্চন সংযোগ", "হৰি-হৰৰ মিলন", "ভক্তি সংযোগ", "বৈষ্ণৱ মিলন"], ans: 0, exp: "১৫২২ খ্ৰীষ্টাব্দত মাজুলীৰ ধুঞাহাট বেলগুৰিত শংকৰদেৱ আৰু মাধৱদেৱৰ প্ৰথম সাক্ষাৎ হৈছিল, যাক 'মণিকাঞ্চন সংযোগ' বোলা হয়।" },
+            { q: "কোনজন আহোম ৰজাৰ শাসনকালত মোমাই তামুলী বৰবৰুৱাই 'পাইক প্ৰথা' সুসংগঠিত কৰিছিল?", options: ["চুক্লেণমুং", "প্ৰতাপ সিংহ", "জয়ধ্বজ সিংহ", "চক্ৰধ্বজ সিংহ"], ans: 1, exp: "স্বৰ্গদেউ প্ৰতাপ সিংহৰ দিনত ১৬০৯ চনত মোমাই তামুলী বৰবৰুৱাই পাইক প্ৰথা সুসংগঠিত কৰিছিল।" },
+            { q: "এছিয়াৰ প্ৰথমটো এম্ফিথিয়েটাৰ 'ৰংঘৰ' কোনজন ৰজাই পকীকৈ নিৰ্মাণ কৰাইছিল?", options: ["ৰুদ্ৰ সিংহ", "প্ৰমত্ত সিংহ", "ৰাজেশ্বৰ সিংহ", "লক্ষ্মী সিংহ"], ans: 1, exp: "ৰুদ্ৰ সিংহই প্ৰথমে বাঁহ-কাঠেৰে ৰংঘৰ সাজিছিল আৰু ১৭৪৬ চনত স্বৰ্গদেউ প্ৰমত্ত সিংহই ইয়াক ইটাৰে পকীকৈ নিৰ্মাণ কৰায়।" },
+            { q: "মোৱামৰীয়া বিদ্ৰোহ কোনজন আহোম স্বৰ্গদেউৰ দিনত প্ৰথম আৰম্ভ হৈছিল?", options: ["শিৱ সিংহ", "ৰাজেশ্বৰ সিংহ", "লক্ষ্মী সিংহ", "গৌৰীনাথ সিংহ"], ans: 2, exp: "১৭৬৯ চনত স্বৰ্গদেউ লক্ষ্মী সিংহৰ ৰাজত্বকালত প্ৰথম মোৱামৰীয়া বিদ্ৰোহ আৰম্ভ হৈছিল।" },
+            { q: "ব্ৰিটিছ শাসনৰ বিৰুদ্ধে অসমত বিদ্ৰোহ ঘোষণা কৰা প্ৰথমজন ব্যক্তি কোন আছিল?", options: ["পিঁয়লি ফুকন", "গমধৰ কোঁৱৰ", "মণিৰাম দেৱান", "কনকলতা বৰুৱা"], ans: 1, exp: "১৮২৮ চনত গমধৰ কোঁৱৰ আৰু ধনঞ্জয় বৰগোহাঁইৰ নেতৃত্বত ব্ৰিটিছৰ বিৰুদ্ধে প্ৰথম বিদ্ৰোহ হৈছিল।" },
+            { q: "১৮৫৭ চনৰ চিপাহী বিদ্ৰোহত অসমৰ পৰা নেতৃত্ব দি ফাঁচীকাঠত ওলমা শ্বহীদ দুজন কোন আছিল?", options: ["গমধৰ কোঁৱৰ আৰু পিঁয়লি ফুকন", "মণিৰাম দেৱান আৰু পিঁয়লি বৰুৱা", "কনকলতা আৰু মুকুন্দ কাকতি", "কুশল কোঁৱৰ আৰু তিলক ডেকা"], ans: 1, exp: "১৮৫৮ চনৰ ২৬ ফেব্ৰুৱাৰীত যোৰহাট জেলত মণিৰাম দেৱান আৰু পিঁয়লি বৰুৱাক ব্ৰিটিছে ফাঁচী দিছিল।" },
+            { q: "১৮৯৪ চনত কৃষক বিদ্ৰোহ সংঘটিত হোৱা 'পথৰুঘাটৰ ৰণ' বৰ্তমান অসমৰ কোনখন জিলাত অৱস্থিত?", options: ["নগাঁও", "শোণিতপুৰ", "দৰং", "কামৰূপ"], ans: 2, exp: "১৮৯৪ চনৰ ২৮ জানুৱাৰীত দৰং জিলাৰ পথৰুঘাটত ব্ৰিটিছৰ বৰ্ধিত খাজনাৰ বিৰুদ্ধে কৃষক বিদ্ৰোহ হৈছিল।" },
+            { q: "১৯২১ চনত গঠিত হোৱা 'অসম প্ৰদেশ কংগ্ৰেছ কমিটি' (APCC)-ৰ প্ৰথম সভাপতি কোন আছিল?", options: ["গোপীনাথ বৰদলৈ", "তৰুণৰাম ফুকন", "কুলধৰ চলিহা", "নবীন চন্দ্ৰ বৰদলৈ"], ans: 2, exp: "১৯২১ চনত গঠিত অসম প্ৰদেশ কংগ্ৰেছ কমিটিৰ প্ৰথম সভাপতি আছিল কুলধৰ চলিহা।" },
+            { q: "১৯৪২ চনৰ ভাৰত ত্যাগ আন্দোলনত সৰুপথাৰত ৰে'ল বগৰোৱা গোচৰত কোনজন অসমীয়া বিপ্লৱীক ফাঁচী দিয়া হৈছিল?", options: ["মণিৰাম দেৱান", "কুশল কোঁৱৰ", "পিঁয়লি ফুকন", "মুকুন্দ কাকতি"], ans: 1, exp: "১৯৪৩ চনৰ ১৫ জুনত যোৰহাট কাৰাগাৰত বীৰ শ্বহীদ কুশল কোঁৱৰক ফাঁচী দিয়া হৈছিল।" }
+        ];
+
+        const geoMCQs = [
+            { q: "ব্ৰহ্মপুত্ৰ নদীয়ে তিব্বতত কি নামেৰে উৎপত্তি লাভ কৰিছে?", options: ["দিহাং", "ইয়াৰলুং চাংপো (Yarlung Tsangpo)", "লোহিত", "যমুনা"], ans: 1, exp: "তিব্বতৰ চেমায়ুংদুং হিমবাহৰ পৰা 'চাংপো' নামেৰে ওলাই অৰুণাচলত 'চিয়াং', অসমত 'ব্ৰহ্মপুত্ৰ' আৰু বাংলাদেশত 'যমুনা' নামেৰে বয়।" },
+            { q: "অসম উপত্যকাত ব্ৰহ্মপুত্ৰ নদীৰ মুঠ দৈৰ্ঘ্য কিমান কিলোমিটাৰ?", options: ["২,৯০০ কি.মি.", "৯১৬ কি.মি.", "৭২০ কি.মি.", "৬৫০ কি.মি."], ans: 2, exp: "ব্ৰহ্মপুত্ৰৰ মুঠ দৈৰ্ঘ্য ২,৯০০ কি.মি. হ'লেও কেৱল অসমৰ শদিয়াৰ পৰা ধুবুৰীলৈ ইয়াৰ দৈৰ্ঘ্য প্ৰায় ৭২০ কি.মি.।" },
+            { q: "ব্ৰহ্মপুত্ৰ নদীৰ ওপৰত নিৰ্মিত ভাৰতৰ আটাইতকৈ দীঘল ৰে’ল-কাম-পথ দলং 'বগীবিল দলং'ৰ দৈৰ্ঘ্য কিমান?", options: ["৪.৯৪ কিলোমিটাৰ", "৯.১৫ কিলোমিটাৰ", "৪.১৫ কিলোমিটাৰ", "৫.৫০ কিলোমিটাৰ"], ans: 0, exp: "ডিব্ৰুগড় আৰু ধেমাজি জিলাক সংযোগ কৰা বগীবিল দলঙৰ মুঠ দৈৰ্ঘ্য ৪.৯৪ কিলোমিটাৰ।" },
+            { q: "বিশ্বৰ সৰ্ববৃহৎ নদীদ্বীপ 'মাজুলী'ক কোন চনত অসমৰ এখন পূৰ্ণাংগ জিলা হিচাপে ঘোষণা কৰা হয়?", options: ["২০১৪ চনত", "২০১৬ চনত", "২০১৮ চনত", "২০২০ চনত"], ans: 1, exp: "২০১৬ চনৰ ৮ ছেপ্টেম্বৰত মাজুলীক ভাৰতৰ প্ৰথমখন নদীদ্বীপ জিলা হিচাপে ঘোষণা কৰা হয়।" },
+            { q: "অসমৰ আটাইতকৈ ওখ শৃংগটোৰ নাম কি?", options: ["সিংহাসন শৃংগ", "নামচা বাৰৱা", "লাইকাই শৃংগ (বৰাইল পাহাৰ)", "নীলাচল পাহাৰ"], ans: 2, exp: "ডিমা হাছাও জিলাৰ বৰাইল পৰ্বতমালাত অৱস্থিত লাইকাই শৃংগ (প্ৰায় ১,৯৫৯ মিটাৰ) অসমৰ সৰ্বোচ্চ শৃংগ।" },
+            { q: "সোণালী বান্দৰ (Golden Langur)-ৰ সংৰক্ষণৰ বাবে বিখ্যাত অভয়াৰণ্যখন কোনখন?", options: ["পবিতৰা অভয়াৰণ্য", "চক্ৰশিলা অভয়াৰণ্য", "গৰমপানী অভয়াৰণ্য", "লাওখোৱা অভয়াৰণ্য"], ans: 1, exp: "কোকৰাঝাৰ আৰু ধুবুৰী জিলাত অৱস্থিত চক্ৰশিলা অভয়াৰণ্য সোণালী বান্দৰৰ বাবে বিখ্যাত।" },
+            { q: "একক মাটিকালিত বিশ্বৰ ভিতৰতে সৰ্বাধিক এশিঙীয়া গঁড়ৰ ঘনত্ব থকা অভয়াৰণ্য কোনখন?", options: ["কাজিৰঙা", "ওৰাং", "পবিতৰা অভয়াৰণ্য", "সোণাই-ৰূপাই"], ans: 2, exp: "মৰিগাঁও জিলাত অৱস্থিত পবিতৰা অভয়াৰণ্যত ঘনত্বৰ দিশৰ পৰা বিশ্বৰ ভিতৰতে সৰ্বাধিক গঁড় আছে।" },
+            { q: "ভূপেন হাজৰিকা সেতু (ধলা-শদিয়া দলং) কোনখন নদীৰ ওপৰত নিৰ্মিত?", options: ["সোৱণশিৰি নদী", "লোহিত নদী", "দিবাং নদী", "বুঢ়ীদিহিং নদী"], ans: 1, exp: "লোহিত নদীৰ ওপৰত নিৰ্মিত ৯.১৫ কি.মি. দৈৰ্ঘ্যৰ এই দলঙে শদিয়া আৰু ধলাক সংযোগ কৰিছে।" },
+            { q: "অসমৰ কোনখন ঠাইক 'পূবৰ মানচেষ্টাৰ' (Manchester of the East) বুলি কোৱা হয়?", options: ["সৰ্থেবাৰী", "শুৱালকুছি", "হাজো", "ধুবুৰী"], ans: 1, exp: "কামৰূপ জিলাৰ শুৱালকুছি মুগা আৰু পাট শিল্পৰ বাবে বিশ্ববিখ্যাত হোৱা হেতুকে ইয়াক 'পূবৰ মানচেষ্টাৰ' বোলা হয়।" },
+            { q: "অসমীয়া ভাষাক ভাৰত চৰকাৰে কোন চনত 'ধ্ৰুপদী ভাষা' (Classical Language) হিচাপে মৰ্যাদা প্ৰদান কৰে?", options: ["২০২০ চনত", "২০২২ চনত", "২০২৪ চনত", "২০১৯ চনত"], ans: 2, exp: "২০২৪ চনৰ অক্টোবৰ মাহত কেন্দ্ৰীয় কেবিনেটে অসমীয়া ভাষাক ধ্ৰুপদী ভাষাৰ স্বীকৃতি প্ৰদান কৰে।" }
+        ];
+
+        const labels = ['ক', 'খ', 'গ', 'ঘ'];
+
+        function renderList(list, containerId, startNum) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            list.forEach((item, idx) => {
+                const qNum = startNum + idx;
+                const optsHtml = item.options.map((opt, oIdx) => `
+                    <span class="inline-block mr-4 text-xs ${oIdx === item.ans ? 'font-bold text-slate-900' : 'text-slate-600'}">
+                        (${labels[oIdx]}) ${opt}
+                    </span>
+                `).join('');
+
+                container.innerHTML += `
+                    <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 avoid-break">
+                        <p class="font-bold text-xs md:text-sm text-slate-900 mb-1.5">${qNum}. ${item.q}</p>
+                        <div class="mb-2">${optsHtml}</div>
+                        <div class="text-xs bg-emerald-50 border-l-4 border-emerald-600 px-2.5 py-1.5 text-slate-700">
+                            <span class="font-bold text-emerald-800">✔ উত্তৰ: (${labels[item.ans]}) ${item.options[item.ans]}</span> — ${item.exp}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // questions.json-ৰ পৰাও সকলো প্রশ্ন টানি আনি ই-বুকত ভৰোৱা ফাংচন
+        async function importFromJson() {
+            try {
+                const res = await fetch('questions.json?t=' + new Date().getTime());
+                const data = await res.json();
+                if (data.questions && data.questions.length > 0) {
+                    renderList(data.questions, 'ch2-mcq-container', 16);
+                    alert(`অভিনন্দন! questions.json ফাইলৰ পৰা ${data.questions.length} টা প্রশ্ন ই-বুকখনত যোগ হ'ল। এতিয়া 'Download / Save as PDF' বুটামটো টিপক।`);
+                }
+            } catch (e) {
+                alert("questions.json ফাইলটো একেটা ফোল্ডাৰত পালে ই নিজে নিজে সকলো প্রশ্ন যোগ কৰি ল'ব!");
+            }
+        }
+
+        window.onload = () => {
+            renderList(historyMCQs, 'ch1-mcq-container', 1);
+            renderList(geoMCQs, 'ch2-mcq-container', 16);
+        };
+    </script>
+</body>
+</html>
