@@ -3,7 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অসম এক্সাম হাব | Assamese Exam & Mock-Test Platform</title>
+    
+    <!-- ================= PRIMARY SEO META TAGS ================= -->
+    <title>অসম এক্সাম হাব | ADRE, Assam Police, APSC, TET & HSLC Assamese Mock Test</title>
+    <meta name="description" content="অসমৰ নং ১ অসমীয়া মক টেষ্ট প’ৰ্টেল। ADRE 3.0, Assam Police, APSC Prelims, Assam TET আৰু SEBA HSLC পৰীক্ষাৰ বাবে বিনামূলীয়া ডেইলী MCQ টেষ্ট, প্রশ্নবেংক আৰু পিডিএফ ই-বুক।">
+    <meta name="keywords" content="Assam Mock Test, ADRE Mock Test in Assamese, Assam GK MCQ, Assam Police Question Paper, APSC Prelims Test Series, Assam TET Pedagogy Assamese, SEBA HSLC OMR MCQ, অসম সাধাৰণ জ্ঞান, অসম এক্সাম হাব">
+    <meta name="author" content="Assam Exam Hub">
+    <meta name="robots" content="index, follow">
+
+    <!-- ================= OPEN GRAPH / WHATSAPP SHARE TAGS ================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="অসম এক্সাম হাব | প্ৰতিদিনে বিনামূলীয়া অসমীয়া মক টেষ্ট দিয়ক">
+    <meta property="og:description" content="ADRE, Assam Police, APSC, TET আৰু HSLC পৰীক্ষাৰ বাবে অসমীয়া ভাষাত মক টেষ্ট, Weak-Topic ৰিপ'ৰ্ট আৰু পিডিএফ ই-বুক।">
+    <meta property="og:locale" content="as_IN">
+
+    <!-- ================= GOOGLE SCHEMA.ORG JSON-LD (SEO BOOST) ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "অসম এক্সাম হাব (Assam Exam Hub)",
+      "description": "Assamese-first Exam Preparation and Mock-Test Platform for ADRE, Assam Police, APSC, Assam TET and SEBA HSLC/HS exams.",
+      "areaServed": "Assam, India",
+      "knowsLanguage": ["as", "en"]
+    }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Font: Noto Sans Assamese -->
@@ -27,479 +52,594 @@
         }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 antialiased">
 
-    <!-- ================= 1. NAVIGATION BAR ================= -->
-    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-100">
+    <!-- ================= 1. STICKY NAVIGATION BAR (WITH MOBILE MENU) ================= -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2.5">
                 <div class="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-white font-extrabold text-xl shadow-sm">
                     অ
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-lg text-slate-900 leading-none">অসম এক্সাম হাব</h1>
-                    <span class="text-[11px] text-blue-600 font-semibold">Assamese Mock-Test Portal</span>
+                    <span class="font-extrabold text-lg text-slate-900 leading-none block">অসম এক্সাম হাব</span>
+                    <span class="text-[11px] text-blue-600 font-semibold">Assam Exam & Mock-Test Portal</span>
                 </div>
             </a>
-            <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600" aria-label="Main Navigation">
                 <a href="#daily-test" class="hover:text-blue-600 transition">ডেইলী টেষ্ট</a>
                 <a href="#mock-packs" class="hover:text-blue-600 transition">মক টেষ্ট পেক</a>
                 <a href="#ebooks" class="hover:text-blue-600 transition">ই-বুক ষ্ট’ৰ</a>
                 <a href="#question-bank" class="hover:text-blue-600 transition">প্রশ্নবেংক</a>
                 <a href="#leaderboard" class="hover:text-blue-600 transition">লিডাৰব’ৰ্ড</a>
+                <a href="#seo-faq" class="hover:text-blue-600 transition">সহায়িকা (FAQ)</a>
             </nav>
-            <button onclick="startDemoTest()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                <i class="fa-solid fa-bolt mr-1"></i> ফ্ৰী টেষ্ট দিয়ক
-            </button>
+
+            <div class="flex items-center gap-2">
+                <button onclick="startDemoTest()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                    <i class="fa-solid fa-bolt mr-1"></i> ফ্ৰী টেষ্ট দিয়ক
+                </button>
+                <!-- Mobile Hamburger Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-lg" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-2 text-sm font-semibold text-slate-700">
+            <a href="#daily-test" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600">🎯 আজিৰ ডেইলী টেষ্ট</a>
+            <a href="#mock-packs" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600">📦 পৰীক্ষা অনুসৰি মক পেক</a>
+            <a href="#ebooks" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600">📘 পিডিএফ ই-বুক ষ্ট’ৰ</a>
+            <a href="#question-bank" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600">📚 অসমীয়া প্রশ্নবেংক</a>
+            <a href="#leaderboard" onclick="toggleMobileMenu()" class="block py-2 hover:text-blue-600">🏆 জিলাভিত্তিক লিডাৰব’ৰ্ড</a>
         </div>
     </header>
 
     <!-- ================= 2. HERO SECTION ================= -->
-    <section class="gradient-hero text-white pt-12 pb-20 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <span class="inline-block bg-blue-500/30 border border-blue-400/40 text-amber-300 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
-                🎯 ADRE 3.0 • Assam Police • APSC • Assam TET • HSLC / HS
-            </span>
-            <h2 class="text-2xl md:text-4xl font-extrabold mb-4 leading-snug">
-                প্ৰতিদিনে ১০ মিনিট অসমীয়াত অনুশীলন কৰক আৰু নিজৰ চৰকাৰী চাকৰিৰ প্ৰস্তুতি জোখক!
-            </h2>
-            <p class="text-blue-100 text-sm md:text-base max-w-2xl mx-auto mb-8">
-                প্ৰতিদিনে পুৱা স্বয়ংক্ৰিয়ভাৱে আপডেট হোৱা অসমীয়া মক টেষ্ট, নিজৰ দুৰ্বল বিষয় চিনাক্তকৰণ (Weak-Topic Detection), প্রশ্নবেংক আৰু নিৰ্বাচিত পিডিএফ ই-বুক।
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <button onclick="startDemoTest()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg flex items-center transition text-sm">
-                    <i class="fa-solid fa-circle-play mr-2 text-base"></i> আজিৰ নতুন MCQ টেষ্ট দিয়ক
-                </button>
-                <a href="#mock-packs" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3.5 rounded-xl transition text-sm">
-                    সকলো মক পেকেজ চাওক
-                </a>
-            </div>
-
-            <!-- Live Auto Stats -->
-            <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-10 pt-6 border-t border-white/15 text-center">
-                <div>
-                    <p id="stat-total-q" class="text-lg md:text-2xl font-extrabold text-amber-300">35+ টা MCQ</p>
-                    <p class="text-[11px] text-blue-200">মুঠ লাইভ প্রশ্নবেংক</p>
-                </div>
-                <div>
-                    <p id="stat-last-updated" class="text-base md:text-xl font-extrabold text-green-300">আজি আপডেটেড</p>
-                    <p class="text-[11px] text-blue-200">অট’মেটিক ডেইলী আপডেট</p>
-                </div>
-                <div>
-                    <p class="text-lg md:text-2xl font-extrabold text-amber-300">₹৪৯ ৰ পৰা</p>
-                    <p class="text-[11px] text-blue-200">মক পেক আৰু ই-বুক</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= 3. SERVICE 1: AUTO DAILY MOCK TEST ================= -->
-    <section id="daily-test" class="max-w-5xl mx-auto px-4 -mt-10 relative z-10">
-        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
-            
-            <!-- Test Intro Banner -->
-            <div id="test-intro-view" class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <div class="flex flex-wrap items-center gap-2 mb-2">
-                        <span class="bg-green-100 text-green-700 text-xs font-extrabold px-2.5 py-1 rounded-md flex items-center">
-                            <span class="w-2 h-2 bg-green-600 rounded-full animate-ping mr-1.5"></span> LIVE DAILY TEST • FREE
-                        </span>
-                        <span id="daily-test-meta" class="text-xs text-slate-500 font-semibold">সময়: ৫ মিনিট | মুঠ প্রশ্ন: ১০ টা</span>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slate-900">আজিৰ দৈনিক অসমীয়া মক টেষ্ট (Latest Questions)</h3>
-                    <p class="text-xs md:text-sm text-slate-600 mt-1">
-                        প্রশ্নবেংকত শেহতীয়াকৈ যোগ হোৱা নতুন প্রশ্নসমূহৰ তাৎক্ষণিক মক টেষ্ট। শেষত আপোনাৰ Weak-Topic আৰু ব্যাখ্যা দেখুৱাই দিয়া হ'ব।
-                    </p>
-                </div>
-                <button onclick="startDemoTest()" class="w-full md:w-auto shrink-0 bg-blue-600 hover:bg-blue-700 text-white text-sm font-extrabold px-6 py-3.5 rounded-xl shadow-md transition whitespace-nowrap">
-                    এতিয়াই টেষ্ট দিয়ক <i class="fa-solid fa-arrow-right ml-1"></i>
-                </button>
-            </div>
-
-            <!-- Active Quiz Screen -->
-            <div id="quiz-active-view" class="hidden">
-                <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-200">
-                    <div>
-                        <span id="q-category-badge" class="text-xs bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded">Subject</span>
-                        <p class="text-xs text-slate-500 mt-1">প্রশ্ন <span id="q-current-num" class="font-bold text-slate-800">1</span> / <span id="q-total-num">10</span></p>
-                    </div>
-                    <div class="bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center">
-                        <i class="fa-regular fa-clock mr-1.5"></i> <span id="quiz-timer">05:00</span>
-                    </div>
-                </div>
-
-                <h4 id="q-text" class="text-base md:text-lg font-bold text-slate-900 mb-5 leading-relaxed">প্রশ্ন লোড হৈ আছে...</h4>
-                <div id="q-options" class="space-y-3 mb-6"></div>
-
-                <div class="flex justify-between items-center pt-4 border-t border-slate-100">
-                    <button id="prev-btn" onclick="prevQuestion()" class="px-4 py-2 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl">
-                        পূর্ববৰ্তী
-                    </button>
-                    <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow">
-                        পৰৱৰ্তী প্রশ্ন
-                    </button>
-                </div>
-            </div>
-
-            <!-- Result View -->
-            <div id="quiz-result-view" class="hidden">
-                <div class="text-center pb-6 border-b border-slate-200">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 text-green-600 text-2xl mb-2">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold text-slate-900">আপোনাৰ ফলাফল সাজু!</h3>
-                    <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mt-4">
-                        <div class="bg-slate-50 p-3 rounded-xl border">
-                            <p class="text-[11px] text-slate-500">মুঠ স্ক’ৰ</p>
-                            <p id="res-score" class="text-lg font-extrabold text-blue-600">0 / 0</p>
-                        </div>
-                        <div class="bg-slate-50 p-3 rounded-xl border">
-                            <p class="text-[11px] text-slate-500">শুদ্ধতা</p>
-                            <p id="res-accuracy" class="text-lg font-extrabold text-green-600">0%</p>
-                        </div>
-                        <div class="bg-slate-50 p-3 rounded-xl border">
-                            <p class="text-[11px] text-slate-500">জিলা ৰেংক</p>
-                            <p id="res-rank" class="text-lg font-extrabold text-amber-600">#12</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="my-5 bg-amber-50 border border-amber-200 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <h4 class="text-xs font-bold text-amber-900 flex items-center">
-                            <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-2"></i>
-                            Weak-Topic চিনাক্তকৰণ (অধিক অনুশীলনৰ প্ৰয়োজন):
-                        </h4>
-                        <p id="weak-topic-list" class="text-xs text-amber-800 mt-1 font-medium"></p>
-                    </div>
-                    <a href="ebook_gk.html" class="shrink-0 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm whitespace-nowrap">
-                        ₹49-ৰ সমাধান ই-বুক লওক
-                    </a>
-                </div>
-
-                <h4 class="font-bold text-sm text-slate-800 mb-3">উত্তৰ আৰু বিতং অসমীয়া ব্যাখ্যা:</h4>
-                <div id="res-explanations" class="space-y-3 mb-6 max-h-72 overflow-y-auto pr-1"></div>
-
+    <main>
+        <section class="gradient-hero text-white pt-12 pb-20 px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <span class="inline-block bg-blue-500/30 border border-blue-400/40 text-amber-300 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
+                    🎯 ADRE 3.0 • Assam Police • APSC • Assam TET • HSLC / HS
+                </span>
+                <h1 class="text-2xl md:text-4xl font-extrabold mb-4 leading-snug">
+                    প্ৰতিদিনে ১০ মিনিট অসমীয়াত অনুশীলন কৰক আৰু নিজৰ চৰকাৰী চাকৰিৰ প্ৰস্তুতি জোখক!
+                </h1>
+                <p class="text-blue-100 text-sm md:text-base max-w-2xl mx-auto mb-8">
+                    প্ৰতিদিনে পুৱা স্বয়ংক্ৰিয়ভাৱে আপডেট হোৱা অসমীয়া মক টেষ্ট, নিজৰ দুৰ্বল বিষয় চিনাক্তকৰণ (Weak-Topic Detection), প্রশ্নবেংক আৰু নিৰ্বাচিত পিডিএফ ই-বুক।
+                </p>
                 <div class="flex flex-wrap justify-center gap-3">
-                    <button onclick="shareOnWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl flex items-center shadow">
-                        <i class="fa-brands fa-whatsapp mr-2 text-base"></i> হোৱাটছএপত স্ক’ৰ শ্বেয়াৰ কৰক
+                    <button onclick="startDemoTest()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg flex items-center transition text-sm">
+                        <i class="fa-solid fa-circle-play mr-2 text-base"></i> আজিৰ নতুন MCQ টেষ্ট দিয়ক
                     </button>
-                    <button onclick="resetDemoTest()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-5 py-2.5 rounded-xl">
-                        পুনৰ চেষ্টা কৰক
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================= 4. SERVICE 2: EXAM-WISE MOCK TEST PACKS (PERFECT 6-CARD GRID) ================= -->
-    <section id="mock-packs" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="text-center mb-8">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">PREMIUM PREPARATION</span>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">পৰীক্ষা অনুসৰি সম্পূৰ্ণ মক টেষ্ট পেকসমূহ</h3>
-            <p class="text-sm text-slate-600 mt-1">আপোনাৰ লক্ষ্য পৰীক্ষাটো বাছি লওক — প্ৰতিটো পেকেজৰ ১ নং মক টেষ্টটো সম্পূৰ্ণ ফ্ৰী!</p>
-        </div>
-
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-2 mb-10" id="pack-filter-tabs">
-            <button onclick="filterPacks('all', this)" class="pack-tab bg-blue-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-sm transition">সকলো পৰীক্ষা</button>
-            <button onclick="filterPacks('adre', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">ADRE 3.0</button>
-            <button onclick="filterPacks('police', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam Police</button>
-            <button onclick="filterPacks('apsc', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">APSC Prelims</button>
-            <button onclick="filterPacks('tet', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam TET</button>
-            <button onclick="filterPacks('school', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">HSLC & HS</button>
-        </div>
-
-        <!-- Symmetrical 3x2 Grid (6 Cards) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <!-- Card 1: ADRE -->
-            <div data-cat="adre" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-md">ADRE Grade III & IV</span>
-                        <span class="bg-amber-100 text-amber-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded">Bestseller</span>
-                    </div>
-                    <h4 class="text-lg font-extrabold text-slate-900">ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল</h4>
-                    <ul class="text-xs text-slate-600 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>২০ টা Full-Length মক টেষ্ট (OMR)</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>Weak-Topic ৰিপ'ৰ্ট + ফ্ৰী ই-বুক</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-slate-900">₹99</span>
-                        <span class="text-xs text-slate-400 line-through">₹299</span>
-                    </div>
-                    <a href="adre.html" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                        টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                    <a href="#mock-packs" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3.5 rounded-xl transition text-sm">
+                        সকলো মক পেকেজ চাওক
                     </a>
                 </div>
-            </div>
 
-            <!-- Card 2: Assam Police -->
-            <div data-cat="police" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">Assam Police AB/UB & SI</span>
-                        <span class="bg-emerald-50 text-emerald-700 text-[11px] font-bold px-2 py-0.5 rounded">SLPRB</span>
+                <!-- Live Auto Stats -->
+                <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-10 pt-6 border-t border-white/15 text-center">
+                    <div>
+                        <p id="stat-total-q" class="text-lg md:text-2xl font-extrabold text-amber-300">35+ টা MCQ</p>
+                        <p class="text-[11px] text-blue-200">মুঠ লাইভ প্রশ্নবেংক</p>
                     </div>
-                    <h4 class="text-lg font-extrabold text-slate-900">অসম পুলিচ টাৰ্গেট পেকেজ</h4>
-                    <ul class="text-xs text-slate-600 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা সম্পূৰ্ণ মক টেষ্ট</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম বুৰঞ্জী আৰু ভাৰতীয় সংবিধান স্পেচিয়েল</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>সহজ গণিত আৰু ৰিজনিং চৰ্টকাট শ্বীট</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-slate-900">₹79</span>
-                        <span class="text-xs text-slate-400 line-through">₹249</span>
+                    <div>
+                        <p id="stat-last-updated" class="text-base md:text-xl font-extrabold text-green-300">আজি আপডেটেড</p>
+                        <p class="text-[11px] text-blue-200">অট’মেটিক ডেইলী আপডেট</p>
                     </div>
-                    <a href="police.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                        টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
+                    <div>
+                        <p class="text-lg md:text-2xl font-extrabold text-amber-300">₹৪৯ ৰ পৰা</p>
+                        <p class="text-[11px] text-blue-200">মক পেক আৰু ই-বুক</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Card 3: APSC Prelims -->
-            <div data-cat="apsc" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-md">APSC CCE Prelims</span>
-                        <span class="bg-purple-50 text-purple-700 text-[11px] font-bold px-2 py-0.5 rounded">Officer Pack</span>
-                    </div>
-                    <h4 class="text-lg font-extrabold text-slate-900">APSC প্ৰিলিম্ছ ফাউণ্ডেশ্যন ছিৰিজ</h4>
-                    <ul class="text-xs text-slate-600 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১২ টা Statement-Based GS মক টেষ্ট</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম অধ্যয়ন, ভাৰতীয় ৰাজনীতি আৰু অৰ্থনীতি</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম কাৰেণ্ট এফেয়াৰ্ছ আৰু বাজেট নোটছ</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-slate-900">₹199</span>
-                        <span class="text-xs text-slate-400 line-through">₹499</span>
-                    </div>
-                    <a href="apsc.html" class="bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                        টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 4: Assam TET -->
-            <div data-cat="tet" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded-md">Assam TET & GT/PGT</span>
-                        <span class="bg-rose-50 text-rose-700 text-[11px] font-bold px-2 py-0.5 rounded">Teaching</span>
-                    </div>
-                    <h4 class="text-lg font-extrabold text-slate-900">অসম TET আৰু পেডাগ’জি পেক</h4>
-                    <ul class="text-xs text-slate-600 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা সম্পূৰ্ণ মক টেষ্ট (LP, UP & Secondary)</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) স্পেচিয়েল</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসমীয়া ব্যাকৰণ, ইংৰাজী আৰু পৰিৱেশ বিজ্ঞান</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-slate-900">₹129</span>
-                        <span class="text-xs text-slate-400 line-through">₹299</span>
-                    </div>
-                    <a href="tet.html" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                        টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 5: HSLC & HS -->
-            <div data-cat="school" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-cyan-100 text-cyan-800 text-xs font-bold px-2.5 py-1 rounded-md">SEBA HSLC & AHSEC HS</span>
-                        <span class="bg-cyan-50 text-cyan-700 text-[11px] font-bold px-2 py-0.5 rounded">50% OMR</span>
-                    </div>
-                    <h4 class="text-lg font-extrabold text-slate-900">HSLC & HS OMR মাষ্টাৰ পেক</h4>
-                    <ul class="text-xs text-slate-600 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>২০ টা অধ্যায়ভিত্তিক ৫০% OMR মক টেষ্ট</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>সাধাৰণ বিজ্ঞান, গণিত, সমাজ বিজ্ঞান আৰু ইংৰাজী</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>বিগত ১০ বছৰৰ প্রশ্নকাকত + ফৰ্মুলা শ্বীট</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-slate-900">₹49</span>
-                        <span class="text-xs text-slate-400 line-through">₹199</span>
-                    </div>
-                    <a href="hslc.html" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
-                        টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 6: All-in-One VIP Combo Pass (Fills the 6th grid slot cleanly!) -->
-            <div data-cat="adre police apsc tet school" class="pack-card bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl border border-blue-800 shadow-md hover:shadow-xl transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-md">ALL-IN-ONE VIP PASS</span>
-                        <span class="text-amber-300 text-[11px] font-bold">১ বছৰৰ বৈধতা</span>
-                    </div>
-                    <h4 class="text-lg font-extrabold text-white">অল-ইন-ৱান অসম মেগা পাছ</h4>
-                    <ul class="text-xs text-blue-100 space-y-2.5 my-4">
-                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>ওপৰৰ আটাইকেইটা পৰীক্ষাৰ ৮০+ মক টেষ্ট</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>৩ খন পেইড অসমীয়া ই-বুক সম্পূর্ণ বিনামূলীয়া</span></li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>সাপ্তাহিক নতুন টেষ্ট আৰু হোৱাটছএপ গাইডেন্স</span></li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-white/15 flex justify-between items-center gap-2">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-extrabold text-amber-400">₹249</span>
-                        <span class="text-xs text-slate-400 line-through">₹699</span>
-                    </div>
-                    <a href="adre.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition whitespace-nowrap">
-                        এতিয়াই লওক <i class="fa-solid fa-bolt ml-1"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================= 5. SERVICE 3: ASSAMESE EBOOK STORE ================= -->
-    <section id="ebooks" class="bg-slate-900 text-white py-16 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">INSTANT PDF STORE</span>
-                <h3 class="text-2xl md:text-3xl font-extrabold mt-2">অসমীয়া ই-বুক আৰু ৰিভিজন নোটছ ষ্ট’ৰ</h3>
-                <p class="text-sm text-slate-300 mt-1">কম সময়ত সম্পূৰ্ণ ছিলেবাছ ৰিভিজন কৰিবলৈ নিৰ্বাচিত পিডিএফ সংগ্ৰহ (বিনামূলীয়া নমুনাসহ)</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- ================= 3. SERVICE 1: AUTO DAILY MOCK TEST ================= -->
+        <section id="daily-test" class="max-w-5xl mx-auto px-4 -mt-10 relative z-10">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
                 
-                <!-- Ebook 1 -->
-                <div class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
+                <!-- Test Intro Banner -->
+                <div id="test-intro-view" class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
-                        <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
-                        <h4 class="text-lg font-bold mt-3">অসম সাধাৰণ জ্ঞান ১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ</h4>
-                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">অসম বুৰঞ্জী, ভূগোল, সাহিত্য আৰু কলা-সংস্কৃতিৰ সম্পূৰ্ণ প্রশ্নবেংক ব্যাখ্যাসহ।</p>
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span class="bg-green-100 text-green-700 text-xs font-extrabold px-2.5 py-1 rounded-md flex items-center">
+                                <span class="w-2 h-2 bg-green-600 rounded-full animate-ping mr-1.5"></span> LIVE DAILY TEST • FREE
+                            </span>
+                            <span id="daily-test-meta" class="text-xs text-slate-500 font-semibold">সময়: ৫ মিনিট | মুঠ প্রশ্ন: ১০ টা</span>
+                        </div>
+                        <h2 class="text-xl font-extrabold text-slate-900">আজিৰ দৈনিক অসমীয়া মক টেষ্ট (Latest Questions)</h2>
+                        <p class="text-xs md:text-sm text-slate-600 mt-1">
+                            প্রশ্নবেংকত শেহতীয়াকৈ যোগ হোৱা নতুন প্রশ্নসমূহৰ তাৎক্ষণিক মক টেষ্ট। শেষত আপোনাৰ Weak-Topic, ব্যাখ্যা আৰু জিলা ৰেংকিং দেখুৱাই দিয়া হ'ব।
+                        </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
-                        <span class="text-2xl font-extrabold text-amber-400">₹49</span>
-                        <a href="ebook_gk.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
-                            <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
-                        </a>
+                    <button onclick="startDemoTest()" class="w-full md:w-auto shrink-0 bg-blue-600 hover:bg-blue-700 text-white text-sm font-extrabold px-6 py-3.5 rounded-xl shadow-md transition whitespace-nowrap">
+                        এতিয়াই টেষ্ট দিয়ক <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Active Quiz Screen -->
+                <div id="quiz-active-view" class="hidden">
+                    <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-200">
+                        <div>
+                            <span id="q-category-badge" class="text-xs bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded">Subject</span>
+                            <p class="text-xs text-slate-500 mt-1">প্রশ্ন <span id="q-current-num" class="font-bold text-slate-800">1</span> / <span id="q-total-num">10</span></p>
+                        </div>
+                        <div class="bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center">
+                            <i class="fa-regular fa-clock mr-1.5"></i> <span id="quiz-timer">05:00</span>
+                        </div>
+                    </div>
+
+                    <h3 id="q-text" class="text-base md:text-lg font-bold text-slate-900 mb-5 leading-relaxed">প্রশ্ন লোড হৈ আছে...</h3>
+                    <div id="q-options" class="space-y-3 mb-6"></div>
+
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button id="prev-btn" onclick="prevQuestion()" class="px-4 py-2 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl">
+                            পূর্ববৰ্তী
+                        </button>
+                        <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow">
+                            পৰৱৰ্তী প্রশ্ন
+                        </button>
                     </div>
                 </div>
 
-                <!-- Ebook 2 -->
-                <div class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
-                        <h4 class="text-lg font-bold mt-3">অসমীয়া কাৰেণ্ট এফেয়াৰ্ছ ২০২৬ (বিগত ৬ মাহ)</h4>
-                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">চৰকাৰী আঁচনি, বঁটা-বাহন, নিযুক্তি আৰু অসমৰ শেহতীয়া গুৰুত্বপূৰ্ণ ঘটনাসমূহ।</p>
+                <!-- Result View + Live Leaderboard Submission -->
+                <div id="quiz-result-view" class="hidden">
+                    <div class="text-center pb-6 border-b border-slate-200">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 text-green-600 text-2xl mb-2">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">আপোনাৰ ফলাফল সাজু!</h3>
+                        <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mt-4">
+                            <div class="bg-slate-50 p-3 rounded-xl border">
+                                <p class="text-[11px] text-slate-500">মুঠ স্ক’ৰ</p>
+                                <p id="res-score" class="text-lg font-extrabold text-blue-600">0 / 0</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border">
+                                <p class="text-[11px] text-slate-500">শুদ্ধতা</p>
+                                <p id="res-accuracy" class="text-lg font-extrabold text-green-600">0%</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border">
+                                <p class="text-[11px] text-slate-500">জিলা ৰেংক</p>
+                                <p id="res-rank" class="text-lg font-extrabold text-amber-600">#12</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
-                        <span class="text-2xl font-extrabold text-amber-400">₹39</span>
-                        <a href="ebook_ca.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
-                            <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Ebook 3 -->
-                <div class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
-                        <h4 class="text-lg font-bold mt-3">গণিত আৰু ৰিজনিং সহজ অসমীয়া চৰ্টকাট</h4>
-                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">ADRE আৰু Assam Police-ত অহা গণিতৰ প্রশ্নসমূহ কম সময়ত সমাধান কৰাৰ সহজ কৌশল।</p>
+                    <!-- Live Leaderboard Name Entry Box -->
+                    <div id="leaderboard-entry-box" class="my-5 bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <p class="text-xs font-extrabold text-blue-900 mb-2">🏆 আজিৰ জিলাভিত্তিক লিডাৰব’ৰ্ডত আপোনাৰ নাম অন্তৰ্ভুক্ত কৰক:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <input type="text" id="lb-user-name" placeholder="আপোনাৰ নাম লিখক" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold focus:outline-none focus:border-blue-600">
+                            <select id="lb-user-district" class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold focus:outline-none focus:border-blue-600">
+                                <option value="লখিমপুৰ">লখিমপুৰ (Lakhimpur)</option>
+                                <option value="গুৱাহাটী (কামৰূপ)">গুৱাহাটী (Kamrup)</option>
+                                <option value="যোৰহাট">যোৰহাট (Jorhat)</option>
+                                <option value="ডিব্ৰুগড়">ডিব্ৰুগড় (Dibrugarh)</option>
+                                <option value="নগাঁও">নগাঁও (Nagaon)</option>
+                                <option value="শোণিতপুৰ">শোণিতপুৰ (Sonitpur)</option>
+                                <option value="শিৱসাগৰ">শিৱসাগৰ (Sivasagar)</option>
+                                <option value="ধেমাজি">ধেমাজি (Dhemaji)</option>
+                                <option value="বৰপেটা">বৰপেটা (Barpeta)</option>
+                                <option value="নলবাৰী">নলবাৰী (Nalbari)</option>
+                                <option value="তিনিচুকীয়া">তিনিচুকীয়া (Tinsukia)</option>
+                                <option value="গোলাঘাট">গোলাঘাট (Golaghat)</option>
+                            </select>
+                            <button onclick="submitToLeaderboard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold py-2 px-4 rounded-lg shadow transition">
+                                লিডাৰব’ৰ্ডত যোগ কৰক
+                            </button>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
-                        <span class="text-2xl font-extrabold text-amber-400">₹59</span>
-                        <a href="ebook_maths.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
-                            <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
+
+                    <div class="my-5 bg-amber-50 border border-amber-200 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-amber-900 flex items-center">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-2"></i>
+                                Weak-Topic চিনাক্তকৰণ (অধিক অনুশীলনৰ প্ৰয়োজন):
+                            </h4>
+                            <p id="weak-topic-list" class="text-xs text-amber-800 mt-1 font-medium"></p>
+                        </div>
+                        <a href="ebook_gk.html" class="shrink-0 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm whitespace-nowrap">
+                            ₹49-ৰ সমাধান ই-বুক লওক
                         </a>
+                    </div>
+
+                    <h4 class="font-bold text-sm text-slate-800 mb-3">উত্তৰ আৰু বিতং অসমীয়া ব্যাখ্যা:</h4>
+                    <div id="res-explanations" class="space-y-3 mb-6 max-h-72 overflow-y-auto pr-1"></div>
+
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button onclick="shareOnWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl flex items-center shadow">
+                            <i class="fa-brands fa-whatsapp mr-2 text-base"></i> হোৱাটছএপত স্ক’ৰ শ্বেয়াৰ কৰক
+                        </button>
+                        <button onclick="resetDemoTest()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-5 py-2.5 rounded-xl">
+                            পুনৰ চেষ্টা কৰক
+                        </button>
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================= 6. SERVICE 4: COMPACT 2-COLUMN QUESTION BANK ================= -->
-    <section id="question-bank" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+        <!-- ================= GOOGLE ADSENSE SLOT 1 (CLEAN & NON-INTRUSIVE) ================= -->
+        <div class="max-w-5xl mx-auto px-4 mt-8">
+            <!-- AdSense অনুমোদন পোৱাৰ পাছত ইয়াত Ad Unit ক'ড পেষ্ট কৰিব পাৰিবা -->
+            <div class="w-full bg-slate-100 border border-dashed border-slate-300 rounded-xl py-3 px-4 text-center text-[11px] text-slate-400">
+                📢 স্পনছৰ্ড শৈক্ষিক জাননী: ADRE 3.0 আৰু Assam Police-ৰ সকলো পেকেজত আজি ১ নং মক টেষ্ট সম্পূৰ্ণ বিনামূলীয়া!
+            </div>
+        </div>
+
+        <!-- ================= 4. SERVICE 2: EXAM-WISE MOCK TEST PACKS (6-CARD SYMMETRICAL GRID) ================= -->
+        <section id="mock-packs" class="max-w-6xl mx-auto px-4 py-14">
+            <div class="text-center mb-8">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">PREMIUM PREPARATION</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">পৰীক্ষা অনুসৰি সম্পূৰ্ণ মক টেষ্ট পেকসমূহ</h2>
+                <p class="text-sm text-slate-600 mt-1">আপোনাৰ লক্ষ্য পৰীক্ষাটো বাছি লওক — প্ৰতিটো পেকেজৰ ১ নং মক টেষ্টটো সম্পূৰ্ণ ফ্ৰী ডেমো!</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" id="pack-filter-tabs">
+                <button onclick="filterPacks('all', this)" class="pack-tab bg-blue-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-sm transition">সকলো পৰীক্ষা</button>
+                <button onclick="filterPacks('adre', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">ADRE 3.0</button>
+                <button onclick="filterPacks('police', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam Police</button>
+                <button onclick="filterPacks('apsc', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">APSC Prelims</button>
+                <button onclick="filterPacks('tet', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam TET</button>
+                <button onclick="filterPacks('school', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">HSLC & HS</button>
+            </div>
+
+            <!-- 6 Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: ADRE -->
+                <article data-cat="adre" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-md">ADRE Grade III & IV</span>
+                            <span class="bg-amber-100 text-amber-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded">Bestseller</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>২০ টা Full-Length মক টেষ্ট (OMR)</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>Weak-Topic ৰিপ'ৰ্ট + ফ্ৰী ই-বুক</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹99</span>
+                            <span class="text-xs text-slate-400 line-through">₹299</span>
+                        </div>
+                        <a href="adre.html" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2: Assam Police -->
+                <article data-cat="police" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">Assam Police AB/UB & SI</span>
+                            <span class="bg-emerald-50 text-emerald-700 text-[11px] font-bold px-2 py-0.5 rounded">SLPRB</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">অসম পুলিচ টাৰ্গেট পেকেজ</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা সম্পূৰ্ণ মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম বুৰঞ্জী আৰু ভাৰতীয় সংবিধান স্পেচিয়েল</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>সহজ গণিত আৰু ৰিজনিং চৰ্টকাট শ্বীট</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹79</span>
+                            <span class="text-xs text-slate-400 line-through">₹249</span>
+                        </div>
+                        <a href="police.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3: APSC Prelims -->
+                <article data-cat="apsc" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-md">APSC CCE Prelims</span>
+                            <span class="bg-purple-50 text-purple-700 text-[11px] font-bold px-2 py-0.5 rounded">Officer Pack</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">APSC প্ৰিলিম্ছ ফাউণ্ডেশ্যন ছিৰিজ</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১২ টা Statement-Based GS মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম অধ্যয়ন, ভাৰতীয় ৰাজনীতি আৰু অৰ্থনীতি</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম কাৰেণ্ট এফেয়াৰ্ছ আৰু বাজেট নোটছ</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹199</span>
+                            <span class="text-xs text-slate-400 line-through">₹499</span>
+                        </div>
+                        <a href="apsc.html" class="bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4: Assam TET -->
+                <article data-cat="tet" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded-md">Assam TET & GT/PGT</span>
+                            <span class="bg-rose-50 text-rose-700 text-[11px] font-bold px-2 py-0.5 rounded">Teaching</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">অসম TET আৰু পেডাগ’জি পেক</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা সম্পূৰ্ণ মক টেষ্ট (LP, UP & Secondary)</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) স্পেচিয়েল</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসমীয়া ব্যাকৰণ, ইংৰাজী আৰু পৰিৱেশ বিজ্ঞান</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹129</span>
+                            <span class="text-xs text-slate-400 line-through">₹299</span>
+                        </div>
+                        <a href="tet.html" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 5: HSLC & HS -->
+                <article data-cat="school" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-cyan-100 text-cyan-800 text-xs font-bold px-2.5 py-1 rounded-md">SEBA HSLC & AHSEC HS</span>
+                            <span class="bg-cyan-50 text-cyan-700 text-[11px] font-bold px-2 py-0.5 rounded">50% OMR</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">HSLC & HS OMR মাষ্টাৰ পেক</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>২০ টা অধ্যায়ভিত্তিক ৫০% OMR মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>সাধাৰণ বিজ্ঞান, গণিত, সমাজ বিজ্ঞান আৰু ইংৰাজী</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>বিগত ১০ বছৰৰ প্রশ্নকাকত + ফৰ্মুলা শ্বীট</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹49</span>
+                            <span class="text-xs text-slate-400 line-through">₹199</span>
+                        </div>
+                        <a href="hslc.html" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 6: All-in-One VIP Combo Pass -->
+                <article data-cat="adre police apsc tet school" class="pack-card bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl border border-blue-800 shadow-md hover:shadow-xl transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-md">ALL-IN-ONE VIP PASS</span>
+                            <span class="text-amber-300 text-[11px] font-bold">১ বছৰৰ বৈধতা</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white">অল-ইন-ৱান অসম মেগা পাছ</h3>
+                        <ul class="text-xs text-blue-100 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>ওপৰৰ আটাইকেইটা পৰীক্ষাৰ ৮০+ মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>৩ খন পেইড অসমীয়া ই-বুক সম্পূর্ণ বিনামূলীয়া</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>সাপ্তাহিক নতুন টেষ্ট আৰু ডাউট ক্লিয়াৰিং</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/15 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-amber-400">₹249</span>
+                            <span class="text-xs text-slate-400 line-through">₹699</span>
+                        </div>
+                        <a href="adre.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition whitespace-nowrap">
+                            এতিয়াই লওক <i class="fa-solid fa-bolt ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= 5. SERVICE 3: ASSAMESE EBOOK STORE ================= -->
+        <section id="ebooks" class="bg-slate-900 text-white py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">INSTANT PDF STORE</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mt-2">অসমীয়া ই-বুক আৰু ৰিভিজন নোটছ ষ্ট’ৰ</h2>
+                    <p class="text-sm text-slate-300 mt-1">কম সময়ত সম্পূৰ্ণ ছিলেবাছ ৰিভিজন কৰিবলৈ নিৰ্বাচিত পিডিএফ সংগ্ৰহ (বিনামূলীয়া নমুনাসহ)</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Ebook 1 -->
+                    <article class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
+                            <h3 class="text-lg font-bold mt-3">অসম সাধাৰণ জ্ঞান ১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">অসম বুৰঞ্জী, ভূগোল, সাহিত্য আৰু কলা-সংস্কৃতিৰ সম্পূৰ্ণ প্রশ্নবেংক ব্যাখ্যাসহ।</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
+                            <span class="text-2xl font-extrabold text-amber-400">₹49</span>
+                            <a href="ebook_gk.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
+                                <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Ebook 2 -->
+                    <article class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
+                            <h3 class="text-lg font-bold mt-3">অসমীয়া কাৰেণ্ট এফেয়াৰ্ছ ২০২৬ (বিগত ৬ মাহ)</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">চৰকাৰী আঁচনি, বঁটা-বাহন, নিযুক্তি আৰু অসমৰ শেহতীয়া গুৰুত্বপূৰ্ণ ঘটনাসমূহ।</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
+                            <span class="text-2xl font-extrabold text-amber-400">₹39</span>
+                            <a href="ebook_ca.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
+                                <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Ebook 3 -->
+                    <article class="bg-slate-800 border border-slate-700 hover:border-amber-400/60 transition rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
+                            <h3 class="text-lg font-bold mt-3">গণিত আৰু ৰিজনিং সহজ অসমীয়া চৰ্টকাট</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">ADRE আৰু Assam Police-ত অহা গণিতৰ প্রশ্নসমূহ কম সময়ত সমাধান কৰাৰ সহজ কৌশল।</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
+                            <span class="text-2xl font-extrabold text-amber-400">₹59</span>
+                            <a href="ebook_maths.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition flex items-center whitespace-nowrap">
+                                <i class="fa-solid fa-download mr-1.5"></i> এতিয়াই কিনক
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 6. SERVICE 4: SEARCHABLE 2-COLUMN QUESTION BANK ================= -->
+        <section id="question-bank" class="max-w-6xl mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">AUTO-GROWING ARCHIVE</span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mt-2">অসমীয়া প্রশ্নবেংক (Daily Question Bank)</h2>
+                    <p class="text-sm text-slate-600 mt-1">প্ৰতিদিনে জমা হোৱা সকলো প্রশ্ন ইয়াত বিষয় অনুসৰি বা শব্দ লিখি বিনামূলীয়াকৈ বিচাৰক</p>
+                </div>
+
+                <!-- Search + Subject Filter Controls -->
+                <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+                    <div class="relative w-full sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+                        <input type="text" id="qb-search-input" oninput="renderQuestionBank(true)" placeholder="প্রশ্ন বিচাৰক (যেনে: শৰাইঘাট)..." class="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-xs font-semibold text-slate-800 shadow-sm focus:outline-none focus:border-blue-600">
+                    </div>
+                    <select id="qb-subject-filter" onchange="renderQuestionBank(true)" aria-label="বিষয় বাছি লওক" class="w-full sm:w-56 bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:border-blue-600">
+                        <option value="all">সকলো বিষয় (All Subjects)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 2-Column Grid -->
+            <div id="qb-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+            <div class="text-center mt-8">
+                <button id="qb-load-more-btn" onclick="loadMoreBankQuestions()" class="hidden bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 text-xs font-extrabold px-6 py-3 rounded-xl shadow-sm transition">
+                    আৰু অধিক প্রশ্ন চাওক (Load More) <i class="fa-solid fa-chevron-down ml-1"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= 7. SERVICE 5: INTERACTIVE DISTRICT LEADERBOARD ================= -->
+        <section id="leaderboard" class="max-w-4xl mx-auto px-4 pb-16">
+            <div class="text-center mb-8">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">LIVE COMPETITION</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-2">আজিৰ জিলাভিত্তিক শীৰ্ষ স্থানপ্ৰাপ্ত শিক্ষাৰ্থী</h2>
+                <p class="text-xs text-slate-500 mt-1">ওপৰৰ ফ্ৰী ডেইলী টেষ্টটো দি আপোনাৰ নামো এই তালিকাত অন্তৰ্ভুক্ত কৰক!</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-b text-xs">
+                            <th class="py-3.5 px-4">ৰেংক</th>
+                            <th class="py-3.5 px-4">শিক্ষাৰ্থীৰ নাম</th>
+                            <th class="py-3.5 px-4">জিলা</th>
+                            <th class="py-3.5 px-4 text-right">স্ক’ৰ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-tbody" class="divide-y divide-slate-100 text-xs md:text-sm">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 8. SEO CONTENT & FAQ SECTION (FOR GOOGLE RANKING & ADSENSE) ================= -->
+        <section id="seo-faq" class="bg-white border-t border-slate-200 py-14 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">EXAM PREPARATION GUIDE & FAQ</span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mt-2">অসমৰ চৰকাৰী চাকৰিৰ প্ৰস্তুতি আৰু সঘনাই সোধা প্রশ্নোত্তৰ</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed text-slate-600">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h3 class="font-extrabold text-sm text-slate-900 mb-2">১. ADRE 3.0 (Grade III & Grade IV) পৰীক্ষাৰ বাবে কেনেকৈ প্ৰস্তুতি চলাব?</h3>
+                        <p>অসম চৰকাৰৰ তৃতীয় আৰু চতুৰ্থ বৰ্গৰ নিযুক্তি পৰীক্ষাত সফল হ'বলৈ <strong>অসম সাধাৰণ জ্ঞান (Assam History, Geography, Culture)</strong>, <strong>সাধাৰণ গণিত</strong>, <strong>মানসিক সামৰ্থ্য (Reasoning)</strong> আৰু <strong>ইংৰাজী ব্যাকৰণ</strong>ৰ ওপৰত সমান গুৰুত্ব দিব লাগে। আমাৰ প্লেটফৰ্মত প্রতিদিনে ১০ মিনিটকৈ অসমীয়াত মক টেষ্ট দিলে আপোনাৰ সময় ব্যৱস্থাপনা (Time Management) আৰু শুদ্ধতা দুয়োটা বৃদ্ধি পায়।</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h3 class="font-extrabold text-sm text-slate-900 mb-2">২. অসম এক্সাম হাবৰ মক টেষ্টসমূহ ম’বাইলত দিব পাৰিনে?</h3>
+                        <p>হয়, আমাৰ ৱেবছাইটটো ১০০% ম’বাইল-ফ্ৰেণ্ডলী। গাঁৱলীয়া অঞ্চলৰ কম ইণ্টাৰনেট স্পীডতো যাতে ছাত্ৰ-ছাত্ৰীয়ে কোনো বাধা নোহোৱাকৈ ফ্ৰী ডেইলী টেষ্ট আৰু OMR মক টেষ্ট দিব পাৰে, তাৰ বাবে বিশেষ কাৰীগৰী ব্যৱস্থা গ্ৰহণ কৰা হৈছে।</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h3 class="font-extrabold text-sm text-slate-900 mb-2">৩. Weak-Topic Detection (দুৰ্বল বিষয় চিনাক্তকৰণ) কি?</h3>
+                        <p>যেতিয়া আপুনি আমাৰ প’ৰ্টেলত মক টেষ্ট দিয়ে, আমাৰ স্বয়ংক্ৰিয় ছিষ্টেমে আপোনাৰ ভুল হোৱা প্রশ্নবোৰ বিশ্লেষণ কৰি আপুনি অসম বুৰঞ্জীত দুৰ্বল নে গণিতত দুৰ্বল সেয়া লগে লগে দেখুৱাই দিয়ে, যাতে আপুনি পৰীক্ষাৰ আগতে সেই বিষয়টোত অধিক মনোযোগ দিব পাৰে।</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h3 class="font-extrabold text-sm text-slate-900 mb-2">৪. পিডিএফ ই-বুক আৰু পেইড মক পেকসমূহ কেনেকৈ ডাউনলোড কৰিব?</h3>
+                        <p>আপুনি যিকোনো ই-বুক বা মক টেষ্ট পেকত ক্লিক কৰি প্ৰথমে বিনামূলীয়া নমুনা (Free Sample / Demo Test) চাব পাৰে। তাৰ পিছত সুৰক্ষিতভাৱে UPI বা Razorpay যোগে পেমেণ্ট কৰাৰ লগে লগে সম্পূৰ্ণ পিডিএফ ডাউনলোড হৈ যাব।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= 9. ADSENSE-FRIENDLY FOOTER WITH MANDATORY LEGAL LINKS ================= -->
+    <footer class="bg-slate-950 text-slate-400 py-10 px-4 text-xs border-t border-slate-800">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
             <div>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">AUTO-GROWING ARCHIVE</span>
-                <h3 class="text-2xl font-extrabold text-slate-900 mt-2">অসমীয়া প্রশ্নবেংক (Daily Question Bank)</h3>
-                <p class="text-sm text-slate-600 mt-1">প্ৰতিদিনে জমা হোৱা সকলো প্রশ্ন ইয়াত বিষয় অনুসৰি বিনামূলীয়াকৈ অনুশীলন কৰক</p>
+                <div class="flex items-center space-x-2 mb-3">
+                    <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-extrabold">অ</div>
+                    <span class="font-extrabold text-white text-base">অসম এক্সাম হাব (Assam Exam Hub)</span>
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    অসমৰ প্ৰতিগৰাকী শিক্ষাৰ্থীৰ চৰকাৰী চাকৰি (ADRE, Assam Police, APSC, TET) আৰু ব’ৰ্ড পৰীক্ষাৰ (HSLC/HS) বিশ্বাসযোগ্য অসমীয়া ডিজিটেল মঞ্চ।
+                </p>
             </div>
-            <div class="w-full md:w-64">
-                <label class="text-xs font-bold text-slate-500 block mb-1">বিষয় বাছি লওক (Filter by Subject):</label>
-                <select id="qb-subject-filter" onchange="renderQuestionBank(true)" class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:border-blue-600">
-                    <option value="all">সকলো বিষয় (All Subjects)</option>
-                </select>
+
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">গুৰুত্বপূৰ্ণ লিংকসমূহ (Quick Links)</h4>
+                <ul class="space-y-2">
+                    <li><a href="adre.html" class="hover:text-amber-400">ADRE 3.0 সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল</a></li>
+                    <li><a href="police.html" class="hover:text-amber-400">অসম পুলিচ টাৰ্গেট পেকেজ</a></li>
+                    <li><a href="apsc.html" class="hover:text-amber-400">APSC প্ৰিলিম্ছ টেষ্ট ছিৰিজ</a></li>
+                    <li><a href="tet.html" class="hover:text-amber-400">অসম TET আৰু পেডাগ’জি পেক</a></li>
+                    <li><a href="hslc.html" class="hover:text-amber-400">SEBA HSLC ৫০% OMR মাষ্টাৰ পেক</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">নীতি-নিয়ম আৰু যোগাযোগ (Legal & Policy)</h4>
+                <ul class="space-y-2">
+                    <li><button onclick="openLegalModal('about')" class="hover:text-amber-400">আমাৰ বিষয়ে (About Us)</button></li>
+                    <li><button onclick="openLegalModal('privacy')" class="hover:text-amber-400">গোপনীয়তা নীতি (Privacy Policy)</button></li>
+                    <li><button onclick="openLegalModal('terms')" class="hover:text-amber-400">ব্যৱহাৰৰ চৰ্তসমূহ (Terms & Conditions)</button></li>
+                    <li><button onclick="openLegalModal('disclaimer')" class="hover:text-amber-400">অস্বীকৃতি (Disclaimer)</button></li>
+                    <li><button onclick="openLegalModal('contact')" class="hover:text-amber-400">যোগাযোগ আৰু সহায়তা (Contact Us)</button></li>
+                </ul>
             </div>
         </div>
 
-        <!-- Clean 2-Column Grid for Question Bank -->
-        <div id="qb-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-
-        <div class="text-center mt-8">
-            <button id="qb-load-more-btn" onclick="loadMoreBankQuestions()" class="hidden bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 text-xs font-extrabold px-6 py-3 rounded-xl shadow-sm transition">
-                আৰু অধিক প্রশ্ন চাওক (Load More) <i class="fa-solid fa-chevron-down ml-1"></i>
-            </button>
+        <div class="max-w-6xl mx-auto pt-6 text-center text-slate-500">
+            <p>© ২০২৬ অসম এক্সাম হাব (Assam Exam Hub) — সৰ্বস্বত্ব সংৰক্ষিত।</p>
         </div>
-    </section>
-
-    <!-- ================= 7. SERVICE 5: DISTRICT LEADERBOARD ================= -->
-    <section id="leaderboard" class="max-w-4xl mx-auto px-4 pb-16">
-        <div class="text-center mb-8">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">LIVE COMPETITION</span>
-            <h3 class="text-2xl font-extrabold text-slate-900 mt-2">আজিৰ জিলাভিত্তিক শীৰ্ষ স্থানপ্ৰাপ্ত শিক্ষাৰ্থী</h3>
-        </div>
-
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <table class="w-full text-left border-collapse text-sm">
-                <thead>
-                    <tr class="bg-slate-100 text-slate-700 border-b text-xs">
-                        <th class="py-3.5 px-4">ৰেংক</th>
-                        <th class="py-3.5 px-4">শিক্ষাৰ্থীৰ নাম</th>
-                        <th class="py-3.5 px-4">জিলা</th>
-                        <th class="py-3.5 px-4 text-right">স্ক’ৰ</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 text-xs md:text-sm">
-                    <tr>
-                        <td class="py-3.5 px-4 font-bold text-amber-600">🥇 #1</td>
-                        <td class="py-3.5 px-4 font-bold">প্ৰাণজিৎ শইকীয়া</td>
-                        <td class="py-3.5 px-4 text-slate-500">লখিমপুৰ</td>
-                        <td class="py-3.5 px-4 text-right font-extrabold text-green-600">9.5 / 10</td>
-                    </tr>
-                    <tr>
-                        <td class="py-3.5 px-4 font-bold text-slate-500">🥈 #2</td>
-                        <td class="py-3.5 px-4 font-bold">মৌচুমী বৰা</td>
-                        <td class="py-3.5 px-4 text-slate-500">যোৰহাট</td>
-                        <td class="py-3.5 px-4 text-right font-extrabold text-green-600">9.0 / 10</td>
-                    </tr>
-                    <tr>
-                        <td class="py-3.5 px-4 font-bold text-amber-700">🥉 #3</td>
-                        <td class="py-3.5 px-4 font-bold">দেৱাশীষ কলিতা</td>
-                        <td class="py-3.5 px-4 text-slate-500">নগাঁও</td>
-                        <td class="py-3.5 px-4 text-right font-extrabold text-green-600">8.5 / 10</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-slate-950 text-slate-400 py-8 px-4 text-center text-xs">
-        <p class="font-bold text-white text-sm mb-1">অসম এক্সাম হাব (Assam Exam Hub)</p>
-        <p>অসমৰ প্ৰতিগৰাকী শিক্ষাৰ্থীৰ চৰকাৰী চাকৰি আৰু ব’ৰ্ড পৰীক্ষাৰ বিশ্বাসযোগ্য ডিজিটেল সংগী।</p>
-        <p class="mt-4 text-slate-600">© ২০২৬ সৰ্বস্বত্ব সংৰক্ষিত।</p>
     </footer>
+
+    <!-- ================= 10. LEGAL & POLICY MODAL (FOR GOOGLE ADSENSE COMPLIANCE) ================= -->
+    <div id="legal-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[85vh] overflow-y-auto shadow-2xl">
+            <button onclick="document.getElementById('legal-modal').classList.add('hidden')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="legal-title" class="text-lg font-extrabold text-slate-900 mb-3 border-b pb-2">Policy Title</h3>
+            <div id="legal-body" class="text-xs text-slate-600 space-y-3 leading-relaxed"></div>
+        </div>
+    </div>
 
     <!-- ================= JAVASCRIPT ENGINE ================= -->
     <script>
@@ -536,7 +676,12 @@
 
         let allBankQuestions = [];
         let dailyQuestions = [];
-        let qbVisibleCount = 4; // হোমপেজটো পৰিষ্কাৰ ৰাখিবলৈ ২-কলামত প্ৰথমে ৪ টা প্রশ্ন দেখুৱাব
+        let qbVisibleCount = 4;
+        let lastQuizScore = 0;
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
 
         async function loadAutoQuestions() {
             try {
@@ -556,6 +701,7 @@
 
             populateSubjectFilter();
             renderQuestionBank(true);
+            renderLeaderboardTable();
         }
 
         function populateSubjectFilter() {
@@ -567,15 +713,26 @@
             });
         }
 
+        // Search + Filter Question Bank
         function renderQuestionBank(resetCount = false) {
             if (resetCount) qbVisibleCount = 4;
             const selectedSub = document.getElementById('qb-subject-filter').value;
-            const filtered = selectedSub === 'all' 
-                ? allBankQuestions 
-                : allBankQuestions.filter(q => q.subject === selectedSub);
+            const searchQuery = (document.getElementById('qb-search-input')?.value || '').trim().toLowerCase();
+
+            const filtered = allBankQuestions.filter(q => {
+                const matchSub = selectedSub === 'all' || q.subject === selectedSub;
+                const matchSearch = !searchQuery || q.q.toLowerCase().includes(searchQuery) || q.exp.toLowerCase().includes(searchQuery);
+                return matchSub && matchSearch;
+            });
 
             const container = document.getElementById('qb-list-container');
             container.innerHTML = '';
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-2 text-center py-8 text-xs text-slate-500">আপুনি বিচৰা শব্দটোৰে কোনো প্রশ্ন পোৱা নগ'ল। আন এটা শব্দ লিখি চেষ্টা কৰক।</div>`;
+                document.getElementById('qb-load-more-btn').classList.add('hidden');
+                return;
+            }
 
             const labels = ['ক', 'খ', 'গ', 'ঘ'];
             const itemsToShow = filtered.slice(0, qbVisibleCount);
@@ -588,13 +745,13 @@
                 `).join('');
 
                 container.innerHTML += `
-                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col justify-between">
+                    <article class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-[11px] font-bold bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded">${qObj.subject}</span>
                                 <span class="text-xs text-slate-400 font-bold">Q #${index + 1}</span>
                             </div>
-                            <h4 class="font-bold text-slate-900 text-sm mb-3 leading-relaxed">${qObj.q}</h4>
+                            <h3 class="font-bold text-slate-900 text-sm mb-3 leading-relaxed">${qObj.q}</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
                                 ${optionsHtml}
                             </div>
@@ -608,7 +765,7 @@
                                 <p class="text-slate-700"><strong>ব্যাখ্যা:</strong> ${qObj.exp}</p>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 `;
             });
 
@@ -640,6 +797,7 @@
             document.getElementById('test-intro-view').classList.add('hidden');
             document.getElementById('quiz-result-view').classList.add('hidden');
             document.getElementById('quiz-active-view').classList.remove('hidden');
+            document.getElementById('leaderboard-entry-box').classList.remove('hidden');
             
             currentIdx = 0;
             userAnswers = new Array(dailyQuestions.length).fill(null);
@@ -742,10 +900,11 @@
                 `;
             });
 
+            lastQuizScore = score;
             const accuracy = Math.round((score / dailyQuestions.length) * 100);
             document.getElementById('res-score').innerText = `${score} / ${dailyQuestions.length}`;
             document.getElementById('res-accuracy').innerText = `${accuracy}%`;
-            document.getElementById('res-rank').innerText = `#${Math.max(1, (dailyQuestions.length - score) * 5 + 1)}`;
+            document.getElementById('res-rank').innerText = `#${Math.max(1, (dailyQuestions.length - score) * 3 + 1)}`;
 
             const weakBox = document.getElementById('weak-topic-list');
             weakBox.innerText = weakSubjects.length === 0 
@@ -755,6 +914,46 @@
 
         function resetDemoTest() {
             startDemoTest();
+        }
+
+        // Live Leaderboard Functions
+        const defaultLeaders = [
+            { name: "প্ৰাণজিৎ শইকীয়া", district: "লখিমপুৰ", score: 9.5, total: 10 },
+            { name: "মৌচুমী বৰা", district: "যোৰহাট", score: 9.0, total: 10 },
+            { name: "দেৱাশীষ কলিতা", district: "নগাঁও", score: 8.5, total: 10 },
+            { name: "ভাস্কৰজ্যোতি গগৈ", district: "ডিব্ৰুগড়", score: 8.0, total: 10 }
+        ];
+
+        function renderLeaderboardTable() {
+            const saved = JSON.parse(localStorage.getItem('aeh_leaderboard') || '[]');
+            const combined = [...saved, ...defaultLeaders].sort((a, b) => b.score - a.score).slice(0, 8);
+            const tbody = document.getElementById('leaderboard-tbody');
+            tbody.innerHTML = combined.map((entry, idx) => {
+                const medal = idx === 0 ? '🥇 #1' : (idx === 1 ? '🥈 #2' : (idx === 2 ? '🥉 #3' : `#${idx + 1}`));
+                return `
+                    <tr>
+                        <td class="py-3.5 px-4 font-bold ${idx < 3 ? 'text-amber-600' : 'text-slate-500'}">${medal}</td>
+                        <td class="py-3.5 px-4 font-bold text-slate-900">${entry.name}</td>
+                        <td class="py-3.5 px-4 text-slate-500">${entry.district}</td>
+                        <td class="py-3.5 px-4 text-right font-extrabold text-green-600">${entry.score} / ${entry.total}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function submitToLeaderboard() {
+            const nameInput = document.getElementById('lb-user-name').value.trim();
+            const distInput = document.getElementById('lb-user-district').value;
+            if (!nameInput) {
+                alert("অনুগ্ৰহ কৰি আপোনাৰ নামটো লিখক!");
+                return;
+            }
+            const saved = JSON.parse(localStorage.getItem('aeh_leaderboard') || '[]');
+            saved.push({ name: nameInput, district: distInput, score: lastQuizScore, total: dailyQuestions.length });
+            localStorage.setItem('aeh_leaderboard', JSON.stringify(saved));
+            renderLeaderboardTable();
+            document.getElementById('leaderboard-entry-box').classList.add('hidden');
+            document.getElementById('leaderboard').scrollIntoView({ behavior: 'smooth' });
         }
 
         function shareOnWhatsApp() {
@@ -778,6 +977,38 @@
                     card.classList.add('hidden');
                 }
             });
+        }
+
+        // Legal Modals for Google AdSense Approval
+        const legalDocs = {
+            about: {
+                title: "আমাৰ বিষয়ে (About Us)",
+                body: "<p><strong>অসম এক্সাম হাব (Assam Exam Hub)</strong> হৈছে অসমৰ ছাত্ৰ-ছাত্ৰীসকলৰ বাবে নিৰ্মিত এখন অসমীয়া-প্ৰথম ডিজিটেল শিক্ষা আৰু মক টেষ্ট মঞ্চ। আমাৰ মূল লক্ষ্য হ'ল গাঁও আৰু চহৰৰ প্ৰতিগৰাকী অসমীয়া মাধ্যমৰ শিক্ষাৰ্থীক ADRE, Assam Police, APSC, Assam TET আৰু SEBA HSLC/HS পৰীক্ষাৰ বাবে সুলভ মূল্যত উচ্চ মানদণ্ডৰ মক টেষ্ট আৰু পিডিএফ ই-বুক যোগান ধৰা।</p>"
+            },
+            privacy: {
+                title: "গোপনীয়তা নীতি (Privacy Policy)",
+                body: "<p>আমি আমাৰ ব্যৱহাৰকাৰীসকলৰ ব্যক্তিগত তথ্যৰ গোপনীয়তাক সন্মান জনোৱাটো আমাৰ প্ৰথম দায়িত্ব বুলি গণ্য কৰোঁ।</p><p>১. <strong>তথ্য সংগ্ৰহ:</strong> লিডাৰব'ৰ্ড আৰু টেষ্টৰ ফলাফল দেখুৱাবলৈ আমি কেৱল আপোনাৰ নাম আৰু জিলা ব্যৱহাৰ কৰোঁ। পেমেণ্টসমূহ ১০০% সুৰক্ষিতভাৱে Razorpay পেমেণ্ট গেটৱেৰ জৰিয়তে সম্পন্ন হয়।</p><p>২. <strong>Cookies & Google AdSense:</strong> আমাৰ ৱেবছাইটত তৃতীয় পক্ষৰ বিজ্ঞাপনদাতা হিচাপে Google AdSense ব্যৱহাৰ হ'ব পাৰে, যিয়ে ব্যৱহাৰকাৰীৰ অভিজ্ঞতা উন্নত কৰিবলৈ কুকিজ (Cookies) ব্যৱহাৰ কৰে।</p>"
+            },
+            terms: {
+                title: "ব্যৱহাৰৰ চৰ্তসমূহ (Terms & Conditions)",
+                body: "<p>১. অসম এক্সাম হাবত থকা সকলো মক টেষ্ট প্রশ্নোত্তৰ আৰু পিডিএফ ই-বুক কেৱল ব্যক্তিগত অধ্যয়নৰ বাবেহে। ইয়াক বাণিজ্যিকভাৱে কপি বা পুনৰ বিক্ৰী কৰাটো নিষিদ্ধ।</p><p>২. ডিজিটেল ই-বুক আৰু মক টেষ্ট আনলক হোৱাৰ পিছত পেমেণ্ট ঘূৰাই দিয়া নহয় (Non-refundable), কিন্তু কিবা কাৰীগৰী সমস্যা হ'লে ২৪ ঘণ্টাৰ ভিতৰত সমাধান কৰি দিয়া হ'ব।</p>"
+            },
+            disclaimer: {
+                title: "অস্বীকৃতি (Disclaimer)",
+                body: "<p>অসম এক্সাম হাব কোনো চৰকাৰী সংস্থা (SEBA, APSC বা SLPRB) ৰ সৈতে পোনপটীয়াকৈ জড়িত নহয়। ইয়াত দিয়া সকলো প্রশ্নোত্তৰ আৰু তথ্য কেৱল ছাত্ৰ-ছাত্ৰীসকলৰ অনুশীলন আৰু শিক্ষাৰ সুবিধাৰ বাবে বিভিন্ন প্ৰামাণিক উৎসৰ পৰা সংকলন কৰা হৈছে।</p>"
+            },
+            contact: {
+                title: "যোগাযোগ আৰু সহায়তা (Contact Us)",
+                body: "<p>যিকোনো মক টেষ্ট পেক, পিডিএফ ডাউনলোড বা পেমেণ্ট সম্পৰ্কীয় সহায়ৰ বাবে আমাক যোগাযোগ কৰক:</p><p>📧 <strong>ই-মেইল:</strong> support@assamexamhub.in<br>📍 <strong>ঠিকনা:</strong> লখিমপুৰ, অসম (Assam, India)</p>"
+            }
+        };
+
+        function openLegalModal(key) {
+            const doc = legalDocs[key];
+            if (!doc) return;
+            document.getElementById('legal-title').innerText = doc.title;
+            document.getElementById('legal-body').innerHTML = doc.body;
+            document.getElementById('legal-modal').classList.remove('hidden');
         }
 
         window.onload = loadAutoQuestions;
