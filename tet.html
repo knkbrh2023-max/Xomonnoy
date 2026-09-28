@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অসম TET আৰু পেডাগ’জি স্পেচিয়েল পেক | অসম এক্সাম হাব</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Noto Sans Assamese', sans-serif; background-color: #f8fafc; }
+        .tet-hero { background: linear-gradient(135deg, #881337 0%, #4c0519 65%, #0f172a 100%); }
+        .option-btn.selected { border-color: #e11d48; background-color: #fff1f2; font-weight: 700; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-rose-700">
+                <i class="fa-solid fa-arrow-left text-sm mr-1"></i>
+                <div class="w-8 h-8 rounded-lg bg-rose-700 flex items-center justify-center text-white font-bold">অ</div>
+                <div>
+                    <h1 class="font-bold text-sm md:text-base leading-none">অসম TET মাষ্টাৰ ডেশ্বব’ৰ্ড</h1>
+                    <span class="text-[11px] text-slate-500">LP • UP • GT & PGT Pedagogy Special</span>
+                </div>
+            </a>
+            <div id="vip-badge-area">
+                <button onclick="openUnlockModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow">
+                    <i class="fa-solid fa-lock-open mr-1"></i> আনলক কৰক (₹129)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="tet-hero text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">TEACHER RECRUITMENT SPECIAL</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold mt-2">অসম TET আৰু পেডাগ’জি পেকেজ (১৫ টা মক টেষ্ট)</h2>
+                <p class="text-rose-200 text-xs md:text-sm mt-1">
+                    শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) • অসমীয়া ভাষা • ইংৰাজী • পৰিৱেশ বিজ্ঞান (EVS) আৰু গণিত
+                </p>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p id="stat-completed" class="text-2xl font-extrabold text-amber-300">0 / 15</p>
+                    <p class="text-[11px] text-rose-200">সম্পূৰ্ণ কৰা টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p id="stat-avg-acc" class="text-2xl font-extrabold text-green-300">100%</p>
+                    <p class="text-[11px] text-rose-200">পেডাগ’জি ফ’কাচ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <main id="bundle-dashboard" class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-3">📊 TET বিষয়ভিত্তিক ট্ৰেকাৰ</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="subject-progress-bars"></div>
+                <p class="text-xs text-slate-500 mt-4">💡 TET পৰীক্ষাত সফল হ'বলৈ পেডাগ’জি (CDP) অংশত ৩০-ৰ ভিতৰত ২৫+ নম্বৰ তোলাটো আটাইতকৈ সহজ।</p>
+            </div>
+
+            <!-- Pedagogy Quick Theory Sheet Card -->
+            <div class="bg-gradient-to-br from-rose-950 to-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded">CDP QUICK SHEET</span>
+                    <h3 class="text-lg font-bold mt-2">🧠 পেডাগ’জিৰ মূল তত্ত্বসমূহ (অসমীয়াত)</h3>
+                    <p class="text-xs text-rose-200 mt-1">পিয়াজে, ভাইগটস্কি, ক’লবাৰ্গ আৰু NEP 2020-ৰ মূল পইণ্টসমূহ এক নজৰত পঢ়ক।</p>
+                </div>
+                <button onclick="document.getElementById('cdp-modal').classList.remove('hidden')" class="mt-4 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-2.5 rounded-xl text-center w-full">
+                    পেডাগ’জি শ্বীটখন চাওক
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">👩‍🏫 ১৫ টা অসম TET মক টেষ্ট (Mock #1 ফ্ৰী ডেমো)</h3>
+            <div id="mock-tests-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+    </main>
+
+    <!-- EXAM INTERFACE -->
+    <section id="exam-interface" class="hidden max-w-4xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
+            <div class="flex justify-between items-center pb-4 mb-4 border-b">
+                <span id="exam-q-subject" class="text-xs font-bold bg-rose-100 text-rose-800 px-2.5 py-1 rounded">CDP</span>
+                <span id="exam-q-number" class="text-xs font-bold text-slate-500">1 / 6</span>
+            </div>
+            <h4 id="exam-q-text" class="text-base font-bold text-slate-900 mb-5 leading-relaxed"></h4>
+            <div id="exam-q-options" class="space-y-3 mb-6"></div>
+            <div class="flex justify-between pt-4 border-t">
+                <button onclick="prevExamQ()" class="px-4 py-2 text-xs font-bold bg-slate-100 rounded-xl">পূর্ববৰ্তী</button>
+                <button onclick="nextExamQ()" id="exam-next-btn" class="px-6 py-2.5 text-xs font-bold bg-rose-700 text-white rounded-xl">পৰৱৰ্তী</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="exam-result-screen" class="hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border p-6">
+            <h3 class="text-xl font-bold text-center mb-4">আপোনাৰ TET মক টেষ্ট ফলাফল: <span id="res-final-score" class="text-rose-700"></span></h3>
+            <div id="res-solutions-list" class="space-y-3 max-h-96 overflow-y-auto mb-6"></div>
+            <div class="text-center">
+                <button onclick="exitExamToDashboard()" class="bg-rose-700 text-white text-xs font-bold px-6 py-2.5 rounded-xl">ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEDAGOGY CHEAT SHEET MODAL -->
+    <div id="cdp-modal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 relative max-h-[85vh] overflow-y-auto">
+            <button onclick="document.getElementById('cdp-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-extrabold text-rose-900 mb-3">🧠 শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) কুইক-নোটছ</h3>
+            <div class="space-y-3 text-xs text-slate-700">
+                <div class="p-3 bg-rose-50 rounded-xl border border-rose-200">
+                    <strong>১. জিন পিয়াজেৰ বৌদ্ধিক বিকাশৰ ৪ টা স্তৰ:</strong><br>
+                    • সংবেদন-চালিত স্তৰ (০-২ বছৰ)<br>
+                    • প্ৰাক-সক্ৰিয়তা স্তৰ (২-৭ বছৰ)<br>
+                    • মূৰ্ত সক্ৰিয়তা স্তৰ (৭-১১ বছৰ)<br>
+                    • বিমূৰ্ত সক্ৰিয়তা স্তৰ (১১ বছৰৰ ওপৰত)
+                </div>
+                <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                    <strong>২. লেভ ভাইগটস্কিৰ সামাজিক নিৰ্মাণবাদ (Social Constructivism):</strong><br>
+                    • শিশুৱে সমাজ আৰু ভাষা (Language & Culture)-ৰ জৰিয়তে শিকে।<br>
+                    • <strong>ZPD (Zone of Proximal Development):</strong> নিজে কৰিব পৰা আৰু আনৰ সহায়ত কৰিব পৰাৰ মাজৰ ব্যৱধান।<br>
+                    • <strong>Scaffolding (ভাড়া বন্ধা):</strong> শিকনৰ আৰম্ভণিতে শিক্ষক বা জ্যেষ্ঠজনে দিয়া অস্থায়ী সহায়।
+                </div>
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                    <strong>৩. NEP 2020-ৰ নতুন শৈক্ষিক গাঁথনি (5+3+3+4):</strong><br>
+                    • Foundational (৫ বছৰ: ৩ বছৰ অংগনৱাড়ী + ক্লাছ ১-২)<br>
+                    • Preparatory (৩ বছৰ: ক্লাছ ৩-৫)<br>
+                    • Middle (৩ বছৰ: ক্লাছ ৬-৮)<br>
+                    • Secondary (৪ বছৰ: ক্লাছ ৯-১২)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNLOCK MODAL -->
+    <div id="unlock-modal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+            <button onclick="document.getElementById('unlock-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold">অসম TET পেকেজ আনলক কৰক (₹129)</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-4">আপুনি পোৱা ৪-অংকৰ আনলক পিনটো দিয়ক (টেষ্টিং পিন: 2026):</p>
+            <div class="flex gap-2">
+                <input type="text" id="pin-input" placeholder="2026" class="w-full border rounded-xl px-3 py-2 text-center font-bold">
+                <button onclick="verifyPin()" class="bg-rose-700 text-white text-xs font-bold px-5 py-2 rounded-xl">আনলক</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tetQuestions = [
+            { subject: "শিশু বিকাশ আৰু পেডাগ’জি (CDP)", q: "জিন পিয়াজেৰ বৌদ্ধিক বিকাশ তত্ত্ব অনুসৰি ৭-ৰ পৰা ১১ বছৰ বয়সৰ শিশু কোনটো স্তৰত থাকে?", options: ["সংবেদন-চালিত স্তৰ", "প্ৰাক-সক্ৰিয়তা স্তৰ", "মূৰ্ত সক্ৰিয়তা স্তৰ (Concrete Operational)", "বিমূৰ্ত সক্ৰিয়তা স্তৰ"], ans: 2, exp: "৭-১১ বছৰ বয়সক মূৰ্ত সক্ৰিয়তা স্তৰ বোলে, য'ত শিশুৱে চকুৰ আগত দেখা বস্তুৰ যুক্তিসংগত চিন্তা কৰিব পাৰে।" },
+            { subject: "শিশু বিকাশ আৰু পেডাগ’জি (CDP)", q: "ভাইগটস্কিৰ মতে শিকনৰ সময়ত শিক্ষক এজনে ছাত্ৰক দিয়া অস্থায়ী সহযোগিতাক কি বোলা হয়?", options: ["Scaffolding (ভাড়া বন্ধা)", "Assimilation", "Conditioning", "Reinforcement"], ans: 0, exp: "শিকন প্রক্রিয়াত সমস্যা সমাধানৰ বাবে দিয়া অস্থায়ী সহায় বা ইংগিতক Scaffolding বোলা হয়।" },
+            { subject: "শিশু বিকাশ আৰু পেডাগ’জি (CDP)", q: "পঢ়া আৰু আখৰ চিনাক্তকৰণত হোৱা শিকন অক্ষমতাক (Learning Disability) কি বুলি জনা যায়?", options: ["ডিছকেলকুলিয়া (Dyscalculia)", "ডিছলেক্সিয়া (Dyslexia)", "ডিছগ্ৰাফিয়া (Dysgraphia)", "অটিজিম"], ans: 1, exp: "পঢ়াত অসুবিধা হ'লে Dyslexia, লিখাত হ'লে Dysgraphia আৰু গণিতত অসুবিধা হ'লে Dyscalculia বোলে।" },
+            { subject: "অসমীয়া ভাষা (Language-I)", q: "'হস্তীবিদ্যার্ণৱ' পুথিখন কাৰ দিনত ৰচনা কৰা হৈছিল?", options: ["ৰুদ্ৰ সিংহ", "শিৱ সিংহ আৰু ফুলেশ্বৰী কুঁৱৰী", "প্ৰতাপ সিংহ", "গদাধৰ সিংহ"], ans: 1, exp: "স্বৰ্গদেউ শিৱ সিংহ আৰু ৰাণী অম্বিকা/ফুলেশ্বৰীৰ নিৰ্দেশত সুকুমাৰ বৰকাথে হস্তীবিদ্যার্ণৱ ৰচনা কৰিছিল।" },
+            { subject: "পৰিৱেশ বিজ্ঞান (EVS)", q: "ভাৰতত 'বন্যপ্ৰাণী সুৰক্ষা আইন' (Wildlife Protection Act) কোন চনত প্ৰণয়ন কৰা হৈছিল?", options: ["১৯৭২ চনত", "১৯৮০ চনত", "১৯৮৬ চনত", "১৯৭৪ চনত"], ans: 0, exp: "১৯৭২ চনত ভাৰতত বন্যপ্ৰাণী সুৰক্ষা আইন গৃহীত হৈছিল।" }
+        ];
+
+        const tetTopics = [
+            "Assam TET Full Mock #1 (Free Demo)", "Child Development & Pedagogy Set-1", "Piaget, Vygotsky & Kohlberg Special",
+            "Inclusive Education & Learning Disabilities", "NEP 2020, RTE 2009 & NCF Special", "Assamese Language & Grammar Pedagogy",
+            "English Pedagogy & Comprehension", "Mathematics & Geometry Pedagogy", "Environmental Studies (EVS) Special",
+            "Upper Primary Social Science Set", "Upper Primary Science & Maths Set", "GT / PGT Pedagogy Master Test",
+            "Assam TET Previous Year Paper (LP)", "Assam TET Previous Year Paper (UP)", "Grand Final TET Mega Mock #15"
+        ];
+
+        let currIdx = 0, userAns = [];
+        function isUnlocked() { return localStorage.getItem('unlocked_tet') === 'true'; }
+        function openUnlockModal() { document.getElementById('unlock-modal').classList.remove('hidden'); }
+        function verifyPin() {
+            if (document.getElementById('pin-input').value.trim() === '2026') {
+                localStorage.setItem('unlocked_tet', 'true');
+                document.getElementById('unlock-modal').classList.add('hidden');
+                renderDashboard();
+                alert("🎉 অসম TET পেকেজ সফলভাৱে আনলক হ'ল!");
+            }
+        }
+
+        function renderDashboard() {
+            const unlocked = isUnlocked();
+            const grid = document.getElementById('mock-tests-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 15; i++) {
+                const canPlay = (i === 1) || unlocked;
+                grid.innerHTML += `
+                    <div class="bg-white p-4 rounded-2xl border ${i===1 ? 'border-rose-400' : 'border-slate-200'} shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold ${i===1 ? 'bg-green-100 text-green-700' : 'bg-rose-50 text-rose-700'} px-2 py-0.5 rounded">${i===1 ? 'FREE DEMO' : 'CDP + SUBJECT'}</span>
+                            <h4 class="font-bold text-sm mt-2">TET Mock Test #${i}</h4>
+                            <p class="text-xs text-rose-700 mt-0.5">${tetTopics[i-1]}</p>
+                        </div>
+                        <button onclick="${canPlay ? `startTest()` : `openUnlockModal()`}" class="w-full mt-4 ${canPlay ? 'bg-rose-700 text-white' : 'bg-slate-900 text-amber-400'} text-xs font-bold py-2.5 rounded-xl">
+                            ${canPlay ? 'টেষ্ট আৰম্ভ কৰক' : '🔒 আনলক কৰক (₹129)'}
+                        </button>
+                    </div>
+                `;
+            }
+
+            document.getElementById('subject-progress-bars').innerHTML = [
+                "শিশু বিকাশ আৰু পেডাগ’জি (CDP)", "অসমীয়া আৰু ইংৰাজী ভাষা", "গণিত আৰু পৰিৱেশ বিজ্ঞান (EVS)", "NEP 2020 & RTE Act"
+            ].map(s => `<div class="p-3 rounded-xl bg-slate-50 border text-xs font-bold">${s} <span class="float-right text-rose-700">সক্ৰিয়</span></div>`).join('');
+        }
+
+        function startTest() {
+            currIdx = 0; userAns = new Array(tetQuestions.length).fill(null);
+            document.getElementById('bundle-dashboard').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            renderQ();
+        }
+
+        function renderQ() {
+            const q = tetQuestions[currIdx];
+            document.getElementById('exam-q-subject').innerText = q.subject;
+            document.getElementById('exam-q-number').innerText = `${currIdx + 1} / ${tetQuestions.length}`;
+            document.getElementById('exam-q-text').innerText = q.q;
+            document.getElementById('exam-q-options').innerHTML = q.options.map((o, i) => `
+                <button onclick="userAns[${currIdx}]=${i};renderQ()" class="option-btn ${userAns[currIdx]===i?'selected':''} w-full text-left p-3.5 rounded-xl border text-sm">${o}</button>
+            `).join('');
+            document.getElementById('exam-next-btn').innerText = currIdx === tetQuestions.length - 1 ? 'চাবমিট কৰক' : 'পৰৱৰ্তী';
+        }
+
+        function prevExamQ() { if (currIdx > 0) { currIdx--; renderQ(); } }
+        function nextExamQ() { if (currIdx < tetQuestions.length - 1) { currIdx++; renderQ(); } else { finishTest(); } }
+
+        function finishTest() {
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            let score = 0;
+            const sol = document.getElementById('res-solutions-list');
+            sol.innerHTML = '';
+            tetQuestions.forEach((q, i) => {
+                if (userAns[i] === q.ans) score++;
+                sol.innerHTML += `<div class="p-3 bg-slate-50 rounded-xl border text-xs"><strong>প্রশ্ন ${i+1}:</strong> শুদ্ধ উত্তৰ: ${q.options[q.ans]}<br><span class="text-slate-600">${q.exp}</span></div>`;
+            });
+            document.getElementById('res-final-score').innerText = `${score} / ${tetQuestions.length}`;
+        }
+
+        function exitExamToDashboard() {
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('bundle-dashboard').classList.remove('hidden');
+        }
+
+        window.onload = renderDashboard;
+    </script>
+</body>
+</html>
