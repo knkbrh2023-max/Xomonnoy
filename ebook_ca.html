@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অসমীয়া কাৰেণ্ট এফেয়াৰ্ছ ২০২৬ (বিগত ৬ মাহ) | ই-বুক</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Razorpay Official Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #e2e8f0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .book-sheet { max-width: 210mm; margin: 0 auto; background: white; }
+        .ca-cover { background: linear-gradient(145deg, #064e3b 0%, #0f172a 70%, #1e293b 100%); }
+        .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+        @media print {
+            body { background: white; }
+            .no-print { display: none !important; }
+            .book-sheet { max-width: 100%; box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ওপৰৰ বাৰ -->
+    <header class="no-print sticky top-0 z-40 bg-slate-900 text-white px-4 py-3 shadow-lg border-b border-slate-700">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html#ebooks" class="text-xs md:text-sm font-bold text-slate-200 hover:text-amber-400 flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> ই-বুক ষ্ট’ৰলৈ ঘূৰি যাওক
+            </a>
+            <div id="top-action-btn">
+                <button onclick="payWithRazorpay()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Razorpay-ৰে কিনক (₹39)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-sheet my-0 md:my-6 shadow-2xl rounded-none md:rounded-2xl overflow-hidden">
+
+        <div class="ca-cover text-white p-8 md:p-12">
+            <div class="flex justify-between items-center mb-4">
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded">PDF E-BOOK • ₹39</span>
+                <span id="lock-status-badge" class="bg-white/15 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+                    🔒 নমুনা সংস্কৰণ (Sample Preview)
+                </span>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-extrabold leading-snug">অসমীয়া কাৰেণ্ট এফেয়াৰ্ছ ২০২৬ (বিগত ৬ মাহ)</h1>
+            <p class="text-emerald-200 text-xs md:text-sm mt-2">চৰকাৰী আঁচনি, বঁটা-বাহন, নিযুক্তি আৰু অসমৰ শেহতীয়া গুৰুত্বপূৰ্ণ ঘটনাসমূহ।</p>
+        </div>
+
+        <div class="p-6 md:p-10 space-y-8">
+
+            <!-- ফ্ৰী নমুনা অংশ -->
+            <div>
+                <div class="flex justify-between items-center border-b-2 border-emerald-800 pb-2 mb-4">
+                    <h2 class="text-lg font-extrabold text-emerald-900">📰 অধ্যায় ১: অসম চৰকাৰৰ নতুন আঁচনিসমূহ (বিনামূলীয়া নমুনা)</h2>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded">FREE PREVIEW</span>
+                </div>
+
+                <table class="w-full text-xs border-collapse border border-slate-300 mb-6 avoid-break">
+                    <tr class="bg-emerald-50 font-bold text-emerald-950">
+                        <td class="p-2.5 border">আঁচনিৰ নাম</td>
+                        <td class="p-2.5 border">মূল উদ্দেশ্য আৰু সুবিধা</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2.5 border font-bold">মুখ্যমন্ত্ৰী নিযুত মইনা আঁচনি</td>
+                        <td class="p-2.5 border">বাল্যবিবাহ ৰোধ আৰু ছাত্ৰীসকলৰ উচ্চ শিক্ষাৰ বাবে মাহিলী ₹১,০০০ – ₹২,৫০০ বৃত্তি।</td>
+                    </tr>
+                    <tr class="bg-slate-50">
+                        <td class="p-2.5 border font-bold">অৰুণোদই ৩.০ (Orunodoi 3.0)</td>
+                        <td class="p-2.5 border">আৰ্থিকভাৱে দুৰ্বল পৰিয়ালৰ মহিলাসকলক মাহিলী ₹১,২৫০ টকাকৈ বেংক একাউণ্টত সাহায্য।</td>
+                    </tr>
+                    <tr>
+                        <td class="p-2.5 border font-bold">মুখ্যমন্ত্ৰী আত্মনিৰ্ভৰ অসম অভিযান</td>
+                        <td class="p-2.5 border">ৰাজ্যৰ নিবনুৱা যুৱক-যুৱতীক নিজা ব্যৱসায়ৰ বাবে ₹২ লাখৰ পৰা ₹৫ লাখলৈকে সাহায্য।</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- লক বক্স -->
+            <div id="locked-overlay-box" class="no-print bg-gradient-to-b from-amber-50 to-amber-100/70 border-2 border-amber-300 rounded-2xl p-6 text-center shadow-md">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">বিগত ৬ মাহৰ সম্পূৰ্ণ কাৰেণ্ট এফেয়াৰ্ছ PDF আনলক কৰক!</h3>
+                <p class="text-xs text-slate-600 max-w-md mx-auto mt-1 mb-5">
+                    Razorpay যোগে মাত্ৰ <strong>₹39</strong> পেমেণ্ট কৰক আৰু বঁটা-বাহন, নতুন নিযুক্তি, GI Tag, খেল-ধেমালি আৰু বাজেটৰ সম্পূৰ্ণ ই-বুকখন লগে লগে আনলক কৰক।
+                </p>
+                <button onclick="payWithRazorpay()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> Pay ₹39 with Razorpay (Instant Unlock)
+                </button>
+            </div>
+
+            <!-- পেমেণ্টৰ পাছত আনলক হোৱা অংশ -->
+            <div id="premium-full-content" class="hidden space-y-6">
+                <div class="border-b-2 border-blue-800 pb-2">
+                    <h2 class="text-lg font-extrabold text-blue-900">🏆 অধ্যায় ২: বঁটা-বাহন, GI Tag, নিযুক্তি আৰু শেহতীয়া ঘটনাৱলী</h2>
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div class="p-3.5 rounded-xl border bg-slate-50 avoid-break">
+                        <p class="font-bold text-sm text-slate-900">১. উত্তৰ-পূব ভাৰতৰ প্ৰথমটো সাংস্কৃতিক বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি পোৱা স্থান কোনখন?</p>
+                        <p class="text-emerald-700 font-bold mt-1">✔ উত্তৰ: চৰাইদেউ মৈদাম (ভাৰতৰ ৪৩ তম UNESCO World Heritage Site)</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl border bg-slate-50 avoid-break">
+                        <p class="font-bold text-sm text-slate-900">২. উত্তৰ-পূবৰ প্ৰথমটো টাটা ছেমিকণ্ডাক্টৰ প্ৰকল্প অসমৰ ক'ত স্থাপন কৰা হৈছে?</p>
+                        <p class="text-emerald-700 font-bold mt-1">✔ উত্তৰ: জাগীৰোড (মৰিগাঁও জিলা) — ₹২৭,০০০ কোটি টকা বিনিয়োগেৰে।</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl border bg-slate-50 avoid-break">
+                        <p class="font-bold text-sm text-slate-900">৩. যোৰহাটৰ হোলোঙাপাৰত উন্মোচন কৰা বীৰ লাচিত বৰফুকনৰ 'Statue of Valour' প্ৰতিমূৰ্তিটোৰ উচ্চতা কিমান?</p>
+                        <p class="text-emerald-700 font-bold mt-1">✔ উত্তৰ: ১২৫ ফুট (শিল্পী: ৰাম সুতাৰ)।</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const RAZORPAY_KEY_ID = "rzp_test_XXXXXXXXXXXXXX"; // ইয়াত তোমাৰ Razorpay Key ID দিবা
+
+        function checkUnlockState() {
+            if (localStorage.getItem('paid_ebook_ca') === 'true') {
+                document.getElementById('locked-overlay-box').classList.add('hidden');
+                document.getElementById('premium-full-content').classList.remove('hidden');
+                document.getElementById('lock-status-badge').innerText = "✔ ক্ৰয় কৰা হৈছে (Unlocked)";
+                document.getElementById('top-action-btn').innerHTML = `
+                    <button onclick="window.print()" class="bg-green-500 hover:bg-green-600 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                        <i class="fa-solid fa-file-pdf mr-1.5"></i> এতিয়া PDF ডাউনলোড কৰক
+                    </button>
+                `;
+            }
+        }
+
+        function payWithRazorpay() {
+            const options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": 39 * 100, // ₹39
+                "currency": "INR",
+                "name": "অসম এক্সাম হাব",
+                "description": "অসমীয়া কাৰেণ্ট এফেয়াৰ্ছ ২০২৬ ই-বুক",
+                "handler": function (response) {
+                    localStorage.setItem('paid_ebook_ca', 'true');
+                    checkUnlockState();
+                    alert("🎉 পেমেণ্ট সফল হ'ল! এতিয়া ওপৰৰ সেউজীয়া বাটামটো টিপি PDF ডাউনলোড কৰি লওক।");
+                },
+                "theme": { "color": "#047857" }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        window.onload = checkUnlockState;
+    </script>
+</body>
+</html>
