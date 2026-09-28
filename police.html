@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অসম পুলিচ টাৰ্গেট পেকেজ (AB/UB & SI) | অসম এক্সাম হাব</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Noto Sans Assamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .police-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 65%, #1e293b 100%);
+        }
+        .option-btn.selected {
+            border-color: #059669;
+            background-color: #ecfdf5;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ================= 1. TOP NAVBAR ================= -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-emerald-700">
+                <i class="fa-solid fa-arrow-left text-sm mr-1"></i>
+                <div class="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white font-bold">অ</div>
+                <div>
+                    <h1 class="font-bold text-sm md:text-base leading-none">অসম পুলিচ মাষ্টাৰ ডেশ্বব’ৰ্ড</h1>
+                    <span class="text-[11px] text-slate-500">SLPRB AB/UB Constable & SI Target Pack</span>
+                </div>
+            </a>
+
+            <div id="vip-badge-area">
+                <button onclick="openUnlockModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-lock-open mr-1.5"></i> সম্পূৰ্ণ পেকেজ আনলক কৰক (₹79)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. PACKAGE HEADER & SUMMARY ================= -->
+    <section class="police-hero text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-emerald-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">SLPRB SPECIAL</span>
+                    <span class="bg-white/10 border border-white/20 text-emerald-200 text-xs px-2.5 py-0.5 rounded">AB / UB / SI / Commando</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold">অসম পুলিচ টাৰ্গেট পেকেজ (১৫ টা সম্পূৰ্ণ মক টেষ্ট)</h2>
+                <p class="text-emerald-100 text-xs md:text-sm mt-1">
+                    অসম বুৰঞ্জী আৰু ভাৰতীয় সংবিধান স্পেচিয়েল • সহজ গণিত আৰু ৰিজনিং চৰ্টকাট ট্ৰিকছসহ
+                </p>
+            </div>
+
+            <!-- Progress Mini Card -->
+            <div class="bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p id="stat-completed" class="text-2xl font-extrabold text-amber-300">0 / 15</p>
+                    <p class="text-[11px] text-emerald-200">সম্পূৰ্ণ কৰা টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p id="stat-avg-acc" class="text-2xl font-extrabold text-emerald-300">0%</p>
+                    <p class="text-[11px] text-emerald-200">গড় শুদ্ধতা (Accuracy)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. MAIN DASHBOARD ================= -->
+    <main id="bundle-dashboard" class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- SECTION A: SUBJECT TRACKER + MATHS & REASONING SHORTCUT CARD -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Weak-Topic Tracker (2 columns) -->
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase text-emerald-700">Performance Radar</span>
+                        <h3 class="text-lg font-bold text-slate-900">📊 বিষয়ভিত্তিক প্ৰস্তুতি ৰিপ’ৰ্ট (Weak-Topic Tracker)</h3>
+                    </div>
+                    <span class="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded font-bold">SLPRB Pattern</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="subject-progress-bars">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <div id="weak-advice-banner" class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium">
+                    💡 <strong>টিপছ:</strong> অসম পুলিচৰ লিখিত পৰীক্ষাত <strong>অসম বুৰঞ্জী, সংবিধান আৰু গণিত-ৰিজনিং</strong>ত সৰ্বাধিক নম্বৰ থাকে। ১ নং ফ্ৰী ডেমো টেষ্টটো দি আপোনাৰ দুৰ্বল বিষয়টো এতিয়াই পৰীক্ষা কৰক!
+                </div>
+            </div>
+
+            <!-- Special Feature: Maths & Reasoning Shortcut Tricks Cheat-Sheet Card -->
+            <div class="bg-gradient-to-br from-slate-900 to-emerald-950 text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between border border-emerald-800">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-amber-400 text-slate-950 text-[11px] font-extrabold px-2.5 py-0.5 rounded">SPECIAL FEATURE</span>
+                        <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">⚡ সহজ গণিত আৰু ৰিজনিং চৰ্টকাট শ্বীট</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        পৰীক্ষাগৃহত ১০ ছেকেণ্ডৰ ভিতৰত অংক আৰু ৰিজনিং সমাধান কৰিবলৈ অসমীয়া ভাষাত বিশেষ চৰ্টকাট ফৰ্মুলা সংগ্ৰহ।
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/15">
+                    <button onclick="openShortcutModal()" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-3 rounded-xl shadow flex items-center justify-center transition">
+                        <i class="fa-solid fa-bolt mr-2 text-sm"></i> চৰ্টকাট ট্ৰিকছসমূহ চাওক
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION B: 15 FULL-LENGTH MOCK TESTS GRID -->
+        <div>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-2">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">🛡️ ১৫ টা সম্পূৰ্ণ অসম পুলিচ মক টেষ্ট ছিৰিজ</h3>
+                    <p class="text-xs text-slate-500">অসম বুৰঞ্জী, ভাৰতীয় সংবিধান, গণিত আৰু ৰিজনিং স্পেচিয়েল (মক টেষ্ট #1 সকলোৰে বাবে ফ্ৰী)</p>
+                </div>
+                <div class="flex gap-2 text-xs font-semibold">
+                    <span class="px-3 py-1 rounded-full bg-green-100 text-green-700">● ফ্ৰী ডেমো: ১ টা</span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">● প্ৰিমিয়াম: ১৪ টা</span>
+                </div>
+            </div>
+
+            <!-- 15 Mock Tests Container -->
+            <div id="mock-tests-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Dynamically generated 15 Mock Test Cards -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= 4. ACTIVE EXAM INTERFACE ================= -->
+    <section id="exam-interface" class="hidden max-w-5xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            
+            <!-- Exam Top Bar -->
+            <div class="bg-slate-900 text-white p-4 flex flex-wrap justify-between items-center gap-3">
+                <div>
+                    <span id="active-test-title" class="font-bold text-base">Assam Police Mock Test #1</span>
+                    <p class="text-[11px] text-emerald-300">SLPRB Pattern • সঠিক উত্তৰ: +1.00 | ভুল উত্তৰ: -0.25</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-500/20 border border-red-400/40 text-red-200 px-3 py-1.5 rounded-xl text-sm font-extrabold flex items-center">
+                        <i class="fa-regular fa-clock mr-1.5"></i> <span id="exam-timer">15:00</span>
+                    </div>
+                    <button onclick="submitActiveExam()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow">
+                        চাবমিট কৰক
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subject Tabs Inside Exam -->
+            <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex flex-wrap gap-2" id="exam-subject-tabs"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <!-- Question & Options -->
+                <div class="md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-slate-200">
+                    <div class="flex justify-between items-center mb-3">
+                        <span id="exam-q-subject" class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded">অসম বুৰঞ্জী</span>
+                        <span id="exam-q-number" class="text-xs font-bold text-slate-500">প্রশ্ন 1 / 16</span>
+                    </div>
+
+                    <h4 id="exam-q-text" class="text-base md:text-lg font-bold text-slate-900 mb-6 leading-relaxed">
+                        প্রশ্ন লোড হৈ আছে...
+                    </h4>
+
+                    <div id="exam-q-options" class="space-y-3 mb-6"></div>
+
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button onclick="prevExamQ()" id="exam-prev-btn" class="px-4 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> পূর্ববৰ্তী
+                        </button>
+                        <button onclick="clearResponse()" class="px-3 py-2 text-xs font-semibold text-slate-500 hover:text-red-600">
+                            উত্তৰ মচক (Clear)
+                        </button>
+                        <button onclick="nextExamQ()" id="exam-next-btn" class="px-5 py-2.5 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow">
+                            পৰৱৰ্তী <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OMR Palette -->
+                <div class="p-5 bg-slate-50 flex flex-col justify-between">
+                    <div>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase mb-3">OMR প্রশ্ন পেলেট</h5>
+                        <div id="omr-palette" class="grid grid-cols-4 gap-2 mb-6"></div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-slate-200 pt-4 text-xs">
+                        <div class="flex items-center justify-between text-slate-600">
+                            <span>🟢 উত্তৰ দিয়া হৈছে:</span>
+                            <span id="pal-answered" class="font-bold text-slate-900">0</span>
+                        </div>
+                        <div class="flex items-center justify-between text-slate-600">
+                            <span>⚪ বাকি আছে:</span>
+                            <span id="pal-unanswered" class="font-bold text-slate-900">0</span>
+                        </div>
+                        <button onclick="exitExamToDashboard()" class="w-full mt-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 rounded-xl text-xs">
+                            ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 5. EXAM RESULT & SHORTCUT SOLUTION SCREEN ================= -->
+    <section id="exam-result-screen" class="hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <div class="text-center border-b border-slate-200 pb-6">
+                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 id="res-test-name" class="text-2xl font-extrabold text-slate-900">অসম পুলিচ মক টেষ্ট ফলাফল</h3>
+                <p class="text-xs text-slate-500 mt-1">তলত প্ৰতিটো প্রশ্নৰ বিতং ব্যাখ্যা আৰু গণিত-ৰিজনিঙৰ চৰ্টকাট ট্ৰিকছ চাওক</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto mt-6">
+                    <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                        <p class="text-[11px] text-emerald-700 font-semibold">চূড়ান্ত স্ক’ৰ</p>
+                        <p id="res-final-score" class="text-xl font-extrabold text-emerald-900">0</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+                        <p class="text-[11px] text-green-700 font-semibold">শুদ্ধ উত্তৰ</p>
+                        <p id="res-correct" class="text-xl font-extrabold text-green-700">0</p>
+                    </div>
+                    <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                        <p class="text-[11px] text-red-700 font-semibold">ভুল উত্তৰ</p>
+                        <p id="res-wrong" class="text-xl font-extrabold text-red-600">0</p>
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        <p class="text-[11px] text-amber-800 font-semibold">শুদ্ধতা (Accuracy)</p>
+                        <p id="res-acc" class="text-xl font-extrabold text-amber-600">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="font-bold text-base text-slate-900 my-4">উত্তৰ, ব্যাখ্যা আৰু চৰ্টকাট সমাধান:</h4>
+            <div id="res-solutions-list" class="space-y-3 max-h-96 overflow-y-auto pr-1 mb-6"></div>
+
+            <div class="flex justify-center">
+                <button onclick="exitExamToDashboard()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-6 py-3 rounded-xl shadow">
+                    <i class="fa-solid fa-table-columns mr-1.5"></i> অসম পুলিচ ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. MATHS & REASONING SHORTCUT MODAL ================= -->
+    <div id="shortcut-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 relative max-h-[85vh] overflow-y-auto">
+            <button onclick="closeShortcutModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-2.5 py-1 rounded">ASSAM POLICE SPECIAL</span>
+            <h3 class="text-xl font-extrabold text-slate-900 mt-2">⚡ সহজ গণিত আৰু ৰিজনিং চৰ্টকাট ফৰ্মুলা শ্বীট</h3>
+            <p class="text-xs text-slate-500 mb-4">অসম পুলিচ AB/UB আৰু SI পৰীক্ষাত সঘনাই অহা প্রশ্নসমূহ ৫ ছেকেণ্ডত সমাধান কৰাৰ কৌশল:</p>
+
+            <div class="space-y-3 text-xs">
+                <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+                    <p class="font-bold text-emerald-900 text-sm">১. ৰে’লগাড়ী আৰু গতিবেগৰ চৰ্টকাট (Speed & Train Trick):</p>
+                    <p class="text-slate-700 mt-1">• কি.মি./ঘণ্টাক <strong>মিটাৰ/ছেকেণ্ড</strong>লৈ নিবলৈ পোনপটীয়াকৈ <strong>5 / 18</strong> ৰে পূৰণ কৰক। (উদাহৰণ: 72 km/hr = 72 × 5/18 = 20 m/s)।</p>
+                    <p class="text-slate-700">• মিটাৰ/ছেকেণ্ডক <strong>কি.মি./ঘণ্টা</strong>লৈ নিবলৈ <strong>18 / 5</strong> ৰে পূৰণ কৰক।</p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-blue-50 border border-blue-200">
+                    <p class="font-bold text-blue-900 text-sm">২. কাম আৰু সময়ৰ চৰ্টকাট (Time & Work Trick):</p>
+                    <p class="text-slate-700 mt-1">• যদি A-এ এটা কাম <strong>X</strong> দিনত আৰু B-এ <strong>Y</strong> দিনত কৰে, তেন্তে দুয়োজনে মিলি কৰিব: <strong>(X × Y) / (X + Y)</strong> দিনত।</p>
+                    <p class="text-slate-700">• উদাহৰণ: A = ১০ দিন, B = ১৫ দিন হ’লে দুয়োজনে মিলি = (১০ × ১৫) / (১০ + ১৫) = ১৫০ / ২৫ = <strong>৬ দিনত</strong>।</p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200">
+                    <p class="font-bold text-amber-900 text-sm">৩. লাভ-লোকচান আৰু শতকৰা চৰ্টকাট (Profit & Percentage):</p>
+                    <p class="text-slate-700 mt-1">• যদি কোনো বস্তুৰ দাম প্ৰথমে X% বাঢ়ে আৰু পাছত X% কমে, তেন্তে সদায় লোকচান হ’ব = <strong>(X² / 100)%</strong>।</p>
+                    <p class="text-slate-700">• উদাহৰণ: ২০% বাঢ়ি পুনৰ ২০% কমিলে মুঠ হ্ৰাস = (২০ × ২০) / ১০০ = <strong>৪% লোকচান</strong>।</p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-purple-50 border border-purple-200">
+                    <p class="font-bold text-purple-900 text-sm">৪. ৰিজনিং ঘড়ীৰ কোণ উলিওৱা চৰ্টকাট (Clock Angle Formula):</p>
+                    <p class="text-slate-700 mt-1">• ঘণ্টা (H) আৰু মিনিটৰ (M) কাঁটাৰ মাজৰ কোণ = <strong>| 30×H - (11/2)×M |</strong></p>
+                    <p class="text-slate-700">• উদাহৰণ: ৪ বাজি ২০ মিনিটত কোণ = | 30×4 - (11/2)×20 | = | 120 - 110 | = <strong>10 ডিগ্ৰী</strong>।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 7. VIP UNLOCK MODAL (₹79 PAYMENT + PIN) ================= -->
+    <div id="unlock-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
+            <button onclick="closeUnlockModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-2.5 py-1 rounded">ASSAM POLICE TARGET PACK • ₹79</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">১৫ টা সম্পূৰ্ণ মক টেষ্ট আনলক কৰক</h3>
+            <p class="text-xs text-slate-600 mt-1">এবাৰ ₹79 পেমেণ্ট কৰিলেই গোটেই ১৫ টা মক টেষ্ট আৰু সমাধান আনলক হৈ যাব।</p>
+
+            <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-3">
+                <p class="font-bold text-slate-800">ধাপ ১: WhatsApp-ত ₹79 পেমেণ্ট কৰি Unlock PIN লওক</p>
+                <button onclick="orderPolicePackOnWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl flex items-center justify-center shadow transition">
+                    <i class="fa-brands fa-whatsapp text-base mr-2"></i> WhatsApp-ত মেছেজ দি PIN লওক
+                </button>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-200">
+                <label class="block text-xs font-bold text-slate-800 mb-1.5">ধাপ ২: আপুনি পোৱা ৪-অংকৰ PIN টো দিয়ক:</label>
+                <div class="flex gap-2">
+                    <input type="text" id="police-pin-input" placeholder="PIN (উদাহৰণ: 2026)" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-center tracking-widest focus:outline-none focus:border-emerald-600">
+                    <button onclick="verifyPolicePin()" class="shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-5 py-2 rounded-xl shadow">
+                        আনলক কৰক
+                    </button>
+                </div>
+                <p id="police-pin-err" class="text-xs text-red-600 font-semibold mt-1.5 hidden">✖ ভুল পিন! অনুগ্ৰহ কৰি সঠিক পিন দিয়ক।</p>
+                <p class="text-[11px] text-slate-400 mt-2">*(টেষ্টিঙৰ বাবে আপুনি এতিয়া <strong>2026</strong> দি আনলক কৰি চাব পাৰে)*</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ENGINE FOR ASSAM POLICE PACK ================= -->
+    <script>
+        const ADMIN_WHATSAPP = "91XXXXXXXXXX"; // আপোনাৰ নিজৰ হোৱাটছএপ নম্বৰ ইয়াত দিব
+        const POLICE_VIP_PIN = "2026";         // গোপন আনলক পিন
+
+        // ৪ টা স্পেচিয়েল বিষয়: অসম বুৰঞ্জী, ভাৰতীয় সংবিধান, গণিত চৰ্টকাট, ৰিজনিং চৰ্টকাট
+        const policeMasterQuestions = [
+            // ১. অসম বুৰঞ্জী স্পেচিয়েল (Assam History)
+            { subject: "অসম বুৰঞ্জী", q: "১৬৭১ চনৰ শৰাইঘাটৰ যুদ্ধত মোগল সেনাপতি ৰাম সিংহৰ বিৰুদ্ধে আহোম নৌ-সেনাৰ নেতৃত্ব কোনে দিছিল?", options: ["আতন বুঢ়াগোহাঁই", "লাচিত বৰফুকন", "লালুকসোলা বৰফুকন", "চক্ৰধ্বজ সিংহ"], ans: 1, exp: "বীৰ লাচিত বৰফুকনৰ বলিষ্ঠ নেতৃত্বত ১৬৭১ চনত আহোম সেনাই শৰাইঘাটত মোগলক পৰাস্ত কৰিছিল।" },
+            { subject: "অসম বুৰঞ্জী", q: "১৮৯৪ চনৰ ২৮ জানুৱাৰীত ব্ৰিটিছৰ বিৰুদ্ধে হোৱা 'পথৰুঘাটৰ কৃষক বিদ্ৰোহ' কোন জিলাত সংঘটিত হৈছিল?", options: ["নগাঁও", "দৰং", "শোণিতপুৰ", "শিৱসাগৰ"], ans: 1, exp: "দৰং জিলাৰ পথৰুঘাটত ব্ৰিটিছৰ বৰ্ধিত মাটিৰ খাজনাৰ বিৰুদ্ধে হোৱা প্ৰতিবাদত ১৪০ জন নিৰস্ত্ৰ কৃষক শ্বহীদ হৈছিল।" },
+            { subject: "অসম বুৰঞ্জী", q: "১৯৪২ চনৰ ভাৰত ত্যাগ আন্দোলনত গহপুৰ থানাত জাতীয় পতাকা উত্তোলন কৰিবলৈ গৈ কোনে শ্বহীদ বৰণ কৰিছিল?", options: ["ভোগেশ্বৰী ফুকননী", "কনকলতা বৰুৱা আৰু মুকুন্দ কাকতি", "কুশল কোঁৱৰ", "তিলক ডেকা"], ans: 1, exp: "১৯৪২ চনৰ ২০ ছেপ্টেম্বৰত গহপুৰ থানাত পতাকা উত্তোলন কৰিবলৈ যাওঁতে কনকলতা বৰুৱা আৰু মুকুন্দ কাকতি শ্বহীদ হৈছিল।" },
+            { subject: "অসম বুৰঞ্জী", q: "ইংৰাজ আৰু মানসকলৰ মাজত স্বাক্ষৰিত হোৱা 'ইয়াণ্ডাবু সন্ধি' কোন চনত হৈছিল?", options: ["১৮২৪ চনৰ ২৪ ফেব্ৰুৱাৰী", "১৮২৬ চনৰ ২৪ ফেব্ৰুৱাৰী", "১৮২৮ চনৰ ১৫ আগষ্ট", "১৮৩৬ চনৰ ১০ মাৰ্চ"], ans: 1, exp: "১৮২৬ চনৰ ২৪ ফেব্ৰুৱাৰীত ইয়াণ্ডাবু সন্ধি স্বাক্ষৰিত হৈছিল আৰু ইয়াৰ জৰিয়তে অসম ব্ৰিটিছৰ অধীনলৈ গৈছিল।" },
+
+            // ২. ভাৰতীয় সংবিধান স্পেচিয়েল (Indian Polity)
+            { subject: "ভাৰতীয় সংবিধান", q: "ভাৰতীয় সংবিধানৰ কোনটো অনুচ্ছেদত 'অস্পৃশ্যতা বৰ্জন' (Abolition of Untouchability) কৰা হৈছে?", options: ["অনুচ্ছেদ ১৪", "অনুচ্ছেদ ১৭", "অনুচ্ছেদ ১৯", "অনুচ্ছেদ ২১"], ans: 1, exp: "মৌলিক অধিকাৰৰ অধীনত অনুচ্ছেদ ১৭ (Article 17) যোগে অস্পৃশ্যতাক এক দণ্ডনীয় অপৰাধ হিচাপে ঘোষণা কৰা হৈছে।" },
+            { subject: "ভাৰতীয় সংবিধান", q: "ভাৰতীয় সংবিধানৰ কোনটো অনুচ্ছেদত অসম ৰাজ্যৰ বাবে বিশেষ ব্যৱস্থা (Special Provision for Assam) উল্লেখ আছে?", options: ["অনুচ্ছেদ ৩৭০", "অনুচ্ছেদ ৩৭১ (ক)", "অনুচ্ছেদ ৩৭১ (খ)", "অনুচ্ছেদ ৩৫৬"], ans: 2, exp: "অনুচ্ছেদ ৩৭১(খ) [Article 371B]-ত অসমৰ জনজাতীয় অঞ্চলসমূহৰ প্ৰশাসনৰ বাবে বিশেষ ব্যৱস্থা আছে।" },
+            { subject: "ভাৰতীয় সংবিধান", q: "ভাৰতৰ ৰাষ্ট্ৰপতিক পদচ্যুত কৰিব পৰা 'মহাভিযোগ' (Impeachment) প্ৰক্ৰিয়া সংবিধানৰ কোনটো অনুচ্ছেদত আছে?", options: ["অনুচ্ছেদ ৫২", "অনুচ্ছেদ ৬১", "অনুচ্ছেদ ৭২", "অনুচ্ছেদ ১২৩"], ans: 1, exp: "অনুচ্ছেদ ৬১ অনুসৰি সংবিধান উলংঘা কৰিলে সংসদত মহাভিযোগ প্ৰস্তাৱৰ জৰিয়তে ৰাষ্ট্ৰপতিক আঁতৰাব পাৰি।" },
+            { subject: "ভাৰতীয় সংবিধান", q: "ভাৰতীয় সংবিধানৰ কোনটো সংশোধনীৰ জৰিয়তে ভোটদানৰ নূন্যতম বয়স ২১ বছৰৰ পৰা ১৮ বছৰলৈ হ্ৰাস কৰা হৈছিল?", options: ["৪২তম সংশোধনী", "৪৪তম সংশোধনী", "৬১তম সংশোধনী", "৭৩তম সংশোধনী"], ans: 2, exp: "১৯৮৯ চনৰ ৬১তম সংবিধান সংশোধনী আইনৰ জৰিয়তে ভোটদানৰ বয়স ২১ ৰ পৰা ১৮ বছৰলৈ কমোৱা হয়।" },
+
+            // ৩. সহজ গণিত চৰ্টকাট (Maths with Shortcut Tricks)
+            { subject: "গণিত চৰ্টকাট", q: "A-এ এটা কাম ১০ দিনত আৰু B-এ একেটা কাম ১৫ দিনত কৰিব পাৰে। দুয়োজনে একেলগে কামটো কেইদিনত শেষ কৰিব?", options: ["৫ দিনত", "৬ দিনত", "৮ দিনত", "১২ দিনত"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: দুয়োজনে মিলি লগা সময় = (X × Y) / (X + Y) = (১০ × ১৫) / (১০ + ১৫) = ১৫০ / ২৫ = ৬ দিন।" },
+            { subject: "গণিত চৰ্টকাট", q: "এখন পুলিচ ভানে ঘণ্টাত ৯০ কিলোমিটাৰ বেগত গতি কৰিলে প্ৰতি ছেকেণ্ডত কিমান মিটাৰ দূৰত্ব অতিক্ৰম কৰিব?", options: ["২০ মি./ছে.", "২৫ মি./ছে.", "৩০ মি./ছে.", "১৮ মি./ছে."], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: কি.মি./ঘণ্টাক মিটাৰ/ছেকেণ্ডলৈ নিবলৈ পোনপটীয়াকৈ ৫/১৮ ৰে পূৰণ কৰক: ৯০ × (৫/১৮) = ৫ × ৫ = ২৫ মিটাৰ/ছেকেণ্ড।" },
+            { subject: "গণিত চৰ্টকাট", q: "যদি এটা বস্তুৰ দাম প্ৰথমে ২০% বৃদ্ধি কৰা হয় আৰু পাছত ২০% হ্ৰাস কৰা হয়, তেন্তে মুঠ লাভ বা লোকচান কিমান হ'ব?", options: ["কোনো লাভ-লোকচান নহয়", "৪% লোকচান", "৪% লাভ", "২% লোকচান"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: একে শতকৰা হাৰত বাঢ়ি আকৌ কমিলে সদায় লোকচান হয় = (X² / 100)% = (২০ × ২০) / ১০০ = ৪% লোকচান।" },
+            { subject: "গণিত চৰ্টকাট", q: "১-ৰ পৰা ৫০ লৈকে সকলো স্বাভাবিক সংখ্যাৰ যোগফল কিমান?", options: ["১২২৫", "১২৭৫", "১৩০০", "১২৫০"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: n সংখ্যক সংখ্যাৰ যোগফল = n(n+1)/2 = (৫০ × ৫১) / ২ = ২৫ × ৫১ = ১২৭৫।" },
+
+            // ৪. ৰিজনিং চৰ্টকাট (Reasoning with Shortcut Tricks)
+            { subject: "ৰিজনিং চৰ্টকাট", q: "ঘড়ীত ৪ বাজি ২০ মিনিট হ'লে ঘণ্টা আৰু মিনিটৰ কাঁটা দুডালৰ মাজত কিমান ডিগ্ৰী কোণ উৎপন্ন হ'ব?", options: ["০ ডিগ্ৰী", "১০ ডিগ্ৰী", "১৫ ডিগ্ৰী", "২০ ডিগ্ৰী"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: কোণ = |30H - (11/2)M| = |30×4 - (11/2)×20| = |120 - 110| = ১০ ডিগ্ৰী।" },
+            { subject: "ৰিজনিং চৰ্টকাট", q: "শৃংখলাটো সম্পূৰ্ণ কৰক: ৩, ৮, ১৫, ২৪, ৩৫, ?", options: ["৪৬", "৪৮", "৫০", "৪৯"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: সংখ্যাবোৰ হ'ল (২²-১), (৩²-১), (৪²-১), (৫²-১), (৬²-১)। গতিকে পৰৱৰ্তীটো হ'ব (৭²-১) = ৪৯ - ১ = ৪৮।" },
+            { subject: "ৰিজনিং চৰ্টকাট", q: "যদি ক'ড ভাষাত 'POLICE' শব্দটো '16-15-12-9-3-5' লিখা হয়, তেন্তে 'ASSAM' শব্দটো কি লিখা হ'ব?", options: ["1-19-19-1-13", "1-18-18-1-12", "1-20-20-1-13", "2-19-19-2-13"], ans: 0, exp: "⚡ চৰ্টকাট ট্ৰিক: ইংৰাজী বৰ্ণমালাৰ স্থান অনুসৰি (EJOTY = 5,10,15,20,25): A=1, S=19, S=19, A=1, M=13।" },
+            { subject: "ৰিজনিং চৰ্টকাট", q: "এজন জোৱানে পুৱা সূৰ্যোদয়ৰ ফালে মুখ কৰি থিয় হৈ আছে। তাৰ পিছত তেওঁ বাওঁফালে ৯০ ডিগ্ৰী ঘূৰিলে। এতিয়া তেওঁ কোন দিশমুখী হৈ আছে?", options: ["দক্ষিণ", "উত্তৰ", "পশ্চিম", "পূব"], ans: 1, exp: "⚡ চৰ্টকাট ট্ৰিক: সূৰ্যোদয়ৰ দিশ মানে পূব (East)। পূবৰ পৰা বাওঁফালে ৯০ ডিগ্ৰী ঘূৰিলে পোনপটীয়াকৈ উত্তৰ (North) দিশ পোৱা যায়।" }
+        ];
+
+        const policeMockTopics = [
+            "SLPRB AB/UB Full Mock #1 (Free Demo)",
+            "অসম বুৰঞ্জী স্পেচিয়েল (Ahom & Freedom Era)",
+            "ভাৰতীয় সংবিধান আৰু মৌলিক অধিকাৰ স্পেচিয়েল",
+            "গণিত চৰ্টকাট ট্ৰিকছ প্রেক্টিছ ছেট #1",
+            "লজিকেল ৰিজনিং চৰ্টকাট প্রেক্টিছ ছেট #1",
+            "Assam Police SI (Sub-Inspector) Model Paper",
+            "অসমৰ ভূগোল, ৰাষ্ট্ৰীয় উদ্যান আৰু সংস্কৃতি",
+            "SLPRB Previous Year Solved Paper (2022)",
+            "SLPRB Previous Year Solved Paper (2024)",
+            "গণিতঃ সময়, দূৰত্ব, লাভ-লোকচান স্পেচিয়েল",
+            "ভাৰতীয় ৰাজনীতি আৰু অসম আৰক্ষী আইন",
+            "সাধাৰণ বিজ্ঞান আৰু দৈনন্দিন প্রযুক্তি",
+            "অসম আৰু ভাৰতৰ শেহতীয়া কাৰেণ্ট এফেয়াৰ্ছ",
+            "Assam Commando Battalion Special Mock",
+            "Grand Final SLPRB Full Dress Rehearsal #15"
+        ];
+
+        let activeTestNumber = 1;
+        let currentExamQuestions = [];
+        let currentQIndex = 0;
+        let examUserAnswers = [];
+        let examTimerInterval;
+        let examSecondsLeft = 900;
+
+        function isPoliceUnlocked() {
+            return localStorage.getItem('unlocked_police') === 'true' || localStorage.getItem('unlocked_all') === 'true';
+        }
+
+        function renderDashboard() {
+            const unlocked = isPoliceUnlocked();
+            const badgeArea = document.getElementById('vip-badge-area');
+            if (unlocked) {
+                badgeArea.innerHTML = `<span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1.5 rounded-xl border border-emerald-300"><i class="fa-solid fa-circle-check mr-1"></i> UNLOCKED (15/15 Tests)</span>`;
+            }
+
+            const grid = document.getElementById('mock-tests-grid');
+            grid.innerHTML = '';
+            const savedScores = JSON.parse(localStorage.getItem('police_mock_scores') || '{}');
+            const completedCount = Object.keys(savedScores).length;
+            document.getElementById('stat-completed').innerText = `${completedCount} / 15`;
+
+            for (let i = 1; i <= 15; i++) {
+                const isFree = (i === 1);
+                const canAccess = isFree || unlocked;
+                const prevScore = savedScores[i];
+
+                let badgeHtml = isFree 
+                    ? `<span class="bg-green-100 text-green-700 text-[10px] font-extrabold px-2 py-0.5 rounded">FREE DEMO</span>`
+                    : (unlocked ? `<span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded">UNLOCKED</span>` : `<span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded"><i class="fa-solid fa-lock mr-1"></i>LOCKED</span>`);
+
+                let scoreHtml = prevScore !== undefined 
+                    ? `<p class="text-xs font-bold text-emerald-600 mt-2">✔ পূর্বৰ স্ক’ৰ: ${prevScore}</p>`
+                    : `<p class="text-[11px] text-slate-400 mt-2">সময়: ১৫ মিনিট • চৰ্টকাট সমাধানসহ</p>`;
+
+                let btnHtml = canAccess
+                    ? `<button onclick="launchMockTest(${i})" class="w-full mt-3 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold py-2.5 rounded-xl shadow-sm transition">${prevScore !== undefined ? 'পুনৰ টেষ্ট দিয়ক' : 'টেষ্ট আৰম্ভ কৰক'}</button>`
+                    : `<button onclick="openUnlockModal()" class="w-full mt-3 bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold py-2.5 rounded-xl transition"><i class="fa-solid fa-lock mr-1"></i> আনলক কৰক (₹79)</button>`;
+
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border ${isFree ? 'border-emerald-400' : 'border-slate-200'} p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-extrabold text-slate-400">MOCK #${String(i).padStart(2, '0')}</span>
+                                ${badgeHtml}
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">অসম পুলিচ মক টেষ্ট ${i}</h4>
+                            <p class="text-xs text-emerald-700 font-medium mt-0.5">${policeMockTopics[i - 1]}</p>
+                            ${scoreHtml}
+                        </div>
+                        ${btnHtml}
+                    </div>
+                `;
+            }
+
+            renderSubjectReport();
+        }
+
+        function renderSubjectReport() {
+            const subStats = JSON.parse(localStorage.getItem('police_subject_stats') || '{}');
+            const subjects = ["অসম বুৰঞ্জী", "ভাৰতীয় সংবিধান", "গণিত চৰ্টকাট", "ৰিজনিং চৰ্টকাট"];
+            const container = document.getElementById('subject-progress-bars');
+            container.innerHTML = '';
+
+            let totalCorrect = 0;
+            let totalAttempted = 0;
+            let weakestSub = null;
+            let lowestAcc = 101;
+
+            subjects.forEach(sub => {
+                const st = subStats[sub] || { correct: 0, total: 0 };
+                totalCorrect += st.correct;
+                totalAttempted += st.total;
+                const acc = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+
+                if (st.total > 0 && acc < lowestAcc) {
+                    lowestAcc = acc;
+                    weakestSub = sub;
+                }
+
+                let barColor = acc >= 70 ? 'bg-emerald-500' : (acc >= 45 ? 'bg-amber-500' : 'bg-red-500');
+                if (st.total === 0) barColor = 'bg-slate-300';
+
+                container.innerHTML += `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-slate-800">${sub}</span>
+                            <span class="text-slate-600">${st.total > 0 ? acc + '%' : 'অনুশীলন বাকি'}</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="${barColor} h-full transition-all" style="width: ${st.total > 0 ? acc : 8}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const overallAcc = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+            document.getElementById('stat-avg-acc').innerText = `${overallAcc}%`;
+
+            const adviceBox = document.getElementById('weak-advice-banner');
+            if (weakestSub) {
+                adviceBox.innerHTML = `⚠️ <strong>Weak-Topic চিনাক্তকৰণ:</strong> আপোনাৰ <strong>'${weakestSub}'</strong> অংশত শুদ্ধতা কম (${lowestAcc}%)। ডেশ্বব'ৰ্ডৰ চৰ্টকাট শ্বীটখন চাই পুনৰ অনুশীলন কৰক!`;
+            }
+        }
+
+        function launchMockTest(testNum) {
+            activeTestNumber = testNum;
+            document.getElementById('bundle-dashboard').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            document.getElementById('active-test-title').innerText = `অসম পুলিচ মক টেষ্ট #${testNum} (${policeMockTopics[testNum - 1]})`;
+
+            currentExamQuestions = [...policeMasterQuestions];
+            currentQIndex = 0;
+            examUserAnswers = new Array(currentExamQuestions.length).fill(null);
+            examSecondsLeft = 900;
+
+            renderSubjectTabs();
+            renderExamQuestion();
+            startExamTimer();
+        }
+
+        function startExamTimer() {
+            clearInterval(examTimerInterval);
+            examTimerInterval = setInterval(() => {
+                examSecondsLeft--;
+                const m = String(Math.floor(examSecondsLeft / 60)).padStart(2, '0');
+                const s = String(examSecondsLeft % 60).padStart(2, '0');
+                document.getElementById('exam-timer').innerText = `${m}:${s}`;
+                if (examSecondsLeft <= 0) {
+                    clearInterval(examTimerInterval);
+                    submitActiveExam();
+                }
+            }, 1000);
+        }
+
+        function renderSubjectTabs() {
+            const subjects = ["অসম বুৰঞ্জী", "ভাৰতীয় সংবিধান", "গণিত চৰ্টকাট", "ৰিজনিং চৰ্টকাট"];
+            const tabDiv = document.getElementById('exam-subject-tabs');
+            tabDiv.innerHTML = '';
+            subjects.forEach(sub => {
+                const firstIdx = currentExamQuestions.findIndex(q => q.subject === sub);
+                if (firstIdx !== -1) {
+                    const isCurrentSub = currentExamQuestions[currentQIndex].subject === sub;
+                    tabDiv.innerHTML += `
+                        <button onclick="jumpToQuestion(${firstIdx})" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${isCurrentSub ? 'bg-emerald-700 text-white shadow-sm' : 'bg-white text-slate-700 border border-slate-200'}">
+                            ${sub}
+                        </button>
+                    `;
+                }
+            });
+        }
+
+        function renderExamQuestion() {
+            const qObj = currentExamQuestions[currentQIndex];
+            document.getElementById('exam-q-subject').innerText = qObj.subject;
+            document.getElementById('exam-q-number').innerText = `প্রশ্ন ${currentQIndex + 1} / ${currentExamQuestions.length}`;
+            document.getElementById('exam-q-text').innerText = `${currentQIndex + 1}. ${qObj.q}`;
+
+            const optsDiv = document.getElementById('exam-q-options');
+            optsDiv.innerHTML = '';
+            const labels = ['ক', 'খ', 'গ', 'ঘ'];
+
+            qObj.options.forEach((opt, idx) => {
+                const selectedClass = examUserAnswers[currentQIndex] === idx ? 'selected' : '';
+                optsDiv.innerHTML += `
+                    <button onclick="pickExamOption(${idx})" class="option-btn ${selectedClass} w-full text-left p-3.5 rounded-xl border border-slate-200 hover:border-emerald-500 flex items-center transition">
+                        <span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center mr-3">${labels[idx]}</span>
+                        <span class="text-sm text-slate-800">${opt}</span>
+                    </button>
+                `;
+            });
+
+            renderSubjectTabs();
+            renderOmrPalette();
+        }
+
+        function renderOmrPalette() {
+            const pal = document.getElementById('omr-palette');
+            pal.innerHTML = '';
+            let ansCount = 0;
+
+            currentExamQuestions.forEach((_, idx) => {
+                const isAns = examUserAnswers[idx] !== null;
+                if (isAns) ansCount++;
+                const isCurr = idx === currentQIndex;
+
+                let btnClass = isAns ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-300 text-slate-700';
+                if (isCurr) btnClass += ' ring-2 ring-emerald-700 font-extrabold';
+
+                pal.innerHTML += `
+                    <button onclick="jumpToQuestion(${idx})" class="h-9 rounded-lg text-xs font-bold ${btnClass} transition">
+                        ${idx + 1}
+                    </button>
+                `;
+            });
+
+            document.getElementById('pal-answered').innerText = ansCount;
+            document.getElementById('pal-unanswered').innerText = currentExamQuestions.length - ansCount;
+        }
+
+        function pickExamOption(optIdx) {
+            examUserAnswers[currentQIndex] = optIdx;
+            renderExamQuestion();
+        }
+
+        function clearResponse() {
+            examUserAnswers[currentQIndex] = null;
+            renderExamQuestion();
+        }
+
+        function jumpToQuestion(idx) {
+            currentQIndex = idx;
+            renderExamQuestion();
+        }
+
+        function prevExamQ() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderExamQuestion();
+            }
+        }
+
+        function nextExamQ() {
+            if (currentQIndex < currentExamQuestions.length - 1) {
+                currentQIndex++;
+                renderExamQuestion();
+            } else {
+                submitActiveExam();
+            }
+        }
+
+        function submitActiveExam() {
+            clearInterval(examTimerInterval);
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            let correct = 0;
+            let wrong = 0;
+            let subStats = JSON.parse(localStorage.getItem('police_subject_stats') || '{}');
+            const solContainer = document.getElementById('res-solutions-list');
+            solContainer.innerHTML = '';
+
+            currentExamQuestions.forEach((qObj, idx) => {
+                const picked = examUserAnswers[idx];
+                if (!subStats[qObj.subject]) subStats[qObj.subject] = { correct: 0, total: 0 };
+                subStats[qObj.subject].total++;
+
+                let statusHtml = `<span class="text-xs font-bold text-slate-500">⚪ এৰি দিছে</span>`;
+                if (picked === qObj.ans) {
+                    correct++;
+                    subStats[qObj.subject].correct++;
+                    statusHtml = `<span class="text-xs font-bold text-green-600">✔ শুদ্ধ (+1.00)</span>`;
+                } else if (picked !== null) {
+                    wrong++;
+                    statusHtml = `<span class="text-xs font-bold text-red-600">✖ ভুল (-0.25)</span>`;
+                }
+
+                solContainer.innerHTML += `
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-emerald-800">[${qObj.subject}] প্রশ্ন ${idx + 1}</span>
+                            ${statusHtml}
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm mb-1">${qObj.q}</p>
+                        <p class="text-emerald-700 font-bold">শুদ্ধ উত্তৰ: ${qObj.options[qObj.ans]}</p>
+                        <p class="text-slate-700 mt-1 bg-amber-50/70 p-2 rounded border border-amber-200/60"><strong>ব্যাখ্যা / ট্ৰিক:</strong> ${qObj.exp}</p>
+                    </div>
+                `;
+            });
+
+            const finalScore = (correct * 1.0 - wrong * 0.25).toFixed(2);
+            const attempted = correct + wrong;
+            const acc = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+            document.getElementById('res-test-name').innerText = `অসম পুলিচ মক টেষ্ট #${activeTestNumber} ফলাফল`;
+            document.getElementById('res-final-score').innerText = `${finalScore} / ${currentExamQuestions.length}`;
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-wrong').innerText = wrong;
+            document.getElementById('res-acc').innerText = `${acc}%`;
+
+            const savedScores = JSON.parse(localStorage.getItem('police_mock_scores') || '{}');
+            savedScores[activeTestNumber] = `${finalScore}/${currentExamQuestions.length}`;
+            localStorage.setItem('police_mock_scores', JSON.stringify(savedScores));
+            localStorage.setItem('police_subject_stats', JSON.stringify(subStats));
+        }
+
+        function exitExamToDashboard() {
+            clearInterval(examTimerInterval);
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('bundle-dashboard').classList.remove('hidden');
+            renderDashboard();
+        }
+
+        function openShortcutModal() {
+            document.getElementById('shortcut-modal').classList.remove('hidden');
+        }
+
+        function closeShortcutModal() {
+            document.getElementById('shortcut-modal').classList.add('hidden');
+        }
+
+        function openUnlockModal() {
+            document.getElementById('police-pin-input').value = '';
+            document.getElementById('police-pin-err').classList.add('hidden');
+            document.getElementById('unlock-modal').classList.remove('hidden');
+        }
+
+        function closeUnlockModal() {
+            document.getElementById('unlock-modal').classList.add('hidden');
+        }
+
+        function orderPolicePackOnWhatsApp() {
+            const msg = "নমস্কাৰ! মই 'অসম পুলিচ টাৰ্গেট পেকেজ (₹79)' কিনিব বিচাৰোঁ। অনুগ্ৰহ কৰি মোক পেমেণ্ট লিংক আৰু Unlock PIN টো দিয়ক।";
+            window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function verifyPolicePin() {
+            const pin = document.getElementById('police-pin-input').value.trim();
+            if (pin === POLICE_VIP_PIN) {
+                localStorage.setItem('unlocked_police', 'true');
+                closeUnlockModal();
+                renderDashboard();
+                alert("🎉 অভিনন্দন! আপোনাৰ 'অসম পুলিচ টাৰ্গেট পেকেজ (১৫ টা মক টেষ্ট)' সফলভাৱে আনলক হৈ গ'ল!");
+            } else {
+                document.getElementById('police-pin-err').classList.remove('hidden');
+            }
+        }
+
+        window.onload = renderDashboard;
+    </script>
+</body>
+</html>
