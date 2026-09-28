@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গণিত আৰু ৰিজনিং সহজ অসমীয়া চৰ্টকাট | ই-বুক</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Razorpay Official Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #e2e8f0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .book-sheet { max-width: 210mm; margin: 0 auto; background: white; }
+        .maths-cover { background: linear-gradient(145deg, #311042 0%, #1e1b4b 60%, #0f172a 100%); }
+        .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+        @media print {
+            body { background: white; }
+            .no-print { display: none !important; }
+            .book-sheet { max-width: 100%; box-shadow: none; margin: 0; }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ওপৰৰ বাৰ -->
+    <header class="no-print sticky top-0 z-40 bg-slate-900 text-white px-4 py-3 shadow-lg border-b border-slate-700">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html#ebooks" class="text-xs md:text-sm font-bold text-slate-200 hover:text-amber-400 flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> ই-বুক ষ্ট’ৰলৈ ঘূৰি যাওক
+            </a>
+            <div id="top-action-btn">
+                <button onclick="payWithRazorpay()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Razorpay-ৰে কিনক (₹59)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-sheet my-0 md:my-6 shadow-2xl rounded-none md:rounded-2xl overflow-hidden">
+
+        <div class="maths-cover text-white p-8 md:p-12">
+            <div class="flex justify-between items-center mb-4">
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded">PDF E-BOOK • ₹59</span>
+                <span id="lock-status-badge" class="bg-white/15 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+                    🔒 নমুনা সংস্কৰণ (Sample Preview)
+                </span>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-extrabold leading-snug">গণিত আৰু ৰিজনিং সহজ অসমীয়া চৰ্টকাট</h1>
+            <p class="text-purple-200 text-xs md:text-sm mt-2">ADRE আৰু Assam Police-ত অহা গণিতৰ প্রশ্নসমূহ কম সময়ত সমাধান কৰাৰ সহজ কৌশল।</p>
+        </div>
+
+        <div class="p-6 md:p-10 space-y-8">
+
+            <!-- ফ্ৰী নমুনা অংশ -->
+            <div>
+                <div class="flex justify-between items-center border-b-2 border-purple-800 pb-2 mb-4">
+                    <h2 class="text-lg font-extrabold text-purple-900">⚡ অধ্যায় ১: শতকৰা আৰু কাম-সময়ৰ চৰ্টকাট (বিনামূলীয়া নমুনা)</h2>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded">FREE PREVIEW</span>
+                </div>
+
+                <div class="space-y-4 text-xs">
+                    <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 avoid-break">
+                        <p class="font-extrabold text-sm text-purple-950">🎯 চৰ্টকাট কৌশল #১: একে হাৰত দাম বাঢ়ি আকৌ কমাৰ অংক</p>
+                        <p class="text-slate-700 mt-1"><strong>সূত্র:</strong> যদি কোনো বস্তুৰ দাম প্ৰথমে <strong>X%</strong> বাঢ়ে আৰু পাছত <strong>X%</strong> কমে, তেন্তে সদায় লোকচান হ’ব = <strong>(X² / 100)%</strong></p>
+                        <p class="text-emerald-700 font-bold mt-1">✔ উদাহৰণ: ২০% বাঢ়ি পুনৰ ২০% কমিলে = (২০ × ২০) / ১০০ = ৪% লোকচান।</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-blue-50 border border-blue-200 avoid-break">
+                        <p class="font-extrabold text-sm text-blue-950">🎯 চৰ্টকাট কৌশল #২: দুজন মানুহে একেলগে কাম শেষ কৰা (Time & Work)</p>
+                        <p class="text-slate-700 mt-1"><strong>সূত্র:</strong> A-এ X দিনত আৰু B-এ Y দিনত কৰিলে দুয়োজনে মিলি কৰিব = <strong>(X × Y) / (X + Y)</strong> দিনত।</p>
+                        <p class="text-emerald-700 font-bold mt-1">✔ উদাহৰণ: ১০ দিন আৰু ১৫ দিন হ'লে = (১০ × ১৫) / ২৫ = ৬ দিনত।</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- লক বক্স -->
+            <div id="locked-overlay-box" class="no-print bg-gradient-to-b from-amber-50 to-amber-100/70 border-2 border-amber-300 rounded-2xl p-6 text-center shadow-md">
+                <div class="w-12 h-12 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">গণিত আৰু ৰিজনিঙৰ সম্পূৰ্ণ চৰ্টকাট ই-বুকখন আনলক কৰক!</h3>
+                <p class="text-xs text-slate-600 max-w-md mx-auto mt-1 mb-5">
+                    Razorpay যোগে মাত্ৰ <strong>₹59</strong> পেমেণ্ট কৰক আৰু গতিবেগ, সৰল সুত, অনুপাত, ঘড়ী-কেলেণ্ডাৰ আৰু ৰিজনিঙৰ সকলো চৰ্টকাট লগে লগে আনলক কৰক।
+                </p>
+                <button onclick="payWithRazorpay()" class="bg-purple-700 hover:bg-purple-800 text-white text-sm font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition">
+                    <i class="fa-solid fa-shield-halved mr-2"></i> Pay ₹59 with Razorpay (Instant Unlock)
+                </button>
+            </div>
+
+            <!-- পেমেণ্টৰ পাছত আনলক হোৱা অংশ -->
+            <div id="premium-full-content" class="hidden space-y-4 text-xs">
+                <div class="border-b-2 border-emerald-800 pb-2">
+                    <h2 class="text-lg font-extrabold text-emerald-900">🚀 অধ্যায় ২: গতিবেগ, সৰল সুত আৰু ৰিজনিং মাষ্টাৰ ট্ৰিকছ</h2>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 avoid-break">
+                    <p class="font-extrabold text-sm text-emerald-950">🎯 চৰ্টকাট #৩: ৰে’লগাড়ী আৰু গতিবেগ (Train & Speed)</p>
+                    <p class="text-slate-700 mt-1">কি.মি./ঘণ্টাক মিটাৰ/ছেকেণ্ডলৈ নিবলৈ পোনপটীয়াকৈ <strong>৫ / ১৮</strong> ৰে পূৰণ কৰক। (উদাহৰণ: ৭২ × ৫/১৮ = ২০ মি./ছে.)।</p>
+                </div>
+                <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 avoid-break">
+                    <p class="font-extrabold text-sm text-rose-950">🎯 চৰ্টকাট #৪: ঘড়ীৰ কাঁটাৰ মাজৰ কোণ উলিওৱা সূত্র (Clock Angle)</p>
+                    <p class="text-slate-700 mt-1">কোণ = <strong>| 30×H - (11/2)×M |</strong> (উদাহৰণ: ৪ বাজি ২০ মিনিটত = |১২০ - ১১০| = ১০ ডিগ্ৰী)।</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const RAZORPAY_KEY_ID = "rzp_test_XXXXXXXXXXXXXX"; // ইয়াত তোমাৰ Razorpay Key ID দিবা
+
+        function checkUnlockState() {
+            if (localStorage.getItem('paid_ebook_maths') === 'true') {
+                document.getElementById('locked-overlay-box').classList.add('hidden');
+                document.getElementById('premium-full-content').classList.remove('hidden');
+                document.getElementById('lock-status-badge').innerText = "✔ ক্ৰয় কৰা হৈছে (Unlocked)";
+                document.getElementById('top-action-btn').innerHTML = `
+                    <button onclick="window.print()" class="bg-green-500 hover:bg-green-600 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                        <i class="fa-solid fa-file-pdf mr-1.5"></i> এতিয়া PDF ডাউনলোড কৰক
+                    </button>
+                `;
+            }
+        }
+
+        function payWithRazorpay() {
+            const options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": 59 * 100, // ₹59
+                "currency": "INR",
+                "name": "অসম এক্সাম হাব",
+                "description": "গণিত আৰু ৰিজনিং চৰ্টকাট ই-বুক",
+                "handler": function (response) {
+                    localStorage.setItem('paid_ebook_maths', 'true');
+                    checkUnlockState();
+                    alert("🎉 পেমেণ্ট সফল হ'ল! এতিয়া ওপৰৰ সেউজীয়া বাটামটো টিপি PDF ডাউনলোড কৰি লওক।");
+                },
+                "theme": { "color": "#6d28d9" }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        window.onload = checkUnlockState;
+    </script>
+</body>
+</html>
