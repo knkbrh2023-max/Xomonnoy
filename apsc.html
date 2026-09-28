@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APSC প্ৰিলিম্ছ ফাউণ্ডেশ্যন টেষ্ট ছিৰিজ | অসম এক্সাম হাব</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Noto Sans Assamese', sans-serif; background-color: #f8fafc; }
+        .apsc-hero { background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 65%, #0f172a 100%); }
+        .option-btn.selected { border-color: #7c3aed; background-color: #f5f3ff; font-weight: 700; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- NAVBAR -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-purple-700">
+                <i class="fa-solid fa-arrow-left text-sm mr-1"></i>
+                <div class="w-8 h-8 rounded-lg bg-purple-700 flex items-center justify-center text-white font-bold">অ</div>
+                <div>
+                    <h1 class="font-bold text-sm md:text-base leading-none">APSC CCE প্ৰিলিম্ছ ডেশ্বব’ৰ্ড</h1>
+                    <span class="text-[11px] text-slate-500">Statement-Based GS & Assam Studies</span>
+                </div>
+            </a>
+            <div id="vip-badge-area">
+                <button onclick="openUnlockModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow">
+                    <i class="fa-solid fa-lock-open mr-1"></i> আনলক কৰক (₹199)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="apsc-hero text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">APSC NEW PATTERN 2026</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold mt-2">APSC প্ৰিলিম্ছ ফাউণ্ডেশ্যন টেষ্ট ছিৰিজ (১২ টা মক টেষ্ট)</h2>
+                <p class="text-purple-200 text-xs md:text-sm mt-1">
+                    নতুন Statement-Based প্রশ্নোত্তৰ • অসম অধ্যয়ন, ভাৰতীয় ৰাজনীতি, অৰ্থনীতি আৰু কাৰেণ্ট এফেয়াৰ্ছ
+                </p>
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p id="stat-completed" class="text-2xl font-extrabold text-amber-300">0 / 12</p>
+                    <p class="text-[11px] text-purple-200">সম্পূৰ্ণ কৰা টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p id="stat-avg-acc" class="text-2xl font-extrabold text-green-300">0%</p>
+                    <p class="text-[11px] text-purple-200">গড় শুদ্ধতা</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <main id="bundle-dashboard" class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-3">📊 আপোনাৰ APSC GS পেপাৰ-১ বিশ্লেষণ</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="subject-progress-bars"></div>
+            </div>
+            <div class="bg-gradient-to-br from-purple-950 to-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded">BONUS NOTES</span>
+                    <h3 class="text-lg font-bold mt-2">অসম অধ্যয়ন আৰু বাজেট হাইলাইটছ ই-বুক</h3>
+                    <p class="text-xs text-purple-200 mt-1">APSC প্রিলিম্ছৰ বাবে চৰাইদেউ মৈদাম, ধ্ৰুপদী ভাষা আৰু চৰকাৰী আঁচনিৰ বিশেষ পিডিএফ।</p>
+                </div>
+                <a href="ebook_print.html" class="mt-4 bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-2.5 rounded-xl text-center block">
+                    নোটছখন পঢ়ক
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">🏛️ ১২ টা Statement-Based মক টেষ্ট (Mock #1 ফ্ৰী ডেমো)</h3>
+            <div id="mock-tests-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+    </main>
+
+    <!-- EXAM INTERFACE -->
+    <section id="exam-interface" class="hidden max-w-4xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
+            <div class="flex justify-between items-center pb-4 mb-4 border-b">
+                <span id="exam-q-subject" class="text-xs font-bold bg-purple-100 text-purple-800 px-2.5 py-1 rounded">Subject</span>
+                <span id="exam-q-number" class="text-xs font-bold text-slate-500">1 / 8</span>
+            </div>
+            <h4 id="exam-q-text" class="text-base font-bold text-slate-900 mb-5 whitespace-pre-line leading-relaxed"></h4>
+            <div id="exam-q-options" class="space-y-3 mb-6"></div>
+            <div class="flex justify-between pt-4 border-t">
+                <button onclick="prevExamQ()" class="px-4 py-2 text-xs font-bold bg-slate-100 rounded-xl">পূর্ববৰ্তী</button>
+                <button onclick="nextExamQ()" id="exam-next-btn" class="px-6 py-2.5 text-xs font-bold bg-purple-700 text-white rounded-xl">পৰৱৰ্তী</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="exam-result-screen" class="hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border p-6">
+            <h3 class="text-xl font-bold text-center mb-4">আপোনাৰ APSC মক টেষ্ট ফলাফল: <span id="res-final-score" class="text-purple-700"></span></h3>
+            <div id="res-solutions-list" class="space-y-3 max-h-96 overflow-y-auto mb-6"></div>
+            <div class="text-center">
+                <button onclick="exitExamToDashboard()" class="bg-purple-700 text-white text-xs font-bold px-6 py-2.5 rounded-xl">ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNLOCK MODAL -->
+    <div id="unlock-modal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+            <button onclick="document.getElementById('unlock-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold">APSC টেষ্ট ছিৰিজ আনলক কৰক (₹199)</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-4">আপুনি পোৱা ৪-অংকৰ আনলক পিনটো দিয়ক (টেষ্টিং পিন: 2026):</p>
+            <div class="flex gap-2">
+                <input type="text" id="pin-input" placeholder="2026" class="w-full border rounded-xl px-3 py-2 text-center font-bold">
+                <button onclick="verifyPin()" class="bg-purple-700 text-white text-xs font-bold px-5 py-2 rounded-xl">আনলক</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apscQuestions = [
+            {
+                subject: "অসম অধ্যয়ন (Assam Studies)",
+                q: "চৰাইদেউ মৈদাম সন্দৰ্ভত তলৰ উক্তিসমূহ বিবেচনা কৰক:\n১. ই আহোম ৰাজবংশৰ ৰাজকীয় সমাধি ক্ষেত্ৰ আছিল।\n২. ২০২৪ চনত ই উত্তৰ-পূব ভাৰতৰ প্ৰথমটো সাংস্কৃতিক বিশ্ব ঐতিহ্য ক্ষেত্ৰ (Cultural World Heritage Site) হিচাপে স্বীকৃতি পায়।\nকোনটো উক্তি শুদ্ধ?",
+                options: ["কেৱল ১ শুদ্ধ", "কেৱল ২ শুদ্ধ", "১ আৰু ২ দুয়োটা শুদ্ধ", "এটাও শুদ্ধ নহয়"],
+                ans: 2,
+                exp: "দুয়োটা উক্তিয়েই শুদ্ধ। কাজিৰঙা আৰু মানস প্ৰাকৃতিক ঐতিহ্য ক্ষেত্ৰ আছিল, কিন্তু চৰাইদেউ মৈদাম হ'ল উত্তৰ-পূবৰ প্ৰথমটো সাংস্কৃতিক বিশ্ব ঐতিহ্য ক্ষেত্ৰ।"
+            },
+            {
+                subject: "অসম অধ্যয়ন (Assam Studies)",
+                q: "প্ৰাচীন কামৰূপৰ বৰ্মন বংশ সন্দৰ্ভত কোনটো তথ্য শুদ্ধ?\n১. পুষ্যবৰ্মন এই বংশৰ প্ৰতিষ্ঠাপক আছিল।\n২. কুমাৰ ভাস্কৰবৰ্মন সম্ৰাট হৰ্ষবৰ্ধনৰ সমসাময়িক আছিল।",
+                options: ["কেৱল ১", "কেৱল ২", "১ আৰু ২ দুয়োটা", "এটাও নহয়"],
+                ans: 2,
+                exp: "পুষ্যবৰ্মনে ৩৫০ খ্ৰীঃত বৰ্মন বংশ প্রতিষ্ঠা কৰিছিল আৰু ভাস্কৰবৰ্মন হৰ্ষবৰ্ধনৰ মিত্ৰ তথা সমসাময়িক আছিল।"
+            },
+            {
+                subject: "ভাৰতীয় ৰাজনীতি (Indian Polity)",
+                q: "ভাৰতীয় সংবিধানৰ ষষ্ঠ অনুসূচীয়ে (Sixth Schedule) কোনকেইখন ৰাজ্যৰ জনজাতীয় অঞ্চলৰ প্ৰশাসন সামৰি লয়?",
+                options: ["অসম, মেঘালয়, ত্ৰিপুৰা আৰু মিজোৰাম", "অসম, নাগালেণ্ড, মণিপুৰ আৰু অৰুণাচল", "অসম, ছিকিম, মেঘালয় আৰু মিজোৰাম", "উত্তৰ-পূবৰ আটাইকেইখন ৰাজ্য"],
+                ans: 0,
+                exp: "সংবিধানৰ ষষ্ঠ অনুসূচীয়ে কেৱল ৪ খন ৰাজ্য সামৰি লয়—অসম, মেঘালয়, ত্ৰিপুৰা আৰু মিজোৰাম ( চমুকৈ AMTM)।"
+            },
+            {
+                subject: "অৰ্থনীতি আৰু আঁচনি (Economy)",
+                q: "অসমীয়া ভাষাই লাভ কৰা 'ধ্ৰুপদী ভাষা' (Classical Language) মৰ্যাদা সন্দৰ্ভত কোন চনত কেন্দ্ৰীয় কেবিনেটে অনুমোদন জনায়?",
+                options: ["২০২২ চনত", "২০২৩ চনত", "২০২৪ চনত", "২০২৫ চনত"],
+                ans: 2,
+                exp: "২০২৪ চনৰ অক্টোবৰ মাহত অসমীয়া ভাষাক ধ্ৰুপদী ভাষাৰ স্বীকৃতি প্ৰদান কৰা হয়।"
+            }
+        ];
+
+        const topics = [
+            "GS Paper-I Full Mock #1 (Free Demo)", "Assam History Statement Special", "Indian Polity & Governance",
+            "Assam Geography & Ecology", "Indian Economy & Assam Budget", "Art, Culture & Literature of Assam",
+            "Science, Tech & Environment", "Assam Current Affairs Round-up", "APSC PYQ Analysis Test",
+            "Full Length GS Mock #10", "Full Length GS Mock #11", "Grand Prelims Final Test #12"
+        ];
+
+        let currIdx = 0, userAns = [];
+
+        function isUnlocked() { return localStorage.getItem('unlocked_apsc') === 'true'; }
+        function openUnlockModal() { document.getElementById('unlock-modal').classList.remove('hidden'); }
+        function verifyPin() {
+            if (document.getElementById('pin-input').value.trim() === '2026') {
+                localStorage.setItem('unlocked_apsc', 'true');
+                document.getElementById('unlock-modal').classList.add('hidden');
+                renderDashboard();
+                alert("🎉 APSC টেষ্ট ছিৰিজ সফলভাৱে আনলক হ'ল!");
+            }
+        }
+
+        function renderDashboard() {
+            const unlocked = isUnlocked();
+            const grid = document.getElementById('mock-tests-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 12; i++) {
+                const canPlay = (i === 1) || unlocked;
+                grid.innerHTML += `
+                    <div class="bg-white p-4 rounded-2xl border ${i===1 ? 'border-purple-400' : 'border-slate-200'} shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold ${i===1 ? 'bg-green-100 text-green-700' : 'bg-purple-50 text-purple-700'} px-2 py-0.5 rounded">${i===1 ? 'FREE DEMO' : 'STATEMENT BASED'}</span>
+                            <h4 class="font-bold text-sm mt-2">APSC Prelims Mock #${i}</h4>
+                            <p class="text-xs text-purple-700 mt-0.5">${topics[i-1]}</p>
+                        </div>
+                        <button onclick="${canPlay ? `startTest()` : `openUnlockModal()`}" class="w-full mt-4 ${canPlay ? 'bg-purple-700 text-white' : 'bg-slate-900 text-amber-400'} text-xs font-bold py-2.5 rounded-xl">
+                            ${canPlay ? 'টেষ্ট আৰম্ভ কৰক' : '🔒 আনলক কৰক (₹199)'}
+                        </button>
+                    </div>
+                `;
+            }
+
+            const bars = document.getElementById('subject-progress-bars');
+            bars.innerHTML = ["অসম অধ্যয়ন (Assam Studies)", "ভাৰতীয় ৰাজনীতি (Indian Polity)", "অৰ্থনীতি আৰু আঁচনি (Economy)"].map(s => `
+                <div class="p-3 rounded-xl bg-slate-50 border text-xs font-bold">${s} <span class="float-right text-purple-700">সক্ৰিয়</span></div>
+            `).join('');
+        }
+
+        function startTest() {
+            currIdx = 0; userAns = new Array(apscQuestions.length).fill(null);
+            document.getElementById('bundle-dashboard').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            renderQ();
+        }
+
+        function renderQ() {
+            const q = apscQuestions[currIdx];
+            document.getElementById('exam-q-subject').innerText = q.subject;
+            document.getElementById('exam-q-number').innerText = `${currIdx + 1} / ${apscQuestions.length}`;
+            document.getElementById('exam-q-text').innerText = q.q;
+            document.getElementById('exam-q-options').innerHTML = q.options.map((o, i) => `
+                <button onclick="userAns[${currIdx}]=${i};renderQ()" class="option-btn ${userAns[currIdx]===i?'selected':''} w-full text-left p-3.5 rounded-xl border text-sm">${o}</button>
+            `).join('');
+            document.getElementById('exam-next-btn').innerText = currIdx === apscQuestions.length - 1 ? 'চাবমিট কৰক' : 'পৰৱৰ্তী';
+        }
+
+        function prevExamQ() { if (currIdx > 0) { currIdx--; renderQ(); } }
+        function nextExamQ() { if (currIdx < apscQuestions.length - 1) { currIdx++; renderQ(); } else { finishTest(); } }
+
+        function finishTest() {
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            let score = 0;
+            const sol = document.getElementById('res-solutions-list');
+            sol.innerHTML = '';
+            apscQuestions.forEach((q, i) => {
+                if (userAns[i] === q.ans) score += 2;
+                sol.innerHTML += `<div class="p-3 bg-slate-50 rounded-xl border text-xs"><strong>প্রশ্ন ${i+1}:</strong> শুদ্ধ উত্তৰ: ${q.options[q.ans]}<br><span class="text-slate-600">${q.exp}</span></div>`;
+            });
+            document.getElementById('res-final-score').innerText = `${score} / ${apscQuestions.length * 2}`;
+        }
+
+        function exitExamToDashboard() {
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('bundle-dashboard').classList.remove('hidden');
+        }
+
+        window.onload = renderDashboard;
+    </script>
+</body>
+</html>
