@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল | অসম এক্সাম হাব</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Noto Sans Assamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .adre-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+        }
+        .option-btn.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ================= 1. TOP NAVBAR ================= -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-blue-600">
+                <i class="fa-solid fa-arrow-left text-sm mr-1"></i>
+                <div class="w-8 h-8 rounded-lg bg-blue-700 flex items-center justify-center text-white font-bold">অ</div>
+                <div>
+                    <h1 class="font-bold text-sm md:text-base leading-none">ADRE 3.0 মাষ্টাৰ ডেশ্বব’ৰ্ড</h1>
+                    <span class="text-[11px] text-slate-500">Grade III & Grade IV Complete Bundle</span>
+                </div>
+            </a>
+
+            <div id="vip-badge-area">
+                <button onclick="openUnlockModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-lock-open mr-1.5"></i> সম্পূৰ্ণ বাণ্ডিল আনলক কৰক (₹99)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. BUNDLE HEADER & SUMMARY ================= -->
+    <section class="adre-hero text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">BESTSELLER PACK</span>
+                    <span class="bg-blue-500/30 border border-blue-400/30 text-blue-100 text-xs px-2.5 py-0.5 rounded">নতুন ছিলেবাছ ২০২৬</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold">ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল (Grade III & IV)</h2>
+                <p class="text-blue-100 text-xs md:text-sm mt-1">
+                    ২০ টা Full-Length মক টেষ্ট • অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী • স্বয়ংক্ৰিয় Weak-Topic ৰিপ'ৰ্ট + ফ্ৰী ই-বুক
+                </p>
+            </div>
+
+            <!-- Bundle Progress Mini Card -->
+            <div class="bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p id="stat-completed" class="text-2xl font-extrabold text-amber-300">0 / 20</p>
+                    <p class="text-[11px] text-blue-200">সম্পূৰ্ণ কৰা টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p id="stat-avg-acc" class="text-2xl font-extrabold text-green-300">0%</p>
+                    <p class="text-[11px] text-blue-200">গড় শুদ্ধতা (Accuracy)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. MAIN BUNDLE DASHBOARD ================= -->
+    <main id="bundle-dashboard" class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- SECTION A: WEAK-TOPIC REPORT + FREE EBOOK BONUS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Weak-Topic Report Card (Takes 2 columns) -->
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase text-blue-600">Smart Analytics</span>
+                        <h3 class="text-lg font-bold text-slate-900">📊 আপোনাৰ বিষয়ভিত্তিক Weak-Topic ৰিপ’ৰ্ট</h3>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded font-semibold">Live Tracker</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="subject-progress-bars">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <div id="weak-advice-banner" class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium">
+                    💡 <strong>পৰামৰ্শ:</strong> যিকোনো এটা মক টেষ্ট দিয়ক—ইয়াত আপোনাৰ কোনটো বিষয়ত কিমান দখল আছে আৰু ক'ত অধিক মনোযোগ দিব লাগিব সেয়া স্বয়ংক্ৰিয়ভাৱে ওলাই পৰিব।
+                </div>
+            </div>
+
+            <!-- Free Ebook Included Card -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between border border-slate-700">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-amber-400 text-slate-950 text-[11px] font-extrabold px-2.5 py-0.5 rounded">FREE BONUS INCLUDED</span>
+                        <i class="fa-solid fa-book-open text-amber-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">অসম সাধাৰণ জ্ঞান ১০০০+ MCQ ই-বুক</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        এই ADRE বাণ্ডিলটোৰ সৈতে ₹49 মূল্যৰ আমাৰ বেষ্টছেলাৰ ই-বুকখন সম্পূর্ণ বিনামূলীয়াকৈ অন্তৰ্ভুক্ত কৰা হৈছে।
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-700">
+                    <button onclick="accessFreeEbook()" id="ebook-access-btn" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-3 rounded-xl shadow flex items-center justify-center transition">
+                        <i class="fa-solid fa-file-pdf mr-2 text-sm"></i> ই-বুকখন পঢ়ক / ডাউনলোড কৰক
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION B: 20 FULL-LENGTH MOCK TESTS GRID -->
+        <div>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-2">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">📝 ২০ টা Full-Length ADRE মক টেষ্ট ছিৰিজ</h3>
+                    <p class="text-xs text-slate-500">প্ৰতিটো টেষ্টত অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজীৰ নিৰ্বাচিত প্রশ্ন অন্তৰ্ভুক্ত আছে (মক টেষ্ট #1 সকলোৰে বাবে ফ্ৰী)</p>
+                </div>
+                <div class="flex gap-2 text-xs font-semibold">
+                    <span class="px-3 py-1 rounded-full bg-green-100 text-green-700">● ফ্ৰী ডেমো: ১ টা</span>
+                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700">● প্ৰিমিয়াম: ১৯ টা</span>
+                </div>
+            </div>
+
+            <!-- 20 Mock Tests Container -->
+            <div id="mock-tests-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Dynamically generated 20 Mock Test Cards -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= 4. ACTIVE EXAM INTERFACE (HIDDEN UNTIL TEST STARTS) ================= -->
+    <section id="exam-interface" class="hidden max-w-5xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            
+            <!-- Exam Top Bar -->
+            <div class="bg-slate-900 text-white p-4 flex flex-wrap justify-between items-center gap-3">
+                <div>
+                    <span id="active-test-title" class="font-bold text-base">ADRE Full Mock Test #1</span>
+                    <p class="text-[11px] text-slate-400">Negative Marking: -0.25 | সঠিক উত্তৰ: +1.00</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-500/20 border border-red-400/40 text-red-200 px-3 py-1.5 rounded-xl text-sm font-extrabold flex items-center">
+                        <i class="fa-regular fa-clock mr-1.5"></i> <span id="exam-timer">15:00</span>
+                    </div>
+                    <button onclick="submitActiveExam()" class="bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow">
+                        চাবমিট কৰক
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subject Filter Tabs Inside Exam -->
+            <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex flex-wrap gap-2" id="exam-subject-tabs">
+                <!-- Subject pills rendered dynamically -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <!-- Left 2 Columns: Question & Options -->
+                <div class="md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-slate-200">
+                    <div class="flex justify-between items-center mb-3">
+                        <span id="exam-q-subject" class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-1 rounded">অসম জি.কে.</span>
+                        <span id="exam-q-number" class="text-xs font-bold text-slate-500">প্রশ্ন 1 / 20</span>
+                    </div>
+
+                    <h4 id="exam-q-text" class="text-base md:text-lg font-bold text-slate-900 mb-6 leading-relaxed">
+                        প্রশ্ন লোড হৈ আছে...
+                    </h4>
+
+                    <div id="exam-q-options" class="space-y-3 mb-6"></div>
+
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button onclick="prevExamQ()" id="exam-prev-btn" class="px-4 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> পূর্ববৰ্তী
+                        </button>
+                        <button onclick="clearResponse()" class="px-3 py-2 text-xs font-semibold text-slate-500 hover:text-red-600">
+                            উত্তৰ মচক (Clear)
+                        </button>
+                        <button onclick="nextExamQ()" id="exam-next-btn" class="px-5 py-2.5 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow">
+                            পৰৱৰ্তী <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: OMR Question Palette -->
+                <div class="p-5 bg-slate-50 flex flex-col justify-between">
+                    <div>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase mb-3">OMR প্রশ্ন পেলেট (Question Palette)</h5>
+                        <div id="omr-palette" class="grid grid-cols-5 gap-2 mb-6"></div>
+                    </div>
+
+                    <div class="space-y-2 border-t border-slate-200 pt-4 text-xs">
+                        <div class="flex items-center justify-between text-slate-600">
+                            <span>🟢 উত্তৰ দিয়া হৈছে:</span>
+                            <span id="pal-answered" class="font-bold text-slate-900">0</span>
+                        </div>
+                        <div class="flex items-center justify-between text-slate-600">
+                            <span>⚪ বাকি আছে:</span>
+                            <span id="pal-unanswered" class="font-bold text-slate-900">0</span>
+                        </div>
+                        <button onclick="exitExamToDashboard()" class="w-full mt-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2 rounded-xl text-xs">
+                            ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 5. EXAM RESULT & SOLUTION MODAL ================= -->
+    <section id="exam-result-screen" class="hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
+            <div class="text-center border-b border-slate-200 pb-6">
+                <div class="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-2xl mx-auto mb-3">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h3 id="res-test-name" class="text-2xl font-extrabold text-slate-900">মক টেষ্টৰ ফলাফল</h3>
+                <p class="text-xs text-slate-500 mt-1">নেগেটিভ মাৰ্কিং (-0.25) বাদ দি আপোনাৰ চূড়ান্ত স্ক’ৰ</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto mt-6">
+                    <div class="bg-blue-50 p-3 rounded-xl border border-blue-200">
+                        <p class="text-[11px] text-blue-700 font-semibold">চূড়ান্ত স্ক’ৰ</p>
+                        <p id="res-final-score" class="text-xl font-extrabold text-blue-900">0</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+                        <p class="text-[11px] text-green-700 font-semibold">শুদ্ধ উত্তৰ</p>
+                        <p id="res-correct" class="text-xl font-extrabold text-green-700">0</p>
+                    </div>
+                    <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                        <p class="text-[11px] text-red-700 font-semibold">ভুল উত্তৰ</p>
+                        <p id="res-wrong" class="text-xl font-extrabold text-red-600">0</p>
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        <p class="text-[11px] text-amber-800 font-semibold">শুদ্ধতা (Accuracy)</p>
+                        <p id="res-acc" class="text-xl font-extrabold text-amber-600">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Solutions -->
+            <h4 class="font-bold text-base text-slate-900 my-4">উত্তৰ আৰু বিতং অসমীয়া ব্যাখ্যা:</h4>
+            <div id="res-solutions-list" class="space-y-3 max-h-96 overflow-y-auto pr-1 mb-6"></div>
+
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="exitExamToDashboard()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-6 py-3 rounded-xl shadow">
+                    <i class="fa-solid fa-table-columns mr-1.5"></i> ADRE ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. VIP UNLOCK MODAL (₹99 PAYMENT + PIN) ================= -->
+    <div id="unlock-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
+            <button onclick="closeUnlockModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-2.5 py-1 rounded">ADRE FULL BUNDLE • ₹99</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">২০ টা মক টেষ্ট + ফ্ৰী ই-বুক আনলক কৰক</h3>
+            <p class="text-xs text-slate-600 mt-1">এবাৰ আনলক কৰিলেই ১ বছৰৰ বাবে সকলো মক টেষ্ট দি থাকিব পাৰিব।</p>
+
+            <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-3">
+                <p class="font-bold text-slate-800">ধাপ ১: WhatsApp-ত ₹99 পেমেণ্ট কৰি Unlock PIN লওক</p>
+                <button onclick="orderBundleOnWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl flex items-center justify-center shadow transition">
+                    <i class="fa-brands fa-whatsapp text-base mr-2"></i> WhatsApp-ত মেছেজ দি PIN লওক
+                </button>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-200">
+                <label class="block text-xs font-bold text-slate-800 mb-1.5">ধাপ ২: আপুনি পোৱা ৪-অংকৰ VIP PIN টো দিয়ক:</label>
+                <div class="flex gap-2">
+                    <input type="text" id="bundle-pin-input" placeholder="PIN (উদাহৰণ: 2026)" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-center tracking-widest focus:outline-none focus:border-blue-600">
+                    <button onclick="verifyBundlePin()" class="shrink-0 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2 rounded-xl shadow">
+                        আনলক কৰক
+                    </button>
+                </div>
+                <p id="bundle-pin-err" class="text-xs text-red-600 font-semibold mt-1.5 hidden">✖ ভুল পিন! অনুগ্ৰহ কৰি সঠিক পিন দিয়ক।</p>
+                <p class="text-[11px] text-slate-400 mt-2">*(টেষ্টিঙৰ বাবে আপুনি এতিয়া <strong>2026</strong> দি আনলক কৰি চাব পাৰে)*</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ENGINE FOR ADRE BUNDLE ================= -->
+    <script>
+        const ADMIN_WHATSAPP = "91XXXXXXXXXX"; // আপোনাৰ নিজৰ হোৱাটছএপ নম্বৰ ইয়াত দিব
+        const VIP_PIN = "2026";                // আপোনাৰ গোপন আনলক পিন
+
+        // ৪ টা মূল বিষয়ৰ প্রশ্নবেংক (অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী)
+        const adreMasterQuestions = [
+            // Subject 1: অসম জি.কে. (Assam GK)
+            { subject: "অসম জি.কে.", q: "চৰাইদেউ মৈদামক কোন চনত ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি দিয়া হয়?", options: ["২০২২ চনত", "২০২৩ চনত", "২০২৪ চনত", "২০২৫ চনত"], ans: 2, exp: "২০২৪ চনৰ জুলাই মাহত চৰাইদেউ মৈদামক ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি দিয়া হয়।" },
+            { subject: "অসম জি.কে.", q: "অসমীয়া ভাষাক ভাৰত চৰকাৰে কোন চনত 'ধ্ৰুপদী ভাষা' (Classical Language) হিচাপে মৰ্যাদা প্ৰদান কৰে?", options: ["২০২০ চনত", "২০২২ চনত", "২০২৪ চনত", "২০২১ চনত"], ans: 2, exp: "২০২৪ চনৰ অক্টোবৰ মাহত অসমীয়া ভাষাক ধ্ৰুপদী ভাষাৰ মৰ্যাদা প্ৰদান কৰা হয়।" },
+            { subject: "অসম জি.কে.", q: "শৰাইঘাটৰ ঐতিহাসিক যুদ্ধ কোন চনত সংঘটিত হৈছিল?", options: ["১৬৬২ চনত", "১৬৭১ চনত", "১৬৮২ চনত", "১৬১৫ চনত"], ans: 1, exp: "১৬৭১ চনত লাচিত বৰফুকনৰ নেতৃত্বত শৰাইঘাটৰ যুদ্ধ সংঘটিত হৈছিল।" },
+            { subject: "অসম জি.কে.", q: "অসমৰ ষষ্ঠখন ৰাষ্ট্ৰীয় উদ্যান কোনখন?", options: ["দিহিং পাটকাই", "ৰাইমনা ৰাষ্ট্ৰীয় উদ্যান", "ওৰাং", "নামেৰি"], ans: 1, exp: "কোকৰাঝাৰ জিলাৰ ৰাইমনা ৰাষ্ট্ৰীয় উদ্যান অসমৰ ষষ্ঠখন ৰাষ্ট্ৰীয় উদ্যান (২০২১)।" },
+            { subject: "অসম জি.কে.", q: "জ্ঞানপীঠ বঁটা লাভ কৰা প্ৰথমগৰাকী অসমীয়া সাহিত্যিক কোন?", options: ["লক্ষ্মীনাথ বেজবৰুৱা", "ড° বীৰেন্দ্ৰ কুমাৰ ভট্টাচাৰ্য", "মামণি ৰয়ছম গোস্বামী", "নীলমণি ফুকন"], ans: 1, exp: "ড° বীৰেন্দ্ৰ কুমাৰ ভট্টাচাৰ্যই ১৯৭৯ চনত 'মৃত্যুঞ্জয়' উপন্যাসৰ বাবে প্ৰথম জ্ঞানপীঠ বঁটা লাভ কৰিছিল।" },
+
+            // Subject 2: গণিত (Mathematics)
+            { subject: "গণিত", q: "যদি এখন কিতাপ ₹২০০ টকাত কিনি ₹২৫০ টকাত বিক্ৰী কৰা হয়, তেন্তে লাভৰ শতকৰা হাৰ কিমান?", options: ["২০%", "২৫%", "৩০%", "১৫%"], ans: 1, exp: "লাভ = ৫০ টকা। শতকৰা লাভ = (৫০ / ২০০) × ১০০ = ২৫%।" },
+            { subject: "গণিত", q: "বাৰ্ষিক ১০% সৰল সুতৰ হাৰত ₹১,৫০০ টকাৰ ৪ বছৰৰ সৰল সুত কিমান হ'ব?", options: ["₹৪৫০", "₹৬০০", "₹৫০০", "₹৭৫০"], ans: 1, exp: "SI = (১৫০০ × ৪ × ১০) / ১০০ = ₹৬০০।" },
+            { subject: "গণিত", q: "দুটা সংখ্যাৰ অনুপাত ৩:৫ আৰু সিহঁতৰ যোগফল ২৪০ হ'লে ডাঙৰ সংখ্যাটো কিমান?", options: ["৯০", "১২০", "১৫০", "১৮০"], ans: 2, exp: "যোগফল অনুপাত = ৮। ডাঙৰ সংখ্যাটো = (৫/৮) × ২৪০ = ১৫০।" },
+            { subject: "গণিত", q: "এখন ৰে'লগাড়ীয়ে ঘণ্টাত ৭২ কি.মি. বেগত গতি কৰিলে প্ৰতি ছেকেণ্ডত কিমান মিটাৰ যাব?", options: ["১৫ মি./ছে.", "২০ মি./ছে.", "২৫ মি./ছে.", "১৮ মি./ছে."], ans: 1, exp: "৭২ × (৫/১৮) = ২০ মিটাৰ/ছেকেণ্ড।" },
+            { subject: "গণিত", q: "প্রথম ৫ টা মৌলিক সংখ্যাৰ (Prime Numbers) যোগফল কিমান?", options: ["১৮", "২৬", "২৮", "২৯"], ans: 2, exp: "প্রথম ৫ টা মৌলিক সংখ্যা হ'ল: ২ + ৩ + ৫ + ৭ + ১১ = ২৮।" },
+
+            // Subject 3: ৰিজনিং (Reasoning)
+            { subject: "ৰিজনিং", q: "শৃংখলাটো সম্পূৰ্ণ কৰক: ২, ৬, ১২, ২০, ৩০, ?", options: ["৩৮", "৪০", "৪২", "৪৪"], ans: 2, exp: "পাৰ্থক্যবোৰ ক্ৰমে +৪, +৬, +৮, +১০, +১২ হৈ বাঢ়ি গৈছে। গতিকে ৩০ + ১২ = ৪২।" },
+            { subject: "ৰিজনিং", q: "যদি 'ASSAM'-ক ক'ড ভাষাত 'BTTBN' লিখা হয়, তেন্তে 'INDIA'-ক কি লিখা হ'ব?", options: ["JOEJB", "JNEJB", "HMCGZ", "JOEIB"], ans: 0, exp: "প্ৰতিটো আখৰৰ লগত +1 যোগ কৰা হৈছে: I->J, N->O, D->E, I->J, A->B = JOEJB।" },
+            { subject: "ৰিজনিং", q: "তলৰ চাৰিটা শব্দৰ ভিতৰত অমিল (Odd one out) শব্দটো বাছি উলিওৱা:", options: ["কাজিৰঙা", "মানস", "চৰাইদেউ মৈদাম", "ওৰাং"], ans: 2, exp: "কাজিৰঙা, মানস আৰু ওৰাং হ'ল ৰাষ্ট্ৰীয় উদ্যান, কিন্তু চৰাইদেউ মৈদাম হ'ল ঐতিহাসিক সমাধি ক্ষেত্ৰ।" },
+            { subject: "ৰিজনিং", q: "ৰিণ্টুৱে উত্তৰ দিশে ৫ কি.মি. গৈ সোঁফালে ঘূৰি ৩ কি.মি. গ'ল। এতিয়া সি কোন দিশমুখী হৈ আছে?", options: ["উত্তৰ", "দক্ষিণ", "পূব", "পশ্চিম"], ans: 2, exp: "উত্তৰ দিশে গৈ সোঁফালে ঘূৰিলে পূব (East) দিশ পোৱা যায়।" },
+
+            // Subject 4: ইংৰাজী (General English)
+            { subject: "ইংৰাজী", q: "Choose the correct preposition: 'He died _____ malaria.'", options: ["from", "of", "by", "with"], ans: 1, exp: "বেমাৰত মৃত্যু হ'লে 'died of' ব্যৱহাৰ কৰা হয় (যেনে: He died of malaria)।" },
+            { subject: "ইংৰাজী", q: "Select the correct synonym of the word 'ABUNDANT':", options: ["Scarce", "Plentiful", "Rare", "Small"], ans: 1, exp: "'Abundant' মানে প্ৰচুৰ বা যথেষ্ট। ইয়াৰ সমাৰ্থক শব্দ হ'ল 'Plentiful'।" },
+            { subject: "ইংৰাজী", q: "Choose the correct passive voice: 'She writes a letter.'", options: ["A letter was written by her.", "A letter is written by her.", "A letter is being written by her.", "A letter has been written by her."], ans: 1, exp: "Present Indefinite Tense-ৰ Passive গঠন হ'ল: Object + is/am/are + V3 + by + Subject।" },
+            { subject: "ইংৰাজী", q: "Fill in the blank: 'Honesty is _____ best policy.'", options: ["a", "an", "the", "no article"], ans: 2, exp: "Superlative degree ('best')-ৰ আগত সদায় 'the' বহে।" }
+        ];
+
+        const mockTopics = [
+            "Full Syllabus Test #1 (Demo)", "Assam History & Culture Special", "General Maths & Arithmetic",
+            "Assam Geography & Environment", "Logical Reasoning & Mental Ability", "General English Grammar",
+            "ADRE Grade-III Previous Year Paper", "ADRE Grade-IV Previous Year Paper", "Indian Polity & Economy",
+            "General Science & Everyday Tech", "Current Affairs (Assam & India)", "Full Syllabus Speed Test #12",
+            "High-Scoring Assam GK Booster", "Quantitative Aptitude Special", "Reading Comprehension & Vocab",
+            "Full Syllabus OMR Mock #16", "Full Syllabus OMR Mock #17", "Full Syllabus OMR Mock #18",
+            "Final Revision Mock #19", "Grand Final Mega Mock #20"
+        ];
+
+        let activeTestNumber = 1;
+        let currentExamQuestions = [];
+        let currentQIndex = 0;
+        let examUserAnswers = [];
+        let examTimerInterval;
+        let examSecondsLeft = 900;
+
+        // ১. যদি questions.json থাকে তেন্তে তাৰ প্রশ্নবোৰো অসম জি.কে. অংশত যোগ কৰি লোৱা
+        async function loadExtraQuestions() {
+            try {
+                const res = await fetch('questions.json?t=' + new Date().getTime());
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.questions) {
+                        data.questions.forEach(item => {
+                            adreMasterQuestions.push({
+                                subject: "অসম জি.কে.",
+                                q: item.q,
+                                options: item.options,
+                                ans: item.ans,
+                                exp: item.exp
+                            });
+                        });
+                    }
+                }
+            } catch (e) {
+                console.log("Using built-in ADRE question pool.");
+            }
+            renderDashboard();
+        }
+
+        function isBundleUnlocked() {
+            return localStorage.getItem('unlocked_adre') === 'true' || localStorage.getItem('unlocked_all') === 'true';
+        }
+
+        // ২. ২০ টা মক টেষ্ট কাৰ্ড আৰু Weak-Topic গ্রাফ ডেশ্বব'ৰ্ডত দেখুওৱা
+        function renderDashboard() {
+            const unlocked = isBundleUnlocked();
+            const badgeArea = document.getElementById('vip-badge-area');
+            if (unlocked) {
+                badgeArea.innerHTML = `<span class="bg-green-100 text-green-800 text-xs font-extrabold px-3 py-1.5 rounded-xl border border-green-300"><i class="fa-solid fa-circle-check mr-1"></i> VIP UNLOCKED (20/20 Tests)</span>`;
+            }
+
+            // ২০ খন মক টেষ্ট কাৰ্ড তৈয়াৰ কৰা
+            const grid = document.getElementById('mock-tests-grid');
+            grid.innerHTML = '';
+            const savedScores = JSON.parse(localStorage.getItem('adre_mock_scores') || '{}');
+            const completedCount = Object.keys(savedScores).length;
+            document.getElementById('stat-completed').innerText = `${completedCount} / 20`;
+
+            for (let i = 1; i <= 20; i++) {
+                const isFree = (i === 1);
+                const canAccess = isFree || unlocked;
+                const prevScore = savedScores[i];
+
+                let badgeHtml = isFree 
+                    ? `<span class="bg-green-100 text-green-700 text-[10px] font-extrabold px-2 py-0.5 rounded">FREE DEMO</span>`
+                    : (unlocked ? `<span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded">UNLOCKED</span>` : `<span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded"><i class="fa-solid fa-lock mr-1"></i>LOCKED</span>`);
+
+                let scoreHtml = prevScore !== undefined 
+                    ? `<p class="text-xs font-bold text-green-600 mt-2">✔ পূর্বৰ স্ক’ৰ: ${prevScore}</p>`
+                    : `<p class="text-[11px] text-slate-400 mt-2">সময়: ১৫ মিনিট • ৪ টা বিষয়</p>`;
+
+                let btnHtml = canAccess
+                    ? `<button onclick="launchMockTest(${i})" class="w-full mt-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl shadow-sm transition">${prevScore !== undefined ? 'পুনৰ টেষ্ট দিয়ক' : 'টেষ্ট আৰম্ভ কৰক'}</button>`
+                    : `<button onclick="openUnlockModal()" class="w-full mt-3 bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold py-2.5 rounded-xl transition"><i class="fa-solid fa-lock mr-1"></i> আনলক কৰক (₹99)</button>`;
+
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border ${isFree ? 'border-green-300' : 'border-slate-200'} p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-extrabold text-slate-400">TEST #${String(i).padStart(2, '0')}</span>
+                                ${badgeHtml}
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">ADRE Mock Test ${i}</h4>
+                            <p class="text-xs text-blue-600 font-medium mt-0.5">${mockTopics[i - 1]}</p>
+                            ${scoreHtml}
+                        </div>
+                        ${btnHtml}
+                    </div>
+                `;
+            }
+
+            renderWeakTopicReport();
+        }
+
+        // ৩. বিষয়ভিত্তিক Weak-Topic ৰিপ'ৰ্ট গণনা আৰু প্রদর্শন
+        function renderWeakTopicReport() {
+            const subStats = JSON.parse(localStorage.getItem('adre_subject_stats') || '{}');
+            const subjects = ["অসম জি.কে.", "গণিত", "ৰিজনিং", "ইংৰাজী"];
+            const container = document.getElementById('subject-progress-bars');
+            container.innerHTML = '';
+
+            let totalCorrect = 0;
+            let totalAttempted = 0;
+            let weakestSub = null;
+            let lowestAcc = 101;
+
+            subjects.forEach(sub => {
+                const st = subStats[sub] || { correct: 0, total: 0 };
+                totalCorrect += st.correct;
+                totalAttempted += st.total;
+                const acc = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+
+                if (st.total > 0 && acc < lowestAcc) {
+                    lowestAcc = acc;
+                    weakestSub = sub;
+                }
+
+                let barColor = acc >= 70 ? 'bg-green-500' : (acc >= 45 ? 'bg-amber-500' : 'bg-red-500');
+                if (st.total === 0) barColor = 'bg-slate-300';
+
+                container.innerHTML += `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-slate-800">${sub}</span>
+                            <span class="text-slate-600">${st.total > 0 ? acc + '%' : 'অনুশীলন বাকি'}</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="${barColor} h-full transition-all" style="width: ${st.total > 0 ? acc : 8}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const overallAcc = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+            document.getElementById('stat-avg-acc').innerText = `${overallAcc}%`;
+
+            const adviceBox = document.getElementById('weak-advice-banner');
+            if (weakestSub) {
+                adviceBox.innerHTML = `⚠️ <strong>Weak-Topic চিনাক্তকৰণ:</strong> আপোনাৰ <strong>'${weakestSub}'</strong> বিষয়ত শুদ্ধতা তুলনামূলকভাৱে কম (${lowestAcc}%)। পৰৱৰ্তী টেষ্টত এই বিষয়টোত অধিক মনোযোগ দিয়ক!`;
+            }
+        }
+
+        // ৪. মক টেষ্ট আৰম্ভ কৰা ফাংচন
+        function launchMockTest(testNum) {
+            activeTestNumber = testNum;
+            document.getElementById('bundle-dashboard').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('exam-interface').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            document.getElementById('active-test-title').innerText = `ADRE Full Mock Test #${testNum} (${mockTopics[testNum - 1]})`;
+
+            // ৪ টা বিষয়ৰ পৰা প্রশ্নসমূহ সজাই লোৱা
+            currentExamQuestions = [...adreMasterQuestions].slice(0, 18);
+            currentQIndex = 0;
+            examUserAnswers = new Array(currentExamQuestions.length).fill(null);
+            examSecondsLeft = 900; // 15 minutes
+
+            renderSubjectTabs();
+            renderExamQuestion();
+            startExamTimer();
+        }
+
+        function startExamTimer() {
+            clearInterval(examTimerInterval);
+            examTimerInterval = setInterval(() => {
+                examSecondsLeft--;
+                const m = String(Math.floor(examSecondsLeft / 60)).padStart(2, '0');
+                const s = String(examSecondsLeft % 60).padStart(2, '0');
+                document.getElementById('exam-timer').innerText = `${m}:${s}`;
+                if (examSecondsLeft <= 0) {
+                    clearInterval(examTimerInterval);
+                    submitActiveExam();
+                }
+            }, 1000);
+        }
+
+        function renderSubjectTabs() {
+            const subjects = ["অসম জি.কে.", "গণিত", "ৰিজনিং", "ইংৰাজী"];
+            const tabDiv = document.getElementById('exam-subject-tabs');
+            tabDiv.innerHTML = '';
+            subjects.forEach(sub => {
+                const firstIdx = currentExamQuestions.findIndex(q => q.subject === sub);
+                if (firstIdx !== -1) {
+                    const isCurrentSub = currentExamQuestions[currentQIndex].subject === sub;
+                    tabDiv.innerHTML += `
+                        <button onclick="jumpToQuestion(${firstIdx})" class="px-3 py-1.5 rounded-lg text-xs font-bold transition ${isCurrentSub ? 'bg-blue-600 text-white shadow-sm' : 'bg-white text-slate-700 border border-slate-200'}">
+                            ${sub}
+                        </button>
+                    `;
+                }
+            });
+        }
+
+        function renderExamQuestion() {
+            const qObj = currentExamQuestions[currentQIndex];
+            document.getElementById('exam-q-subject').innerText = qObj.subject;
+            document.getElementById('exam-q-number').innerText = `প্রশ্ন ${currentQIndex + 1} / ${currentExamQuestions.length}`;
+            document.getElementById('exam-q-text').innerText = `${currentQIndex + 1}. ${qObj.q}`;
+
+            const optsDiv = document.getElementById('exam-q-options');
+            optsDiv.innerHTML = '';
+            const labels = ['A', 'B', 'C', 'D'];
+
+            qObj.options.forEach((opt, idx) => {
+                const selectedClass = examUserAnswers[currentQIndex] === idx ? 'selected' : '';
+                optsDiv.innerHTML += `
+                    <button onclick="pickExamOption(${idx})" class="option-btn ${selectedClass} w-full text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-400 flex items-center transition">
+                        <span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center mr-3">${labels[idx]}</span>
+                        <span class="text-sm text-slate-800">${opt}</span>
+                    </button>
+                `;
+            });
+
+            renderSubjectTabs();
+            renderOmrPalette();
+        }
+
+        function renderOmrPalette() {
+            const pal = document.getElementById('omr-palette');
+            pal.innerHTML = '';
+            let ansCount = 0;
+
+            currentExamQuestions.forEach((_, idx) => {
+                const isAns = examUserAnswers[idx] !== null;
+                if (isAns) ansCount++;
+                const isCurr = idx === currentQIndex;
+
+                let btnClass = isAns ? 'bg-green-600 text-white' : 'bg-white border border-slate-300 text-slate-700';
+                if (isCurr) btnClass += ' ring-2 ring-blue-600 font-extrabold';
+
+                pal.innerHTML += `
+                    <button onclick="jumpToQuestion(${idx})" class="h-9 rounded-lg text-xs font-bold ${btnClass} transition">
+                        ${idx + 1}
+                    </button>
+                `;
+            });
+
+            document.getElementById('pal-answered').innerText = ansCount;
+            document.getElementById('pal-unanswered').innerText = currentExamQuestions.length - ansCount;
+        }
+
+        function pickExamOption(optIdx) {
+            examUserAnswers[currentQIndex] = optIdx;
+            renderExamQuestion();
+        }
+
+        function clearResponse() {
+            examUserAnswers[currentQIndex] = null;
+            renderExamQuestion();
+        }
+
+        function jumpToQuestion(idx) {
+            currentQIndex = idx;
+            renderExamQuestion();
+        }
+
+        function prevExamQ() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderExamQuestion();
+            }
+        }
+
+        function nextExamQ() {
+            if (currentQIndex < currentExamQuestions.length - 1) {
+                currentQIndex++;
+                renderExamQuestion();
+            } else {
+                submitActiveExam();
+            }
+        }
+
+        // ৫. টেষ্ট চাবমিট কৰা, নেগেটিভ মাৰ্কিং গণনা কৰা আৰু Weak-Topic ছেভ কৰা
+        function submitActiveExam() {
+            clearInterval(examTimerInterval);
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            let correct = 0;
+            let wrong = 0;
+            let subStats = JSON.parse(localStorage.getItem('adre_subject_stats') || '{}');
+            const solContainer = document.getElementById('res-solutions-list');
+            solContainer.innerHTML = '';
+
+            currentExamQuestions.forEach((qObj, idx) => {
+                const picked = examUserAnswers[idx];
+                if (!subStats[qObj.subject]) subStats[qObj.subject] = { correct: 0, total: 0 };
+                subStats[qObj.subject].total++;
+
+                let statusHtml = `<span class="text-xs font-bold text-slate-500">⚪ এৰি দিছে</span>`;
+                if (picked === qObj.ans) {
+                    correct++;
+                    subStats[qObj.subject].correct++;
+                    statusHtml = `<span class="text-xs font-bold text-green-600">✔ শুদ্ধ (+1.00)</span>`;
+                } else if (picked !== null) {
+                    wrong++;
+                    statusHtml = `<span class="text-xs font-bold text-red-600">✖ ভুল (-0.25)</span>`;
+                }
+
+                solContainer.innerHTML += `
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-blue-700">[${qObj.subject}] প্রশ্ন ${idx + 1}</span>
+                            ${statusHtml}
+                        </div>
+                        <p class="font-bold text-slate-900 text-sm mb-1">${qObj.q}</p>
+                        <p class="text-green-800 font-semibold">শুদ্ধ উত্তৰ: ${qObj.options[qObj.ans]}</p>
+                        <p class="text-slate-600 mt-1"><strong>ব্যাখ্যা:</strong> ${qObj.exp}</p>
+                    </div>
+                `;
+            });
+
+            const finalScore = (correct * 1.0 - wrong * 0.25).toFixed(2);
+            const attempted = correct + wrong;
+            const acc = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+            document.getElementById('res-test-name').innerText = `ADRE Mock Test #${activeTestNumber} ফলাফল`;
+            document.getElementById('res-final-score').innerText = `${finalScore} / ${currentExamQuestions.length}`;
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-wrong').innerText = wrong;
+            document.getElementById('res-acc').innerText = `${acc}%`;
+
+            // স্ক'ৰ আৰু বিষয়ভিত্তিক ৰিপ'ৰ্ট ছেভ কৰা
+            const savedScores = JSON.parse(localStorage.getItem('adre_mock_scores') || '{}');
+            savedScores[activeTestNumber] = `${finalScore}/${currentExamQuestions.length}`;
+            localStorage.setItem('adre_mock_scores', JSON.stringify(savedScores));
+            localStorage.setItem('adre_subject_stats', JSON.stringify(subStats));
+        }
+
+        function exitExamToDashboard() {
+            clearInterval(examTimerInterval);
+            document.getElementById('exam-interface').classList.add('hidden');
+            document.getElementById('exam-result-screen').classList.add('hidden');
+            document.getElementById('bundle-dashboard').classList.remove('hidden');
+            renderDashboard();
+        }
+
+        // ৬. ফ্ৰী ই-বুক আৰু পেমেণ্ট আনলক ফাংচন
+        function accessFreeEbook() {
+            if (isBundleUnlocked()) {
+                window.location.href = 'ebook_print.html';
+            } else {
+                openUnlockModal();
+            }
+        }
+
+        function openUnlockModal() {
+            document.getElementById('bundle-pin-input').value = '';
+            document.getElementById('bundle-pin-err').classList.add('hidden');
+            document.getElementById('unlock-modal').classList.remove('hidden');
+        }
+
+        function closeUnlockModal() {
+            document.getElementById('unlock-modal').classList.add('hidden');
+        }
+
+        function orderBundleOnWhatsApp() {
+            const msg = "নমস্কাৰ! মই 'ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল (₹99)' কিনিব বিচাৰোঁ। মোক পেমেণ্ট QR আৰু VIP Unlock PIN টো দিয়ক।";
+            window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function verifyBundlePin() {
+            const pin = document.getElementById('bundle-pin-input').value.trim();
+            if (pin === VIP_PIN) {
+                localStorage.setItem('unlocked_adre', 'true');
+                closeUnlockModal();
+                renderDashboard();
+                alert("🎉 অভিনন্দন! আপোনাৰ ADRE সম্পূৰ্ণ বাণ্ডিল (২০ টা মক টেষ্ট + ফ্ৰী ই-বুক) সফলভাৱে আনলক হৈ গ'ল!");
+            } else {
+                document.getElementById('bundle-pin-err').classList.remove('hidden');
+            }
+        }
+
+        window.onload = loadExtraQuestions;
+    </script>
+</body>
+</html>
