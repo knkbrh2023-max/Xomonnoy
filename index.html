@@ -15,6 +15,7 @@
         body {
             font-family: 'Noto Sans Assamese', sans-serif;
             background-color: #f8fafc;
+            scroll-behavior: smooth;
         }
         .gradient-hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
@@ -37,12 +38,13 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg text-slate-900 leading-none">অসম এক্সাম হাব</h1>
-                    <span class="text-xs text-blue-600 font-medium">Assamese Mock-Test Platform</span>
+                    <span class="text-xs text-blue-600 font-medium">Auto-Updating Exam Portal</span>
                 </div>
             </div>
             <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
                 <a href="#daily-test" class="hover:text-blue-600">ডেইলী টেষ্ট</a>
-                <a href="#mock-packs" class="hover:text-blue-600">মক টেষ্ট পেক</a>
+                <a href="#question-bank" class="hover:text-blue-600">প্রশ্নবেংক (Question Bank)</a>
+                <a href="#mock-packs" class="hover:text-blue-600">মক পেক</a>
                 <a href="#ebooks" class="hover:text-blue-600">ই-বুক ষ্ট’ৰ</a>
                 <a href="#leaderboard" class="hover:text-blue-600">লিডাৰব’ৰ্ড</a>
             </div>
@@ -62,26 +64,26 @@
                 প্ৰতিদিনে ১০ মিনিট অসমীয়াত অনুশীলন কৰক আৰু নিজৰ চৰকাৰী চাকৰিৰ প্ৰস্তুতি জোখক!
             </h2>
             <p class="text-blue-100 text-sm md:text-base max-w-2xl mx-auto mb-8">
-                অসমীয়া ভাষাত উচ্চ মানদণ্ডৰ মক টেষ্ট, বিতং ব্যাখ্যা, নিজৰ দুৰ্বল বিষয় চিনাক্তকৰণ (Weak-Topic Detection) আৰু নিৰ্বাচিত পিডিএফ ই-বুক—এতিয়া একেখন মঞ্চতে।
+                প্ৰতিদিনে পুৱা স্বয়ংক্ৰিয়ভাৱে আপডেট হোৱা অসমীয়া মক টেষ্ট, প্রশ্নবেংক, নিজৰ দুৰ্বল বিষয় চিনাক্তকৰণ (Weak-Topic Detection) আৰু নিৰ্বাচিত পিডিএফ ই-বুক।
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="startDemoTest()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg flex items-center transition">
-                    <i class="fa-solid fa-circle-play mr-2 text-lg"></i> আজিৰ ফ্ৰী MCQ টেষ্ট আৰম্ভ কৰক
+                    <i class="fa-solid fa-circle-play mr-2 text-lg"></i> আজিৰ নতুন MCQ টেষ্ট দিয়ক
                 </button>
-                <a href="#mock-packs" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition">
-                    পেইড পেকেজসমূহ চাওক
+                <a href="#question-bank" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition">
+                    সকলো প্রশ্নবেংক চাওক
                 </a>
             </div>
 
-            <!-- Quick Stats -->
+            <!-- Live Auto Stats -->
             <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-10 pt-6 border-t border-white/15 text-center">
                 <div>
-                    <p class="text-xl md:text-2xl font-bold text-amber-300">১০,০০০+</p>
-                    <p class="text-xs text-blue-200">অসমীয়া MCQ প্রশ্ন</p>
+                    <p id="stat-total-q" class="text-xl md:text-2xl font-bold text-amber-300">লোড হৈছে...</p>
+                    <p class="text-xs text-blue-200">মুঠ লাইভ প্রশ্নবেংক</p>
                 </div>
                 <div>
-                    <p class="text-xl md:text-2xl font-bold text-amber-300">৩৫ খন</p>
-                    <p class="text-xs text-blue-200">জিলাভিত্তিক ৰেংকিং</p>
+                    <p id="stat-last-updated" class="text-sm md:text-lg font-bold text-green-300 mt-1">আজি আপডেটেড</p>
+                    <p class="text-xs text-blue-200">অট’মেটিক ডেইলী আপডেট</p>
                 </div>
                 <div>
                     <p class="text-xl md:text-2xl font-bold text-amber-300">₹৪৯ ৰ পৰা</p>
@@ -91,20 +93,22 @@
         </div>
     </section>
 
-    <!-- ================= 3. SERVICE 1: LIVE INTERACTIVE DAILY TEST ================= -->
+    <!-- ================= 3. SERVICE 1: AUTO DAILY MOCK TEST ================= -->
     <section id="daily-test" class="max-w-5xl mx-auto px-4 -mt-6 relative z-10">
         <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
             
-            <!-- Test Intro Banner (Default View) -->
+            <!-- Test Intro Banner -->
             <div id="test-intro-view" class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded">LIVE NOW • FREE</span>
-                        <span class="text-xs text-slate-500 font-medium">সময়: ৫ মিনিট | মুঠ নম্বৰ: ৫</span>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded flex items-center">
+                            <span class="w-2 h-2 bg-green-600 rounded-full animate-ping mr-1.5"></span> AUTO-UPDATED TODAY
+                        </span>
+                        <span id="daily-test-meta" class="text-xs text-slate-500 font-medium">সময়: ৫ মিনিট</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900">আজিৰ দৈনিক অসমীয়া মক টেষ্ট (ADRE & Assam Police Special)</h3>
+                    <h3 class="text-xl font-bold text-slate-900">আজিৰ দৈনিক অসমীয়া মক টেষ্ট (Latest Questions)</h3>
                     <p class="text-sm text-slate-600 mt-1">
-                        অসম বুৰঞ্জী, ভূগোল, গণিত আৰু সাধাৰণ জ্ঞানৰ ৫ টা নিৰ্বাচিত প্রশ্ন। টেষ্টৰ শেষত আপোনাৰ দুৰ্বল বিষয় (Weak Topic) দেখুৱাই দিয়া হ'ব।
+                        প্রশ্নবেংকত শেহতীয়াকৈ যোগ হোৱা নতুন প্রশ্নসমূহৰ তাৎক্ষণিক মক টেষ্ট। শেষত আপোনাৰ Weak-Topic আৰু ব্যাখ্যা দেখুৱাই দিয়া হ'ব।
                     </p>
                 </div>
                 <button onclick="startDemoTest()" class="w-full md:w-auto shrink-0 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition">
@@ -112,27 +116,21 @@
                 </button>
             </div>
 
-            <!-- Active Quiz Screen (Hidden initially) -->
+            <!-- Active Quiz Screen -->
             <div id="quiz-active-view" class="hidden">
                 <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-200">
                     <div>
-                        <span id="q-category-badge" class="text-xs bg-blue-100 text-blue-800 font-semibold px-2.5 py-1 rounded">Assam History</span>
-                        <p class="text-xs text-slate-500 mt-1">প্রশ্ন <span id="q-current-num" class="font-bold text-slate-800">1</span> / <span id="q-total-num">5</span></p>
+                        <span id="q-category-badge" class="text-xs bg-blue-100 text-blue-800 font-semibold px-2.5 py-1 rounded">Subject</span>
+                        <p class="text-xs text-slate-500 mt-1">প্রশ্ন <span id="q-current-num" class="font-bold text-slate-800">1</span> / <span id="q-total-num">10</span></p>
                     </div>
                     <div class="bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-lg text-sm font-bold flex items-center">
                         <i class="fa-regular fa-clock mr-1.5"></i> <span id="quiz-timer">05:00</span>
                     </div>
                 </div>
 
-                <!-- Question Text -->
-                <h4 id="q-text" class="text-lg font-bold text-slate-900 mb-5 leading-relaxed">
-                    প্রশ্ন লোড হৈ আছে...
-                </h4>
-
-                <!-- Options Container -->
+                <h4 id="q-text" class="text-lg font-bold text-slate-900 mb-5 leading-relaxed">প্রশ্ন লোড হৈ আছে...</h4>
                 <div id="q-options" class="space-y-3 mb-6"></div>
 
-                <!-- Navigation Buttons -->
                 <div class="flex justify-between items-center pt-4 border-t border-slate-100">
                     <button id="prev-btn" onclick="prevQuestion()" class="px-4 py-2 text-sm font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg">
                         পূর্ববৰ্তী
@@ -143,19 +141,17 @@
                 </div>
             </div>
 
-            <!-- Result & Weak Topic Analysis View (Hidden initially) -->
+            <!-- Result & Weak Topic Analysis View -->
             <div id="quiz-result-view" class="hidden">
                 <div class="text-center pb-6 border-b border-slate-200">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 text-2xl mb-3">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900">আপোনাৰ ফলাফল সাজু!</h3>
-                    <p class="text-sm text-slate-500 mt-1">চাওক আপোনাৰ প্ৰস্তুতিৰ মানদণ্ড কেনেকুৱা</p>
-
                     <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mt-5">
                         <div class="bg-slate-50 p-3 rounded-xl border">
                             <p class="text-xs text-slate-500">মুঠ স্ক’ৰ</p>
-                            <p id="res-score" class="text-xl font-bold text-blue-600">0 / 5</p>
+                            <p id="res-score" class="text-xl font-bold text-blue-600">0 / 0</p>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-xl border">
                             <p class="text-xs text-slate-500">শুদ্ধতা (Accuracy)</p>
@@ -168,8 +164,8 @@
                     </div>
                 </div>
 
-                <!-- Weak Topic Detection Alert + Smart Upsell -->
-                <div id="weak-topic-box" class="my-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Weak Topic Alert -->
+                <div class="my-6 bg-amber-50 border border-amber-200 rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <h4 class="text-sm font-bold text-amber-900 flex items-center">
                             <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-2"></i>
@@ -182,7 +178,6 @@
                     </a>
                 </div>
 
-                <!-- Detailed Answer Explanations -->
                 <h4 class="font-bold text-base text-slate-800 mb-3">উত্তৰ আৰু বিতং অসমীয়া ব্যাখ্যা:</h4>
                 <div id="res-explanations" class="space-y-3 mb-6 max-h-80 overflow-y-auto pr-1"></div>
 
@@ -199,40 +194,63 @@
         </div>
     </section>
 
-    <!-- ================= 4. SERVICE 2: EXAM-WISE MOCK TEST PACKS ================= -->
-    <section id="mock-packs" class="max-w-6xl mx-auto px-4 py-14">
-        <div class="text-center mb-8">
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Service #2 • Exam-Wise Preparation</span>
-            <h3 class="text-2xl font-bold text-slate-900 mt-1">পৰীক্ষা অনুসৰি সম্পূৰ্ণ মক টেষ্ট পেকসমূহ</h3>
-            <p class="text-sm text-slate-600 mt-1">আপোনাৰ লক্ষ্য পৰীক্ষাটো বাছি লওক আৰু আজিৰ পৰাই অনুশীলন আৰম্ভ কৰক</p>
+    <!-- ================= 4. NEW SERVICE: AUTO QUESTION BANK ARCHIVE ================= -->
+    <section id="question-bank" class="max-w-6xl mx-auto px-4 pt-14 pb-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Auto-Growing Archive • Free Practice</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">অসমীয়া প্রশ্নবেংক (Daily Accumulated Question Bank)</h3>
+                <p class="text-sm text-slate-600 mt-1">প্ৰতিদিনে জমা হোৱা সকলো প্রশ্ন ইয়াত বিষয় অনুসৰি বিনামূলীয়াকৈ অনুশীলন কৰক</p>
+            </div>
+            <!-- Subject Filter Dropdown -->
+            <div class="w-full md:w-64">
+                <label class="text-xs font-semibold text-slate-500 block mb-1">বিষয় বাছি লওক (Filter by Subject):</label>
+                <select id="qb-subject-filter" onchange="renderQuestionBank(true)" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:border-blue-600">
+                    <option value="all">সকলো বিষয় (All Subjects)</option>
+                </select>
+            </div>
         </div>
 
-        <!-- Category Filter Tabs -->
+        <!-- Question Bank List Container -->
+        <div id="qb-list-container" class="space-y-4"></div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-6">
+            <button id="qb-load-more-btn" onclick="loadMoreBankQuestions()" class="hidden bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 text-sm font-bold px-6 py-2.5 rounded-xl shadow-sm transition">
+                আৰু অধিক প্রশ্ন চাওক (Load More) <i class="fa-solid fa-chevron-down ml-1"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ================= 5. SERVICE 2: EXAM-WISE MOCK TEST PACKS ================= -->
+    <section id="mock-packs" class="max-w-6xl mx-auto px-4 py-12 border-t border-slate-200">
+        <div class="text-center mb-8">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Premium Preparation</span>
+            <h3 class="text-2xl font-bold text-slate-900 mt-1">পৰীক্ষা অনুসৰি সম্পূৰ্ণ মক টেষ্ট পেকসমূহ</h3>
+            <p class="text-sm text-slate-600 mt-1">আপোনাৰ লক্ষ্য পৰীক্ষাটো বাছি লওক আৰু আজিৰ পৰাই সম্পূর্ণ অনুশীলন আৰম্ভ কৰক</p>
+        </div>
+
         <div class="flex flex-wrap justify-center gap-2 mb-8">
-            <button onclick="filterPacks('all')" class="pack-tab active bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full">সকলো পৰীক্ষা</button>
-            <button onclick="filterPacks('adre')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">ADRE 3.0 (Grade III & IV)</button>
+            <button onclick="filterPacks('all')" class="pack-tab bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full">সকলো পৰীক্ষা</button>
+            <button onclick="filterPacks('adre')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">ADRE 3.0</button>
             <button onclick="filterPacks('police')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">Assam Police</button>
             <button onclick="filterPacks('apsc')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">APSC Prelims</button>
             <button onclick="filterPacks('tet')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">Assam TET</button>
             <button onclick="filterPacks('school')" class="pack-tab bg-white border text-slate-700 text-xs font-semibold px-4 py-2 rounded-full hover:bg-slate-100">HSLC & HS</button>
         </div>
 
-        <!-- Packs Grid -->
-        <div id="packs-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Pack 1: ADRE -->
-            <div data-cat="adre" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+            <div data-cat="adre" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-start mb-3">
                         <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-1 rounded">ADRE Grade III & IV</span>
                         <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded">Bestseller</span>
                     </div>
                     <h4 class="text-lg font-bold text-slate-900">ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল</h4>
-                    <p class="text-xs text-slate-500 mt-1 mb-4">নতুন ছিলেবাছ অনুসৰি অসমীয়া আৰু ইংৰাজী মাধ্যমত</p>
-                    <ul class="text-xs text-slate-600 space-y-2 mb-6">
+                    <ul class="text-xs text-slate-600 space-y-2 my-4">
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>২০ টা Full-Length মক টেষ্ট</li>
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>বিগত বৰ্ষৰ প্ৰশ্নকাকতৰ সমাধান</li>
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>Weak-Topic ৰিপ'ৰ্ট + ফ্ৰী ই-বুক</li>
                     </ul>
                 </div>
@@ -248,18 +266,14 @@
             </div>
 
             <!-- Pack 2: Assam Police -->
-            <div data-cat="police" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+            <div data-cat="police" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
                 <div>
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Assam Police AB/UB & SI</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-900">অসম পুলিচ টাৰ্গেট পেকেজ</h4>
-                    <p class="text-xs text-slate-500 mt-1 mb-4">লিখিত পৰীক্ষাৰ সম্পূৰ্ণ প্ৰস্তুতি</p>
-                    <ul class="text-xs text-slate-600 space-y-2 mb-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Assam Police AB/UB & SI</span>
+                    <h4 class="text-lg font-bold text-slate-900 mt-3">অসম পুলিচ টাৰ্গেট পেকেজ</h4>
+                    <ul class="text-xs text-slate-600 space-y-2 my-4">
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>১৫ টা সম্পূৰ্ণ মক টেষ্ট</li>
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>অসম বুৰঞ্জী আৰু ভাৰতীয় সংবিধান স্পেচিয়েল</li>
                         <li><i class="fa-solid fa-check text-green-600 mr-2"></i>সহজ গণিত আৰু ৰিজনিং চৰ্টকাট</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>জিলাভিত্তিক ৰেংকিং সুবিধা</li>
                     </ul>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
@@ -273,19 +287,15 @@
                 </div>
             </div>
 
-            <!-- Pack 3: APSC Prelims -->
-            <div data-cat="apsc" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
+            <!-- Pack 3: APSC / TET / School -->
+            <div data-cat="apsc tet school" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
                 <div>
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded">APSC CCE Prelims</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-900">APSC Assam GK + Current Affairs Series</h4>
-                    <p class="text-xs text-slate-500 mt-1 mb-4">নতুন Statement-Based প্রশ্নৰ আৰ্হিত প্রস্তুত</p>
-                    <ul class="text-xs text-slate-600 space-y-2 mb-6">
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>১০০০+ উচ্চ মানদণ্ডৰ Statement প্রশ্ন</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>অসমৰ ইতিহাস, কলা-সংস্কৃতি আৰু অৰ্থনীতি</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>বিগত ১ বছৰৰ অসম কাৰেণ্ট এফেয়াৰ্ছ</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>পিডিএফ ৰিভিজন নোটছ অন্তৰ্ভুক্ত</li>
+                    <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded">APSC • TET • HSLC</span>
+                    <h4 class="text-lg font-bold text-slate-900 mt-3">অল-ইন-ৱান অসম এক্সাম পাছ</h4>
+                    <ul class="text-xs text-slate-600 space-y-2 my-4">
+                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>APSC Prelims Statement-Based টেষ্ট</li>
+                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>Assam TET পেডাগ’জি স্পেচিয়েল সেট</li>
+                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>HSLC ৫০% OMR MCQ অনুশীলন</li>
                     </ul>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
@@ -293,80 +303,29 @@
                         <span class="text-xs text-slate-400 line-through">₹499</span>
                         <span class="text-2xl font-bold text-slate-900 ml-1">₹199</span>
                     </div>
-                    <button onclick="buyService('APSC Test Series - ₹199')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+                    <button onclick="buyService('All-in-One Assam Exam Pass - ₹199')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
                         আনলক কৰক
                     </button>
                 </div>
             </div>
-
-            <!-- Pack 4: Assam TET -->
-            <div data-cat="tet" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded">Assam TET & GT/PGT</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-900">শিক্ষক নিযুক্তি আৰু পেডাগ’জি পেক</h4>
-                    <p class="text-xs text-slate-500 mt-1 mb-4">LP, UP আৰু মাধ্যমিক স্তৰৰ বাবে</p>
-                    <ul class="text-xs text-slate-600 space-y-2 mb-6">
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) ৫০০+ MCQ</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>অসমীয়া ব্যাকৰণ আৰু সাহিত্যৰ মক টেষ্ট</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>পৰিৱেশ বিজ্ঞান আৰু গণিতৰ অনুশীলন</li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
-                    <div>
-                        <span class="text-xs text-slate-400 line-through">₹299</span>
-                        <span class="text-2xl font-bold text-slate-900 ml-1">₹149</span>
-                    </div>
-                    <button onclick="buyService('Assam TET Pack - ₹149')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                        আনলক কৰক
-                    </button>
-                </div>
-            </div>
-
-            <!-- Pack 5: HSLC & HS -->
-            <div data-cat="school" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition p-6 flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="bg-cyan-100 text-cyan-800 text-xs font-bold px-2.5 py-1 rounded">SEBA HSLC & AHSEC HS</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-900">HSLC OMR ৫০% MCQ মাষ্টাৰ পেক</h4>
-                    <p class="text-xs text-slate-500 mt-1 mb-4">অসমীয়া মাধ্যমৰ মেট্ৰিক আৰু উচ্চতৰ মাধ্যমিক শিক্ষাৰ্থীৰ বাবে</p>
-                    <ul class="text-xs text-slate-600 space-y-2 mb-6">
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>গণিত, বিজ্ঞান, সমাজ বিজ্ঞান আৰু ইংৰাজীৰ অধ্যায়ভিত্তিক টেষ্ট</li>
-                        <li><i class="fa-solid fa-check text-green-600 mr-2"></i>বিগত ১০ বছৰৰ ব’ৰ্ড প্রশ্নকাকতৰ অনুশীলন</li>
-                    </ul>
-                </div>
-                <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
-                    <div>
-                        <span class="text-xs text-slate-400 line-through">₹199</span>
-                        <span class="text-2xl font-bold text-slate-900 ml-1">₹49</span>
-                    </div>
-                    <button onclick="buyService('HSLC MCQ Booster - ₹49')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                        আনলক কৰক
-                    </button>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- ================= 5. SERVICE 3: ASSAMESE EBOOK & PDF STORE ================= -->
+    <!-- ================= 6. SERVICE 3: ASSAMESE EBOOK STORE ================= -->
     <section id="ebooks" class="bg-slate-900 text-white py-14 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-10">
-                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Service #3 • Instant PDF Download</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Instant PDF Store</span>
                 <h3 class="text-2xl font-bold mt-1">অসমীয়া ই-বুক আৰু ৰিভিজন নোটছ ষ্ট’ৰ</h3>
                 <p class="text-sm text-slate-300 mt-1">কম সময়ত সম্পূৰ্ণ ছিলেবাছ ৰিভিজন কৰিবলৈ নিৰ্বাচিত পিডিএফ সংগ্ৰহ</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Ebook 1 -->
                 <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 flex flex-col justify-between">
                     <div>
                         <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
                         <h4 class="text-lg font-bold mt-3">অসম সাধাৰণ জ্ঞান ১০০০+ নিৰ্বাচিত প্রশ্নোত্তৰ</h4>
-                        <p class="text-xs text-slate-400 mt-2">অসম বুৰঞ্জী, ভূগোল, সাহিত্য, কলা-সংস্কৃতি আৰু খেল-ধেমালিৰ সম্পূর্ণ প্রশ্নবেংক ব্যাখ্যাসহ।</p>
+                        <p class="text-xs text-slate-400 mt-2">অসম বুৰঞ্জী, ভূগোল, সাহিত্য আৰু কলা-সংস্কৃতিৰ সম্পূর্ণ প্রশ্নবেংক ব্যাখ্যাসহ।</p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-center">
                         <span class="text-2xl font-bold text-amber-400">₹49</span>
@@ -376,7 +335,6 @@
                     </div>
                 </div>
 
-                <!-- Ebook 2 -->
                 <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 flex flex-col justify-between">
                     <div>
                         <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
@@ -391,7 +349,6 @@
                     </div>
                 </div>
 
-                <!-- Ebook 3 -->
                 <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 flex flex-col justify-between">
                     <div>
                         <span class="bg-amber-400/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded">PDF E-Book</span>
@@ -409,12 +366,11 @@
         </div>
     </section>
 
-    <!-- ================= 6. SERVICE 4: DISTRICT LEADERBOARD ================= -->
+    <!-- ================= 7. SERVICE 4: DISTRICT LEADERBOARD ================= -->
     <section id="leaderboard" class="max-w-4xl mx-auto px-4 py-14">
         <div class="text-center mb-8">
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Service #4 • Live Competition</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Live Competition</span>
             <h3 class="text-2xl font-bold text-slate-900 mt-1">আজিৰ জিলাভিত্তিক শীৰ্ষ স্থানপ্ৰাপ্ত শিক্ষাৰ্থী</h3>
-            <p class="text-sm text-slate-600 mt-1">ডেইলী টেষ্টত অংশ লওক আৰু আপোনাৰ জিলাখনক শীৰ্ষত ৰাখক</p>
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
@@ -432,25 +388,19 @@
                         <td class="py-3 px-4 font-bold text-amber-600">🥇 #1</td>
                         <td class="py-3 px-4 font-semibold">প্ৰাণজিৎ শইকীয়া</td>
                         <td class="py-3 px-4 text-slate-500">লখিমপুৰ</td>
-                        <td class="py-3 px-4 text-right font-bold text-green-600">19.5 / 20</td>
+                        <td class="py-3 px-4 text-right font-bold text-green-600">9.5 / 10</td>
                     </tr>
                     <tr>
                         <td class="py-3 px-4 font-bold text-slate-500">🥈 #2</td>
                         <td class="py-3 px-4 font-semibold">মৌচুমী বৰা</td>
                         <td class="py-3 px-4 text-slate-500">যোৰহাট</td>
-                        <td class="py-3 px-4 text-right font-bold text-green-600">19.0 / 20</td>
+                        <td class="py-3 px-4 text-right font-bold text-green-600">9.0 / 10</td>
                     </tr>
                     <tr>
                         <td class="py-3 px-4 font-bold text-amber-700">🥉 #3</td>
                         <td class="py-3 px-4 font-semibold">দেৱাশীষ কলিতা</td>
                         <td class="py-3 px-4 text-slate-500">নগাঁও</td>
-                        <td class="py-3 px-4 text-right font-bold text-green-600">18.5 / 20</td>
-                    </tr>
-                    <tr>
-                        <td class="py-3 px-4 font-semibold text-slate-500">#4</td>
-                        <td class="py-3 px-4 font-semibold">ভাস্কৰজ্যোতি গগৈ</td>
-                        <td class="py-3 px-4 text-slate-500">ডিব্ৰুগড়</td>
-                        <td class="py-3 px-4 text-right font-bold text-blue-600">18.0 / 20</td>
+                        <td class="py-3 px-4 text-right font-bold text-green-600">8.5 / 10</td>
                     </tr>
                 </tbody>
             </table>
@@ -464,10 +414,10 @@
         <p class="mt-4 text-slate-600">© ২০২৬ সৰ্বস্বত্ব সংৰক্ষিত।</p>
     </footer>
 
-    <!-- ================= JAVASCRIPT ENGINE (MOCK TEST + FILTER + PAYMENT) ================= -->
+    <!-- ================= JAVASCRIPT ENGINE (CONNECTED TO questions.json) ================= -->
     <script>
-        // ১. আজিৰ ফ্ৰী ডেইলী টেষ্টৰ প্রশ্নসমূহ (আপুনি ইয়াত সহজে নতুন প্রশ্ন যোগ কৰিব পাৰিব)
-        const dailyQuestions = [
+        // ডিফল্ট বেকআপ প্রশ্ন (যদি questions.json লোড হ'বলৈ বাকি থাকে তেন্তে এইকেইটা দেখুৱাব)
+        const fallbackQuestions = [
             {
                 subject: "অসম বুৰঞ্জী (Assam History)",
                 q: "শৰাইঘাটৰ যুদ্ধ কোন চনত সংঘটিত হৈছিল?",
@@ -480,14 +430,14 @@
                 q: "মাটিকালিৰ ফালৰ পৰা অসমৰ আটাইতকৈ ডাঙৰ ৰাষ্ট্ৰীয় উদ্যানখনৰ নাম কি?",
                 options: ["মানস ৰাষ্ট্ৰীয় উদ্যান", "ডিব্ৰু-চৈখোৱা ৰাষ্ট্ৰীয় উদ্যান", "কাজিৰঙা ৰাষ্ট্ৰীয় উদ্যান", "নামেৰি ৰাষ্ট্ৰীয় উদ্যান"],
                 ans: 2,
-                exp: "কাজিৰঙা ৰাষ্ট্ৰীয় উদ্যান মাটিকালিৰ ফালৰ পৰা অসমৰ সৰ্ববৃহৎ ৰাষ্ট্ৰীয় উদ্যান। ১৯৮৫ চনত ইয়াক UNESCO World Heritage Site হিচাপে ঘোষণা কৰা হয়।"
+                exp: "কাজিৰঙা ৰাষ্ট্ৰীয় উদ্যান মাটিকালিৰ ফালৰ পৰা অসমৰ সৰ্ববৃহৎ ৰাষ্ট্ৰীয় উদ্যান। ১৯৮৫ চনত ইয়াক UNESCO World Heritage Site ঘোষণা কৰা হয়।"
             },
             {
                 subject: "অসমীয়া সাহিত্য (Assamese Literature)",
                 q: "অসমীয়া ভাষাৰ প্ৰথমখন ছপা উপন্যাস কোনখন?",
                 options: ["মিৰি জীয়ৰী", "ভানুমতী", "মনোমতী", "এলান্ধু"],
                 ans: 1,
-                exp: "পদ্মনাথ গোহাঞিবৰুৱাৰ 'ভানুমতী' (১৮৯০) প্ৰথম অসমীয়া উপন্যাস হিচাপে জনাজাত, আৰু 'মিৰি জীয়ৰী' (১৮৯৪) ৰজনীকান্ত বৰদলৈৰ প্ৰথম উপন্যাস।"
+                exp: "পদ্মনাথ গোহাঞিবৰুৱাৰ 'ভানুমতী' (১৮৯০) প্ৰথম অসমীয়া উপন্যাস হিচাপে জনাজাত।"
             },
             {
                 subject: "গণিত (Mathematics)",
@@ -501,14 +451,115 @@
                 q: "ভাৰতীয় সংবিধানৰ কোনটো অনুচ্ছেদত 'মৌলিক কর্তব্য' (Fundamental Duties) অন্তৰ্ভুক্ত কৰা হৈছে?",
                 options: ["অনুচ্ছেদ ২১ (ক)", "অনুচ্ছেদ ৫১ (ক)", "অনুচ্ছেদ ৩২", "অনুচ্ছেদ ৪৪"],
                 ans: 1,
-                exp: "১৯৭৬ চনৰ ৪২তম সংবিধান সংশোধনীৰ জৰিয়তে স্বৰ্ণ সিংহ কমিটিৰ পৰামৰ্শ অনুসৰি অনুচ্ছেদ ৫১(ক)-ত মৌলিক কর্তব্যসমূহ যোগ কৰা হৈছিল।"
+                exp: "১৯৭৬ চনৰ ৪২তম সংবিধান সংশোধনীৰ জৰিয়তে অনুচ্ছেদ ৫১(ক)-ত মৌলিক কর্তব্যসমূহ যোগ কৰা হৈছিল।"
             }
         ];
 
+        let allBankQuestions = [];
+        let dailyQuestions = [];
+        let qbVisibleCount = 6; // প্রশ্নবেংকত প্ৰথমে ৬ টা প্রশ্ন দেখুৱাব
+
+        // ১. questions.json ফাইলৰ পৰা স্বয়ংক্ৰিয়ভাৱে সকলো প্রশ্ন অনা
+        async function loadAutoQuestions() {
+            try {
+                const res = await fetch('questions.json?t=' + new Date().getTime());
+                if (!res.ok) throw new Error("JSON not found yet");
+                const data = await res.json();
+                
+                allBankQuestions = (data.questions && data.questions.length > 0) ? data.questions : fallbackQuestions;
+                document.getElementById('stat-last-updated').innerText = data.last_updated || "আজি আপডেটেড";
+            } catch (err) {
+                console.log("Using built-in questions until questions.json is live.");
+                allBankQuestions = fallbackQuestions;
+            }
+
+            // শেহতীয়াকৈ যোগ হোৱা প্ৰথম ১০ টা প্রশ্ন আজিৰ ডেইলী টেষ্টলৈ যাব
+            dailyQuestions = allBankQuestions.slice(0, 10);
+
+            // স্ক্ৰীণৰ নম্বৰসমূহ আপডেট কৰা
+            document.getElementById('stat-total-q').innerText = `${allBankQuestions.length}+ টা MCQ`;
+            document.getElementById('q-total-num').innerText = dailyQuestions.length;
+            document.getElementById('daily-test-meta').innerText = `সময়: ৫ মিনিট | মুঠ প্রশ্ন: ${dailyQuestions.length} টা`;
+
+            populateSubjectFilter();
+            renderQuestionBank(true);
+        }
+
+        // ২. প্রশ্নবেংকৰ Subject Filter ড্ৰপডাউনটো নিজে নিজে সাজু কৰা
+        function populateSubjectFilter() {
+            const select = document.getElementById('qb-subject-filter');
+            const subjects = [...new Set(allBankQuestions.map(item => item.subject))];
+            select.innerHTML = '<option value="all">সকলো বিষয় (All Subjects)</option>';
+            subjects.forEach(sub => {
+                select.innerHTML += `<option value="${sub}">${sub}</option>`;
+            });
+        }
+
+        // ৩. তলৰ প্রশ্নবেংক (Question Bank) ৰেণ্ডাৰ কৰা ফাংচন
+        function renderQuestionBank(resetCount = false) {
+            if (resetCount) qbVisibleCount = 6;
+            const selectedSub = document.getElementById('qb-subject-filter').value;
+            const filtered = selectedSub === 'all' 
+                ? allBankQuestions 
+                : allBankQuestions.filter(q => q.subject === selectedSub);
+
+            const container = document.getElementById('qb-list-container');
+            container.innerHTML = '';
+
+            const labels = ['ক', 'খ', 'গ', 'ঘ'];
+            const itemsToShow = filtered.slice(0, qbVisibleCount);
+
+            itemsToShow.forEach((qObj, index) => {
+                const optionsHtml = qObj.options.map((opt, oIdx) => `
+                    <div class="px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 text-xs text-slate-700">
+                        <span class="font-bold text-slate-900 mr-1">${labels[oIdx]})</span> ${opt}
+                    </div>
+                `).join('');
+
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2.5 py-1 rounded">${qObj.subject}</span>
+                            <span class="text-xs text-slate-400 font-semibold">Q #${index + 1}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-3">${qObj.q}</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4">
+                            ${optionsHtml}
+                        </div>
+                        <button onclick="toggleBankAnswer(${index})" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center">
+                            <i class="fa-regular fa-eye mr-1.5"></i> উত্তৰ আৰু ব্যাখ্যা চাওক
+                        </button>
+                        <div id="qb-ans-${index}" class="hidden mt-3 p-3.5 rounded-xl bg-green-50 border border-green-200 text-xs">
+                            <p class="font-bold text-green-800 mb-1">✔ শুদ্ধ উত্তৰ: (${labels[qObj.ans]}) ${qObj.options[qObj.ans]}</p>
+                            <p class="text-slate-700"><strong>ব্যাখ্যা:</strong> ${qObj.exp}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const loadMoreBtn = document.getElementById('qb-load-more-btn');
+            if (filtered.length > qbVisibleCount) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+        }
+
+        function toggleBankAnswer(idx) {
+            const box = document.getElementById(`qb-ans-${idx}`);
+            box.classList.toggle('hidden');
+        }
+
+        function loadMoreBankQuestions() {
+            qbVisibleCount += 6;
+            renderQuestionBank(false);
+        }
+
+        // ৪. ডেইলী মক টেষ্ট ইঞ্জিন
         let currentIdx = 0;
-        let userAnswers = new Array(dailyQuestions.length).fill(null);
+        let userAnswers = [];
         let timerInterval;
-        let timeLeft = 300; // 5 minutes
+        let timeLeft = 300;
 
         function startDemoTest() {
             document.getElementById('daily-test').scrollIntoView({ behavior: 'smooth' });
@@ -517,7 +568,7 @@
             document.getElementById('quiz-active-view').classList.remove('hidden');
             
             currentIdx = 0;
-            userAnswers.fill(null);
+            userAnswers = new Array(dailyQuestions.length).fill(null);
             timeLeft = 300;
             renderQuestion();
             startTimer();
@@ -598,13 +649,13 @@
                 const isCorrect = userPick === qObj.ans;
                 if (isCorrect) {
                     score++;
-                } else {
+                } else if (!weakSubjects.includes(qObj.subject)) {
                     weakSubjects.push(qObj.subject);
                 }
 
                 const statusBadge = isCorrect 
                     ? `<span class="text-xs font-bold text-green-600">✔ শুদ্ধ</span>` 
-                    : `<span class="text-xs font-bold text-red-600">✖ অশুদ্ধ (শুদ্ধ উত্তৰ: ${qObj.options[qObj.ans]})</span>`;
+                    : `<span class="text-xs font-bold text-red-600">✖ অশুদ্ধ (শুদ্ধ: ${qObj.options[qObj.ans]})</span>`;
 
                 expContainer.innerHTML += `
                     <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
@@ -620,14 +671,12 @@
             const accuracy = Math.round((score / dailyQuestions.length) * 100);
             document.getElementById('res-score').innerText = `${score} / ${dailyQuestions.length}`;
             document.getElementById('res-accuracy').innerText = `${accuracy}%`;
-            document.getElementById('res-rank').innerText = `#${Math.max(1, (dailyQuestions.length - score) * 7 + 1)}`;
+            document.getElementById('res-rank').innerText = `#${Math.max(1, (dailyQuestions.length - score) * 5 + 1)}`;
 
             const weakBox = document.getElementById('weak-topic-list');
-            if (weakSubjects.length === 0) {
-                weakBox.innerText = "অভিনন্দন! আজিৰ টেষ্টত আপোনাৰ কোনো দুৰ্বল বিষয় ধৰা পৰা নাই।";
-            } else {
-                weakBox.innerText = weakSubjects.join(" • ");
-            }
+            weakBox.innerText = weakSubjects.length === 0 
+                ? "অভিনন্দন! আজিৰ টেষ্টত আপোনাৰ কোনো দুৰ্বল বিষয় ধৰা পৰা নাই।" 
+                : weakSubjects.join(" • ");
         }
 
         function resetDemoTest() {
@@ -640,11 +689,11 @@
             window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // ২. কেটাগৰী ফিল্টাৰ ফাংচন
         function filterPacks(cat) {
             const cards = document.querySelectorAll('.pack-card');
             cards.forEach(card => {
-                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                const cardCats = card.getAttribute('data-cat');
+                if (cat === 'all' || cardCats.includes(cat)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
@@ -652,12 +701,12 @@
             });
         }
 
-        // ৩. পেমেণ্ট বা অর্ডাৰ ফাংচন (ইয়াত আপোনাৰ WhatsApp নম্বৰ বা Razorpay Link লগাই দিব পাৰিব)
         function buyService(packName) {
-            const whatsappNumber = "91XXXXXXXXXX"; // ইয়াত আপোনাৰ নিজৰ হোৱাটছএপ নম্বৰটো দিব
-            const text = `নমস্কাৰ! মই আপোনাৰ ৱেবছাইটৰ পৰা '${packName}' পেকেজটো কিনিব বিচাৰোঁ। পেমেণ্ট লিংকটো দিবনে?`;
-            alert(`আপুনি বাছি লৈছে: ${packName}\n\n(টিপ: ক’ডৰ 'buyService' ফাংচনটোত আপোনাৰ Razorpay Payment Link বা WhatsApp নম্বৰটো দিলেই গ্ৰাহকে পোনপটীয়াকৈ পেমেণ্ট কৰিব পাৰিব।)`);
+            alert(`আপুনি বাছি লৈছে: ${packName}\n\n(ইয়াত আপোনাৰ নিজৰ WhatsApp নম্বৰ বা Razorpay লিংক সংযোগ কৰি দিলেই গ্ৰাহকে পোনপটীয়াকৈ কিনিব পাৰিব।)`);
         }
+
+        // পেজ খোলোতেই স্বয়ংক্ৰিয়ভাৱে questions.json লোড হ'ব
+        window.onload = loadAutoQuestions;
     </script>
 </body>
 </html>
