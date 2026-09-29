@@ -272,28 +272,31 @@
             </div>
         </div>
 
-        <!-- ================= 4. SERVICE 2: EXAM-WISE MOCK TEST PACKS (6-CARD SYMMETRICAL GRID) ================= -->
+        <!-- ================= 4. SERVICE 2: EXAM-WISE MOCK TEST PACKS (9-CARD 3x3 GRID) ================= -->
         <section id="mock-packs" class="max-w-6xl mx-auto px-4 py-14">
             <div class="text-center mb-8">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">PREMIUM PREPARATION</span>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">365-DAY PREPARATION ECOSYSTEM</span>
                 <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">পৰীক্ষা অনুসৰি সম্পূৰ্ণ মক টেষ্ট পেকসমূহ</h2>
-                <p class="text-sm text-slate-600 mt-1">আপোনাৰ লক্ষ্য পৰীক্ষাটো বাছি লওক — প্ৰতিটো পেকেজৰ ১ নং মক টেষ্টটো সম্পূৰ্ণ ফ্ৰী ডেমো!</p>
+                <p class="text-sm text-slate-600 mt-1">ৰাজ্যিক আৰু কেন্দ্ৰীয় চৰকাৰৰ সকলো পৰীক্ষাৰ অসমীয়া মক টেষ্ট — প্ৰতিটো পেকেজৰ ১ নং টেষ্টটো সম্পূৰ্ণ ফ্ৰী!</p>
             </div>
 
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons (All 8 Exams) -->
             <div class="flex flex-wrap justify-center gap-2 mb-10" id="pack-filter-tabs">
-                <button onclick="filterPacks('all', this)" class="pack-tab bg-blue-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-sm transition">সকলো পৰীক্ষা</button>
-                <button onclick="filterPacks('adre', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">ADRE 3.0</button>
-                <button onclick="filterPacks('police', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam Police</button>
-                <button onclick="filterPacks('apsc', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">APSC Prelims</button>
-                <button onclick="filterPacks('tet', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">Assam TET</button>
-                <button onclick="filterPacks('school', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-slate-100 transition">HSLC & HS</button>
+                <button onclick="filterPacks('all', this)" class="pack-tab bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-sm transition">সকলো পৰীক্ষা (All)</button>
+                <button onclick="filterPacks('adre', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">ADRE 3.0</button>
+                <button onclick="filterPacks('police', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">Assam Police</button>
+                <button onclick="filterPacks('ssc', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">SSC GD & Railway</button>
+                <button onclick="filterPacks('dhs', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">DHS, Forest & APDCL</button>
+                <button onclick="filterPacks('bed', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">B.Ed, D.El.Ed & Nursing</button>
+                <button onclick="filterPacks('apsc', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">APSC Prelims</button>
+                <button onclick="filterPacks('tet', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">Assam TET</button>
+                <button onclick="filterPacks('school', this)" class="pack-tab bg-white border border-slate-200 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-full hover:bg-slate-100 transition">HSLC & HS</button>
             </div>
 
-            <!-- 6 Cards Grid -->
+            <!-- Symmetrical 3x3 Grid (9 Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Card 1: ADRE -->
+                <!-- Card 1: ADRE 3.0 -->
                 <article data-cat="adre" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -337,13 +340,88 @@
                             <span class="text-2xl font-extrabold text-slate-900">₹79</span>
                             <span class="text-xs text-slate-400 line-through">₹249</span>
                         </div>
-                        <a href="police.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                        <a href="exam_engine.html?pack=police" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
                             টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Card 3: APSC Prelims -->
+                <!-- Card 3 (NEW): SSC GD, Railway & Agniveer (Assamese Medium) -->
+                <article data-cat="ssc" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-orange-100 text-orange-800 text-xs font-bold px-2.5 py-1 rounded-md">SSC GD • Railway • Agniveer</span>
+                            <span class="bg-orange-50 text-orange-700 text-[11px] font-extrabold px-2 py-0.5 rounded">অসমীয়া মাধ্যম</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">SSC GD আৰু ৰে’লৱে অসমীয়া পেক</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা CBT আৰ্হিৰ সম্পূৰ্ণ অসমীয়া মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>ভাৰতৰ জি.কে., সাধাৰণ বিজ্ঞান, গণিত আৰু ৰিজনিং</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>CAPF, ফৌজী আৰু RRB Group-D/NTPC স্পেচিয়েল</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹79</span>
+                            <span class="text-xs text-slate-400 line-through">₹249</span>
+                        </div>
+                        <a href="exam_engine.html?pack=ssc" class="bg-orange-600 hover:bg-orange-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4 (NEW): DHS, APDCL & Forest Guard -->
+                <article data-cat="dhs" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-md">DHS • APDCL • Forest Guard</span>
+                            <span class="bg-teal-50 text-teal-700 text-[11px] font-bold px-2 py-0.5 rounded">Dept Exams</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">স্বাস্থ্য, বন আৰু বিদ্যুৎ বিভাগ পেক</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা বিভাগীয় নিযুক্তি মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>মানৱ শৰীৰ বিজ্ঞান, স্বাস্থ্য, পৰিৱেশ আৰু বন্যপ্ৰাণী</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>অসম জি.কে., গণিত আৰু ইংৰাজীৰ সম্পূৰ্ণ কভাৰেজ</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹69</span>
+                            <span class="text-xs text-slate-400 line-through">₹199</span>
+                        </div>
+                        <a href="exam_engine.html?pack=dhs" class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 5 (NEW): B.Ed, D.El.Ed (SCERT) & GNM Nursing Entrance -->
+                <article data-cat="bed" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-bold px-2.5 py-1 rounded-md">B.Ed • SCERT D.El.Ed • GNM</span>
+                            <span class="bg-pink-50 text-pink-700 text-[11px] font-bold px-2 py-0.5 rounded">Entrance</span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900">B.Ed, D.El.Ed আৰু নাৰ্ছিং এণ্ট্ৰেন্স পেক</h3>
+                        <ul class="text-xs text-slate-600 space-y-2.5 my-4">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>১৫ টা SCERT PET, B.Ed আৰু GNM/ANM টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>Teaching Aptitude, জীৱবিজ্ঞান আৰু ৰিজনিং</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-600 mr-2 mt-0.5"></i><span>চৰকাৰী কলেজত আসন লাভৰ বাবে নিৰ্বাচিত প্রশ্ন</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center gap-2">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="text-2xl font-extrabold text-slate-900">₹89</span>
+                            <span class="text-xs text-slate-400 line-through">₹249</span>
+                        </div>
+                        <a href="exam_engine.html?pack=bed" class="bg-pink-600 hover:bg-pink-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                            টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 6: APSC Prelims -->
                 <article data-cat="apsc" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -362,13 +440,13 @@
                             <span class="text-2xl font-extrabold text-slate-900">₹199</span>
                             <span class="text-xs text-slate-400 line-through">₹499</span>
                         </div>
-                        <a href="apsc.html" class="bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                        <a href="exam_engine.html?pack=apsc" class="bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
                             টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Card 4: Assam TET -->
+                <!-- Card 7: Assam TET -->
                 <article data-cat="tet" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -387,13 +465,13 @@
                             <span class="text-2xl font-extrabold text-slate-900">₹129</span>
                             <span class="text-xs text-slate-400 line-through">₹299</span>
                         </div>
-                        <a href="tet.html" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                        <a href="exam_engine.html?pack=tet" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
                             টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Card 5: HSLC & HS -->
+                <!-- Card 8: HSLC & HS -->
                 <article data-cat="school" class="pack-card bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition p-6 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -412,14 +490,14 @@
                             <span class="text-2xl font-extrabold text-slate-900">₹49</span>
                             <span class="text-xs text-slate-400 line-through">₹199</span>
                         </div>
-                        <a href="hslc.html" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
+                        <a href="exam_engine.html?pack=hslc" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold px-4 py-2.5 rounded-xl shadow-sm transition whitespace-nowrap">
                             টেষ্টসমূহ চাওক <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                 </article>
 
-                <!-- Card 6: All-in-One VIP Combo Pass -->
-                <article data-cat="adre police apsc tet school" class="pack-card bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl border border-blue-800 shadow-md hover:shadow-xl transition p-6 flex flex-col justify-between">
+                <!-- Card 9: All-in-One VIP Combo Pass -->
+                <article data-cat="adre police ssc dhs bed apsc tet school" class="pack-card bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl border border-blue-800 shadow-md hover:shadow-xl transition p-6 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-3">
                             <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-md">ALL-IN-ONE VIP PASS</span>
@@ -427,17 +505,17 @@
                         </div>
                         <h3 class="text-lg font-extrabold text-white">অল-ইন-ৱান অসম মেগা পাছ</h3>
                         <ul class="text-xs text-blue-100 space-y-2.5 my-4">
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>ওপৰৰ আটাইকেইটা পৰীক্ষাৰ ৮০+ মক টেষ্ট</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>ওপৰৰ ৮টা পৰীক্ষাৰ সকলো (১২০+ মক টেষ্ট)</span></li>
                             <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>৩ খন পেইড অসমীয়া ই-বুক সম্পূর্ণ বিনামূলীয়া</span></li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>সাপ্তাহিক নতুন টেষ্ট আৰু ডাউট ক্লিয়াৰিং</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-amber-400 mr-2 mt-0.5"></i><span>সাপ্তাহিক নতুন টেষ্ট আৰু ভিআইপি এক্সেছ</span></li>
                         </ul>
                     </div>
                     <div class="pt-4 border-t border-white/15 flex justify-between items-center gap-2">
                         <div class="flex items-baseline gap-1.5">
                             <span class="text-2xl font-extrabold text-amber-400">₹249</span>
-                            <span class="text-xs text-slate-400 line-through">₹699</span>
+                            <span class="text-xs text-slate-400 line-through">₹899</span>
                         </div>
-                        <a href="adre.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition whitespace-nowrap">
+                        <a href="exam_engine.html?pack=adre" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2.5 rounded-xl shadow transition whitespace-nowrap">
                             এতিয়াই লওক <i class="fa-solid fa-bolt ml-1"></i>
                         </a>
                     </div>
@@ -445,7 +523,6 @@
 
             </div>
         </section>
-
         <!-- ================= 5. SERVICE 3: ASSAMESE EBOOK STORE ================= -->
         <section id="ebooks" class="bg-slate-900 text-white py-16 px-4">
             <div class="max-w-6xl mx-auto">
