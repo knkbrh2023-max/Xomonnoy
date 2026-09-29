@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডিজিটেল কণ্টেণ্ট ফেক্টৰী | Control Room</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Noto Sans Assamese', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-6">
+
+        <!-- FACTORY HEADER -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded">STEP 1: THE FACTORY</span>
+                <h1 class="text-2xl font-extrabold text-white mt-2">🏭 মক-টেষ্ট আৰু ই-বুক প্ৰডাকশ্যন ফেক্টৰী</h1>
+                <p class="text-xs text-slate-400 mt-1">ইয়াত যিকোনো পৰীক্ষাৰ প্রশ্ন, মক টেষ্ট আৰু ই-বুক তৈয়াৰ কৰি মেইন ডাটাবেছত সংৰক্ষণ কৰক</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="exportFactoryDatabase()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-extrabold px-5 py-3 rounded-xl shadow flex items-center">
+                    <i class="fa-solid fa-download mr-2"></i> database.json ডাউনলোড কৰক
+                </button>
+            </div>
+        </div>
+
+        <!-- FACTORY STATS -->
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-3 text-center">
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">মুঠ প্রশ্ন</p>
+                <p id="count-all" class="text-xl font-extrabold text-amber-400">0</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">ADRE</p>
+                <p id="count-adre" class="text-xl font-extrabold text-blue-400">0</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">Assam Police</p>
+                <p id="count-police" class="text-xl font-extrabold text-emerald-400">0</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">APSC</p>
+                <p id="count-apsc" class="text-xl font-extrabold text-purple-400">0</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">Assam TET</p>
+                <p id="count-tet" class="text-xl font-extrabold text-rose-400">0</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 p-3.5 rounded-xl">
+                <p class="text-[11px] text-slate-400">HSLC / HS</p>
+                <p id="count-hslc" class="text-xl font-extrabold text-cyan-400">0</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <!-- MACHINE A: BULK AI QUESTION GENERATOR & IMPORTER -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-extrabold text-amber-400">⚡ মেচিন ১: অট’মেটিক প্রশ্ন উৎপাদন (Bulk Production)</h2>
+                    <span class="text-[11px] bg-slate-700 px-2.5 py-1 rounded text-slate-300">Fast Mode</span>
+                </div>
+                <p class="text-xs text-slate-300">তলত পৰীক্ষা আৰু বিষয় বাছি লৈ <strong>"AI Prompt কপি কৰক"</strong> টিপক। তাৰ পিছত যিকোনো AI-ৰ পৰা প্রশ্নবোৰ আনি তলৰ বক্সত পেষ্ট কৰিলেই একেলগে ৫০ টা প্রশ্ন ফেক্টৰীত সোমাই যাব!</p>
+
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">পৰীক্ষাৰ নাম (Exam Category):</label>
+                        <select id="gen-exam" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2.5 text-white font-bold">
+                            <option value="adre">ADRE 3.0 (Grade III & IV)</option>
+                            <option value="police">Assam Police (AB/UB & SI)</option>
+                            <option value="apsc">APSC Prelims (Statement Based)</option>
+                            <option value="tet">Assam TET (Pedagogy & Subjects)</option>
+                            <option value="hslc">SEBA HSLC / HS (OMR)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">বিষয় (Subject):</label>
+                        <select id="gen-subject" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2.5 text-white font-bold">
+                            <option value="অসম বুৰঞ্জী">অসম বুৰঞ্জী (Assam History)</option>
+                            <option value="অসমৰ ভূগোল">অসমৰ ভূগোল (Assam Geography)</option>
+                            <option value="অসমীয়া সাহিত্য আৰু সংস্কৃতি">অসমীয়া সাহিত্য আৰু সংস্কৃতি</option>
+                            <option value="ভাৰতীয় সংবিধান">ভাৰতীয় সংবিধান (Polity)</option>
+                            <option value="গণিত চৰ্টকাট">গণিত চৰ্টকাট (Maths)</option>
+                            <option value="ৰিজনিং চৰ্টকাট">ৰিজনিং চৰ্টকাট (Reasoning)</option>
+                            <option value="সাধাৰণ বিজ্ঞান">সাধাৰণ বিজ্ঞান (Science)</option>
+                            <option value="শিশু বিকাশ আৰু পেডাগ’জি">শিশু বিকাশ আৰু পেডাগ’জি (CDP)</option>
+                            <option value="ইংৰাজী ব্যাকৰণ">ইংৰাজী ব্যাকৰণ (English)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="copyFactoryPrompt()" class="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold py-2.5 rounded-xl shadow">
+                    <i class="fa-regular fa-copy mr-1.5"></i> ১-ক্লিকত २० টা প্রশ্ন বনোৱা AI Prompt কপি কৰক
+                </button>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">AI-এ দিয়া JSON ক’ডখিনি ইয়াত পেষ্ট কৰক:</label>
+                    <textarea id="bulk-json-input" rows="5" placeholder='[{"q": "প্রশ্ন...", "options": ["ক","খ","গ","ঘ"], "ans": 0, "exp": "ব্যাখ্যা..."}]' class="w-full bg-slate-900 border border-slate-600 rounded-xl p-3 text-xs text-emerald-300 font-mono"></textarea>
+                </div>
+
+                <button onclick="importBulkJson()" class="w-full bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-3 rounded-xl shadow">
+                    <i class="fa-solid fa-plus-circle mr-1.5"></i> ফেক্টৰীৰ মেইন ডাটাবেছত যোগ কৰক
+                </button>
+            </div>
+
+            <!-- MACHINE B: SINGLE QUESTION MANUAL ENTRY -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-3">
+                <h2 class="text-lg font-extrabold text-emerald-400">✍️ মেচিন ২: নিজে এটাকৈ প্রশ্ন যোগ কৰক</h2>
+
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">পৰীক্ষা:</label>
+                        <select id="m-exam" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2 text-white font-bold">
+                            <option value="adre">ADRE 3.0</option>
+                            <option value="police">Assam Police</option>
+                            <option value="apsc">APSC Prelims</option>
+                            <option value="tet">Assam TET</option>
+                            <option value="hslc">HSLC / HS</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">বিষয়:</label>
+                        <input type="text" id="m-subject" value="অসম বুৰঞ্জী" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                    </div>
+                </div>
+
+                <div class="text-xs">
+                    <label class="block text-slate-400 mb-1">প্রশ্নটো লিখক:</label>
+                    <input type="text" id="m-q" placeholder="উদাহৰণ: শৰাইঘাটৰ যুদ্ধ কোন চনত হৈছিল?" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2.5 text-white">
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <input type="text" id="m-opt0" placeholder="বিকল্প A (0)" class="bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                    <input type="text" id="m-opt1" placeholder="বিকল্প B (1)" class="bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                    <input type="text" id="m-opt2" placeholder="বিকল্প C (2)" class="bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                    <input type="text" id="m-opt3" placeholder="বিকল্প D (3)" class="bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">শুদ্ধ বিকল্প:</label>
+                        <select id="m-ans" class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2 text-amber-400 font-bold">
+                            <option value="0">বিকল্প A (0)</option>
+                            <option value="1">বিকল্প B (1)</option>
+                            <option value="2">বিকল্প C (2)</option>
+                            <option value="3">বিকল্প D (3)</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-slate-400 mb-1">চমু ব্যাখ্যা / চৰ্টকাট ট্ৰিক:</label>
+                        <input type="text" id="m-exp" placeholder="উত্তৰৰ ব্যাখ্যা ইয়াত লিখক..." class="w-full bg-slate-900 border border-slate-600 rounded-xl p-2 text-white">
+                    </div>
+                </div>
+
+                <button onclick="addManualQuestion()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-extrabold py-3 rounded-xl shadow mt-2">
+                    <i class="fa-solid fa-check mr-1.5"></i> এই প্রশ্নটো সংৰক্ষণ কৰক
+                </button>
+            </div>
+
+        </div>
+
+        <!-- FACTORY STORAGE PREVIEW -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-base font-bold text-white">📦 ফেক্টৰীত জমা থকা প্রশ্নসমূহ (Recent Factory Inventory)</h3>
+                <button onclick="clearFactoryStorage()" class="text-xs text-red-400 hover:underline">Reset Factory</button>
+            </div>
+            <div id="inventory-list" class="space-y-2 max-h-72 overflow-y-auto pr-2 text-xs"></div>
+        </div>
+
+    </div>
+
+    <script>
+        let factoryDB = JSON.parse(localStorage.getItem('master_factory_db') || '[]');
+
+        async function loadInitialQuestions() {
+            if (factoryDB.length === 0) {
+                try {
+                    const res = await fetch('questions.json');
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.questions) {
+                            factoryDB = data.questions.map(q => ({
+                                exam: 'adre',
+                                subject: q.subject,
+                                q: q.q,
+                                options: q.options,
+                                ans: q.ans,
+                                exp: q.exp
+                            }));
+                            saveDB();
+                        }
+                    }
+                } catch (e) {}
+            }
+            updateFactoryUI();
+        }
+
+        function saveDB() {
+            localStorage.setItem('master_factory_db', JSON.stringify(factoryDB));
+            updateFactoryUI();
+        }
+
+        function updateFactoryUI() {
+            document.getElementById('count-all').innerText = factoryDB.length;
+            ['adre', 'police', 'apsc', 'tet', 'hslc'].forEach(cat => {
+                const count = factoryDB.filter(item => item.exam === cat).length;
+                document.getElementById('count-' + cat).innerText = count;
+            });
+
+            const listDiv = document.getElementById('inventory-list');
+            listDiv.innerHTML = factoryDB.slice(0, 15).map((item, idx) => `
+                <div class="p-3 rounded-xl bg-slate-900 border border-slate-700 flex justify-between items-center">
+                    <div>
+                        <span class="bg-blue-500/20 text-blue-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase mr-2">${item.exam}</span>
+                        <span class="text-amber-400 font-semibold">[${item.subject}]</span>
+                        <span class="text-slate-200 ml-1">${item.q}</span>
+                    </div>
+                    <button onclick="deleteQ(${idx})" class="text-red-400 hover:text-red-300 ml-3"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        function copyFactoryPrompt() {
+            const exam = document.getElementById('gen-exam').value.toUpperCase();
+            const sub = document.getElementById('gen-subject').value;
+            const prompt = `Generate 20 high-quality Assamese MCQ questions for ${exam} exam on the subject "${sub}". Return ONLY a valid JSON array in this exact structure without markdown:\n[{"q": "প্রশ্নটো অসমীয়াত?", "options": ["বিকল্প ১", "বিকল্প ২", "বিকল্প ৩", "বিকল্প ৪"], "ans": 0, "exp": "ইয়াত চমু আৰু শুদ্ধ অসমীয়া ব্যাখ্যা বা চৰ্টকাট ট্ৰিক লিখিব।"}]`;
+            navigator.clipboard.writeText(prompt);
+            alert("✔ AI Prompt কপি হৈ গ'ল! এতিয়া ইয়াক মোক (Gemini) বা যিকোনো AI-ত পেষ্ট কৰি প্রশ্নকেইটা জেনেৰেট কৰি তলৰ বক্সত পেষ্ট কৰা।");
+        }
+
+        function importBulkJson() {
+            const raw = document.getElementById('bulk-json-input').value.trim();
+            const exam = document.getElementById('gen-exam').value;
+            const subject = document.getElementById('gen-subject').value;
+            try {
+                const parsed = JSON.parse(raw);
+                parsed.forEach(item => {
+                    factoryDB.unshift({
+                        exam: item.exam || exam,
+                        subject: item.subject || subject,
+                        q: item.q,
+                        options: item.options,
+                        ans: Number(item.ans),
+                        exp: item.exp
+                    });
+                });
+                saveDB();
+                document.getElementById('bulk-json-input').value = '';
+                alert(`🎉 সফলভাৱে ${parsed.length} টা নতুন প্রশ্ন ফেক্টৰীত যোগ হ'ল!`);
+            } catch (e) {
+                alert("✖ JSON ফৰ্মেটত কিবা ভুল আছে। অনুগ্ৰহ কৰি কেৱল [ ... ] অংশটো পেষ্ট কৰক।");
+            }
+        }
+
+        function addManualQuestion() {
+            const exam = document.getElementById('m-exam').value;
+            const subject = document.getElementById('m-subject').value.trim();
+            const q = document.getElementById('m-q').value.trim();
+            const options = [
+                document.getElementById('m-opt0').value.trim(),
+                document.getElementById('m-opt1').value.trim(),
+                document.getElementById('m-opt2').value.trim(),
+                document.getElementById('m-opt3').value.trim()
+            ];
+            const ans = Number(document.getElementById('m-ans').value);
+            const exp = document.getElementById('m-exp').value.trim();
+
+            if (!q || !options[0] || !options[1]) {
+                alert("প্রশ্ন আৰু বিকল্পবোৰ পূৰণ কৰক!");
+                return;
+            }
+
+            factoryDB.unshift({ exam, subject, q, options, ans, exp });
+            saveDB();
+            document.getElementById('m-q').value = '';
+            alert("✔ প্রশ্নটো ফেক্টৰীত সংৰক্ষণ হ'ল!");
+        }
+
+        function deleteQ(idx) {
+            factoryDB.splice(idx, 1);
+            saveDB();
+        }
+
+        function clearFactoryStorage() {
+            if (confirm("সঁচাকৈয়ে ফেক্টৰী ডাটা ৰিছেট কৰিব বিচাৰেনে?")) {
+                localStorage.removeItem('master_factory_db');
+                factoryDB = [];
+                updateFactoryUI();
+            }
+        }
+
+        function exportFactoryDatabase() {
+            const payload = {
+                last_updated: new Date().toISOString().split('T')[0],
+                total_questions: factoryDB.length,
+                questions: factoryDB
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "questions.json";
+            a.click();
+        }
+
+        window.onload = loadInitialQuestions;
+    </script>
+</body>
+</html>
