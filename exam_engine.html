@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইউনিভাৰ্চেল এক্সাম আৰু ই-বুক ইঞ্জিন | অসম এক্সাম হাব</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Google Font: Noto Sans Assamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #f1f5f9;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .option-btn.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            font-weight: 700;
+        }
+        .avoid-break {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        @media print {
+            body { background-color: #ffffff; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- ================= 1. TOP FACTORY ENGINE BAR ================= -->
+    <header class="no-print bg-white shadow-sm sticky top-0 z-40 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <h1 id="nav-pack-title" class="font-extrabold text-sm md:text-base text-slate-900 leading-none">লোড হৈছে...</h1>
+                    <span class="text-[11px] text-blue-600 font-semibold">Universal Exam & PDF Engine</span>
+                </div>
+            </div>
+
+            <!-- Quick Pack Switcher + Mode Toggle -->
+            <div class="flex items-center gap-2">
+                <select id="engine-pack-switcher" onchange="switchPack(this.value)" class="bg-slate-100 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none">
+                    <option value="adre">ADRE 3.0 Pack (₹99)</option>
+                    <option value="police">Assam Police Pack (₹79)</option>
+                    <option value="apsc">APSC Prelims Pack (₹199)</option>
+                    <option value="tet">Assam TET Pack (₹129)</option>
+                    <option value="hslc">HSLC/HS OMR Pack (₹49)</option>
+                </select>
+
+                <button onclick="toggleEbookView()" id="mode-toggle-btn" class="bg-slate-800 hover:bg-slate-900 text-amber-400 text-xs font-extrabold px-3.5 py-2 rounded-xl shadow-sm flex items-center">
+                    <i class="fa-solid fa-book-open mr-1.5"></i> ই-বুক মোড (PDF)
+                </button>
+
+                <div id="unlock-action-area">
+                    <button onclick="payWithRazorpay()" id="top-pay-btn" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                        <i class="fa-solid fa-bolt mr-1"></i> আনলক কৰক
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. DYNAMIC HERO BANNER ================= -->
+    <section id="hero-banner" class="no-print bg-gradient-to-r from-slate-900 via-blue-950 to-blue-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span id="hero-badge" class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">EXAM BUNDLE</span>
+                <h2 id="hero-title" class="text-2xl md:text-3xl font-extrabold mt-2">পেকেজ লোড হৈছে...</h2>
+                <p id="hero-subtitle" class="text-blue-200 text-xs md:text-sm mt-1"></p>
+            </div>
+
+            <div class="bg-white/10 border border-white/20 rounded-2xl p-4 flex gap-6 text-center shrink-0">
+                <div>
+                    <p id="stat-total-tests" class="text-2xl font-extrabold text-amber-300">20</p>
+                    <p class="text-[11px] text-blue-200">মুঠ মক টেষ্ট</p>
+                </div>
+                <div class="border-l border-white/20 pl-6">
+                    <p id="stat-q-pool" class="text-2xl font-extrabold text-green-300">0</p>
+                    <p class="text-[11px] text-blue-200">ফেক্টৰী প্রশ্নবেংক</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. VIEW A: MOCK TEST DASHBOARD ================= -->
+    <main id="mock-dashboard-view" class="no-print max-w-6xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Weak-Topic Analytics + Ebook Bonus Banner -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-base font-extrabold text-slate-900">📊 আপোনাৰ বিষয়ভিত্তিক Weak-Topic ৰিপ’ৰ্ট</h3>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded font-bold">Auto Analytics</span>
+                </div>
+                <div id="subject-bars-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+                <p id="weak-tip-text" class="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-3 mt-4 font-medium">
+                    💡 ১ নং ফ্ৰী ডেমো টেষ্টটো দি আপোনাৰ দুৰ্বল বিষয়টো এতিয়াই পৰীক্ষা কৰক!
+                </p>
+            </div>
+
+            <!-- Built-in Ebook Generator Card -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 flex flex-col justify-between border border-slate-700">
+                <div>
+                    <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded">AUTO E-BOOK GENERATOR</span>
+                    <h3 id="bonus-ebook-title" class="text-lg font-bold mt-2">অধ্যায়ভিত্তিক পিডিএফ ই-বুক</h3>
+                    <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                        ফেক্টৰীত থকা এই পৰীক্ষাৰ সকলো প্রশ্ন আৰু ব্যাখ্যা ১-ক্লিকত ই-বুক হিচাপে পঢ়ক বা প্রিণ্ট কৰক।
+                    </p>
+                </div>
+                <button onclick="toggleEbookView()" class="mt-5 w-full bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold py-3 rounded-xl shadow flex items-center justify-center">
+                    <i class="fa-solid fa-file-pdf mr-2"></i> ই-বুকখন খোলক (PDF View)
+                </button>
+            </div>
+        </div>
+
+        <!-- Mock Tests Grid -->
+        <div>
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-extrabold text-slate-900">📝 সম্পূৰ্ণ মক টেষ্ট ছিৰিজ (Mock #1 ফ্ৰী ডেমো)</h3>
+                <span class="text-xs font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full">● নেগেটিভ মাৰ্কিং: -0.25</span>
+            </div>
+            <div id="tests-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+        </div>
+
+    </main>
+
+    <!-- ================= 4. VIEW B: LIVE OMR QUIZ ENGINE ================= -->
+    <section id="live-quiz-view" class="no-print hidden max-w-5xl mx-auto px-4 py-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
+                <div>
+                    <h3 id="quiz-header-title" class="font-bold text-base">Mock Test #1</h3>
+                    <p class="text-[11px] text-slate-400">সঠিক উত্তৰ: +1.00 | ভুল উত্তৰ: -0.25</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-500/20 border border-red-400/40 text-red-200 px-3 py-1.5 rounded-xl text-sm font-extrabold">
+                        <i class="fa-regular fa-clock mr-1"></i> <span id="live-timer">15:00</span>
+                    </div>
+                    <button onclick="finishLiveQuiz()" class="bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-xl">
+                        চাবমিট কৰক
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-slate-200">
+                    <div class="flex justify-between items-center mb-3">
+                        <span id="live-q-sub" class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-1 rounded">Subject</span>
+                        <span id="live-q-num" class="text-xs font-bold text-slate-500">1 / 10</span>
+                    </div>
+                    <h4 id="live-q-text" class="text-base md:text-lg font-bold text-slate-900 mb-6 leading-relaxed"></h4>
+                    <div id="live-q-opts" class="space-y-3 mb-6"></div>
+
+                    <div class="flex justify-between items-center pt-4 border-t">
+                        <button onclick="prevLiveQ()" class="px-4 py-2 text-xs font-bold bg-slate-100 rounded-xl">পূর্ববৰ্তী</button>
+                        <button onclick="nextLiveQ()" id="live-next-btn" class="px-6 py-2.5 text-xs font-bold bg-blue-600 text-white rounded-xl">পৰৱৰ্তী</button>
+                    </div>
+                </div>
+
+                <!-- OMR Palette -->
+                <div class="p-5 bg-slate-50 flex flex-col justify-between">
+                    <div>
+                        <h5 class="text-xs font-bold text-slate-700 uppercase mb-3">OMR প্রশ্ন পেলেট</h5>
+                        <div id="live-omr-grid" class="grid grid-cols-5 gap-2"></div>
+                    </div>
+                    <button onclick="backToPackDashboard()" class="w-full mt-6 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2.5 rounded-xl text-xs">
+                        ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. VIEW C: QUIZ RESULT SCREEN ================= -->
+    <section id="quiz-result-screen" class="no-print hidden max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-xl border p-6 md:p-8">
+            <div class="text-center border-b pb-6">
+                <h3 class="text-2xl font-extrabold text-slate-900">মক টেষ্টৰ ফলাফল</h3>
+                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mt-4">
+                    <div class="bg-blue-50 p-3 rounded-xl border border-blue-200">
+                        <p class="text-[11px] text-blue-700">চূড়ান্ত স্ক’ৰ</p>
+                        <p id="res-score-val" class="text-xl font-extrabold text-blue-900">0</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+                        <p class="text-[11px] text-green-700">শুদ্ধ উত্তৰ</p>
+                        <p id="res-ok-val" class="text-xl font-extrabold text-green-700">0</p>
+                    </div>
+                    <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                        <p class="text-[11px] text-red-700">ভুল উত্তৰ</p>
+                        <p id="res-err-val" class="text-xl font-extrabold text-red-600">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="font-bold text-sm text-slate-900 my-4">উত্তৰ আৰু বিতং অসমীয়া ব্যাখ্যা:</h4>
+            <div id="res-solutions-box" class="space-y-3 max-h-96 overflow-y-auto mb-6"></div>
+
+            <div class="text-center">
+                <button onclick="backToPackDashboard()" class="bg-blue-600 text-white text-xs font-extrabold px-6 py-3 rounded-xl shadow">
+                    ডেশ্বব’ৰ্ডলৈ ঘূৰি যাওক
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. VIEW D: AUTO PDF E-BOOK PRINTER ENGINE ================= -->
+    <section id="ebook-printer-view" class="hidden max-w-4xl mx-auto my-6 bg-white shadow-2xl rounded-2xl overflow-hidden">
+        
+        <!-- Print Action Bar (Hidden when printing PDF) -->
+        <div class="no-print bg-slate-800 text-white px-6 py-3 flex justify-between items-center">
+            <span class="text-xs font-bold text-amber-300">📘 অট’মেটিক ই-বুক জেনেৰেটৰ (ফেক্টৰী ডাটাৰ পৰা পোনপটীয়াকৈ নিৰ্মিত)</span>
+            <div class="flex gap-2">
+                <button onclick="window.print()" class="bg-green-500 hover:bg-green-600 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-lg shadow">
+                    <i class="fa-solid fa-print mr-1"></i> Save / Download as PDF
+                </button>
+                <button onclick="toggleEbookView()" class="bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold px-3 py-2 rounded-lg">
+                    বন্ধ কৰক
+                </button>
+            </div>
+        </div>
+
+        <!-- E-Book Cover Header -->
+        <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white p-10 text-center">
+            <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full">OFFICIAL E-BOOK EDITION</span>
+            <h1 id="pdf-cover-title" class="text-3xl font-extrabold mt-4">অসম সাধাৰণ জ্ঞান আৰু মক প্রশ্নবেংক</h1>
+            <p id="pdf-cover-sub" class="text-blue-200 text-sm mt-2">বিতং অসমীয়া ব্যাখ্যা আৰু শ্বৰ্ট-নোটছসহ সম্পূৰ্ণ সংকলন</p>
+        </div>
+
+        <!-- Dynamic Questions List for PDF -->
+        <div class="p-8 space-y-4" id="pdf-questions-container"></div>
+
+    </section>
+
+    <!-- ================= UNIVERSAL FACTORY ENGINE SCRIPT ================= -->
+    <script>
+        // তোমাৰ নিজৰ Razorpay Key ID ইয়াত দিবা
+        const RAZORPAY_KEY_ID = "rzp_test_XXXXXXXXXXXXXX";
+
+        // ৫ টা মূল প্ৰডাক্টৰ কনফিগাৰেশ্যন (এটা ঠাইৰ পৰাই সকলো নিয়ন্ত্ৰণ হ'ব)
+        const PACK_CONFIGS = {
+            adre: {
+                title: "ADRE সম্পূৰ্ণ মক টেষ্ট বাণ্ডিল (Grade III & IV)",
+                subtitle: "২০ টা Full-Length মক টেষ্ট • অসম জি.কে., গণিত, ৰিজনিং আৰু ইংৰাজী • Weak-Topic ৰিপ'ৰ্ট + ফ্ৰী ই-বুক",
+                price: 99,
+                totalTests: 20,
+                ebookTitle: "ADRE স্পেচিয়েল ১০০০+ MCQ ই-বুক",
+                testNames: ["Full Syllabus Demo #1", "Assam History Special", "Assam Geography & Ecology", "General Mathematics Set-1", "Logical Reasoning Set-1", "General English Grammar", "Assam Art & Culture", "Indian Polity & Constitution", "General Science Booster", "ADRE Grade-III PYQ Set", "ADRE Grade-IV PYQ Set", "Current Affairs Round-up", "Arithmetic Shortcut Set", "Reasoning Speed Test", "English Vocab & Preposition", "Full OMR Mock #16", "Full OMR Mock #17", "Full OMR Mock #18", "Final Revision Mock #19", "Grand Mega Mock #20"]
+            },
+            police: {
+                title: "অসম পুলিচ টাৰ্গেট পেকেজ (AB/UB & SI)",
+                subtitle: "১৫ টা সম্পূৰ্ণ মক টেষ্ট • অসম বুৰঞ্জী আৰু ভাৰতীয় সংবিধান স্পেচিয়েল • সহজ গণিত আৰু ৰিজনিং চৰ্টকাট",
+                price: 79,
+                totalTests: 15,
+                ebookTitle: "অসম পুলিচ বুৰঞ্জী আৰু গণিত চৰ্টকাট ই-বুক",
+                testNames: ["SLPRB Full Demo #1", "অসম বুৰঞ্জী স্পেচিয়েল", "ভাৰতীয় সংবিধান স্পেচিয়েল", "গণিত চৰ্টকাট প্রেক্টিছ #1", "ৰিজনিং চৰ্টকাট প্রেক্টিছ #1", "Assam Police SI Model Set", "অসমৰ ভূগোল আৰু ৰাষ্ট্ৰীয় উদ্যান", "SLPRB Solved Paper 2022", "SLPRB Solved Paper 2024", "সময়, দূৰত্ব আৰু ৰে'লগাড়ীৰ অংক", "লাভ-লোকচান আৰু শতকৰা চৰ্টকাট", "সাধাৰণ বিজ্ঞান স্পেচিয়েল", "অসম কাৰেণ্ট এফেয়াৰ্ছ", "Commando Battalion Mock", "SLPRB Final Dress Rehearsal #15"]
+            },
+            apsc: {
+                title: "APSC প্ৰিলিম্ছ ফাউণ্ডেশ্যন টেষ্ট ছিৰিজ",
+                subtitle: "১২ টা Statement-Based GS মক টেষ্ট • অসম অধ্যয়ন, ভাৰতীয় ৰাজনীতি, অৰ্থনীতি আৰু কাৰেণ্ট এফেয়াৰ্ছ",
+                price: 199,
+                totalTests: 12,
+                ebookTitle: "APSC অসম অধ্যয়ন আৰু কাৰেণ্ট এফেয়াৰ্ছ ই-বুক",
+                testNames: ["GS Paper-I Statement Demo #1", "Ancient & Ahom History of Assam", "Indian Polity & Sixth Schedule", "Assam Geography & Biodiversity", "Indian Economy & Assam Budget", "Assam Literature & Classical Language", "Environment & Climate Change", "Science & Tech Current Affairs", "Assam Schemes (Nijut Moina, Orunodoi)", "APSC CCE Prelims PYQ Analysis", "Full GS Mock Test #11", "APSC Grand Prelims Mock #12"]
+            },
+            tet: {
+                title: "অসম TET আৰু পেডাগ’জি স্পেচিয়েল পেক",
+                subtitle: "১৫ টা সম্পূৰ্ণ মক টেষ্ট • শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) • অসমীয়া, ইংৰাজী, গণিত আৰু পৰিৱেশ বিজ্ঞান",
+                price: 129,
+                totalTests: 15,
+                ebookTitle: "শিশু বিকাশ আৰু শিক্ষণ শৈলী (CDP) অসমীয়া ই-বুক",
+                testNames: ["Assam TET Full Demo #1", "Child Development (Piaget & Vygotsky)", "Learning Theories & Pedagogy", "Inclusive Education & Disabilities", "NEP 2020 & RTE Act 2009", "অসমীয়া ভাষা আৰু ব্যাকৰণ পেডাগ’জি", "English Language Pedagogy", "Environmental Studies (EVS) Set", "Mathematics Pedagogy & Numbers", "Upper Primary Social Science", "Upper Primary Science Set", "GT / PGT Secondary Pedagogy", "TET Previous Year Paper-I", "TET Previous Year Paper-II", "Final TET Mega Mock #15"]
+            },
+            hslc: {
+                title: "SEBA HSLC & HS ৫০% OMR মাষ্টাৰ পেক",
+                subtitle: "২০ টা অধ্যায়ভিত্তিক OMR MCQ মক টেষ্ট • সাধাৰণ বিজ্ঞান, গণিত, সমাজ বিজ্ঞান, ইংৰাজী আৰু অসমীয়া",
+                price: 49,
+                totalTests: 20,
+                ebookTitle: "HSLC ৫০% OMR প্রশ্নবেংক আৰু ফৰ্মুলা ই-বুক",
+                testNames: ["All-Subject OMR Demo #1", "Science: Chemical Reactions & Acids", "Science: Light, Lens & Electricity", "Science: Life Processes & Control", "Maths: Real Numbers & Polynomials", "Maths: Quadratic Equations & AP", "Maths: Triangles & Trigonometry", "Maths: Surface Area & Statistics", "Social Science: History of Assam", "Social Science: Indian Freedom Struggle", "Social Science: Geography of Assam", "Social Science: Political & Economics", "English: Determiners & Prepositions", "English: Voice, Narration & Tense", "অসমীয়া ব্যাকৰণ (সন্ধি, সমাস, প্রত্যয়)", "SEBA Board OMR Paper 2023", "SEBA Board OMR Paper 2024", "SEBA Board OMR Paper 2025", "Pre-Board Full OMR Mock #19", "Final Board Exam Booster #20"]
+            }
+        };
+
+        // ডিফল্ট মাস্টাৰ প্রশ্নসমূহ (যদি ফেক্টৰীত নতুন প্রশ্ন যোগ কৰা হোৱা নাই তেন্তে এইবোৰ ব্যৱহাৰ হ'ব)
+        const DEFAULT_POOL = [
+            { exam: "adre", subject: "অসম বুৰঞ্জী", q: "চৰাইদেউ মৈদামক কোন চনত ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি দিয়া হয়?", options: ["২০২২ চনত", "২০২৩ চনত", "২০২৪ চনত", "২০২৫ চনত"], ans: 2, exp: "২০২৪ চনৰ জুলাই মাহত চৰাইদেউ মৈদামক ইউনেস্ক’ৰ বিশ্ব ঐতিহ্য ক্ষেত্ৰ হিচাপে স্বীকৃতি দিয়া হয়।" },
+            { exam: "adre", subject: "অসমীয়া সাহিত্য", q: "অসমীয়া ভাষাক ভাৰত চৰকাৰে কোন চনত 'ধ্ৰুপদী ভাষা' হিচাপে মৰ্যাদা প্ৰদান কৰে?", options: ["২০২০ চনত", "২০২২ চনত", "২০২৪ চনত", "২০২১ চনত"], ans: 2, exp: "২০২৪ চনৰ অক্টোবৰ মাহত কেন্দ্ৰীয় কেবিনেটে অসমীয়া ভাষাক ধ্ৰুপদী ভাষাৰ মৰ্যাদা প্ৰদান কৰে।" },
+            { exam: "police", subject: "ভাৰতীয় সংবিধান", q: "ভাৰতীয় সংবিধানৰ কোনটো অনুচ্ছেদত অসম ৰাজ্যৰ বাবে বিশেষ ব্যৱস্থা উল্লেখ আছে?", options: ["অনুচ্ছেদ ৩৭১ (ক)", "অনুচ্ছেদ ৩৭১ (খ)", "অনুচ্ছেদ ৩৭১ (গ)", "অনুচ্ছেদ ৩৭০"], ans: 1, exp: "অনুচ্ছেদ ৩৭১(খ) [Article 371B]-ত অসমৰ বাবে বিশেষ ব্যৱস্থা আছে।" },
+            { exam: "police", subject: "গণিত চৰ্টকাট", q: "এখন গাড়ীয়ে ঘণ্টাত ৭২ কি.মি. বেগত গতি কৰিলে প্ৰতি ছেকেণ্ডত কিমান মিটাৰ যাব?", options: ["১৫ মি./ছে.", "২০ মি./ছে.", "২৫ মি./ছে.", "১৮ মি./ছে."], ans: 1, exp: "⚡ চৰ্টকাট: ৭২ × (৫/১৮) = ২০ মিটাৰ/ছেকেণ্ড।" },
+            { exam: "tet", subject: "পেডাগ’জি (CDP)", q: "জিন পিয়াজেৰ বৌদ্ধিক বিকাশ তত্ত্ব অনুসৰি ৭-১১ বছৰ বয়সৰ শিশু কোনটো স্তৰত থাকে?", options: ["সংবেদন-চালিত স্তৰ", "প্ৰাক-সক্ৰিয়তা স্তৰ", "মূৰ্ত সক্ৰিয়তা স্তৰ", "বিমূৰ্ত সক্ৰিয়তা স্তৰ"], ans: 2, exp: "৭-১১ বছৰ বয়সক মূৰ্ত সক্ৰিয়তা স্তৰ (Concrete Operational Stage) বোলা হয়।" },
+            { exam: "hslc", subject: "সাধাৰণ বিজ্ঞান", q: "মানুহৰ চকুৱে বস্তু এটাৰ প্ৰতিবিম্ব চকুৰ কোনটো অংশত গঠন কৰে?", options: ["কৰ্ণিয়া", "চকুৰ পতা", "অক্ষিপট বা ৰেটিনা", "পিউপিল"], ans: 2, exp: "মানুহৰ চকুৰ লেন্ছে অক্ষিপট বা ৰেটিনাৰ ওপৰত প্ৰতিবিম্ব গঠন কৰে।" }
+        ];
+
+        let currentPackKey = "adre";
+        let masterPool = [];
+        let activeQuestions = [];
+        let qIdx = 0;
+        let userPicks = [];
+        let quizTimer;
+        let secsLeft = 900;
+
+        // ১. URL-ৰ পৰা কোনটো পেক খোলা হৈছে ধৰা (যেনে exam_engine.html?pack=police)
+        async function initEngine() {
+            const params = new URLSearchParams(window.location.search);
+            const urlPack = params.get('pack');
+            if (urlPack && PACK_CONFIGS[urlPack]) {
+                currentPackKey = urlPack;
+            }
+            document.getElementById('engine-pack-switcher').value = currentPackKey;
+
+            // questions.json আৰু admin_factory.html ৰ localStorage দুয়োটাৰ পৰা প্রশ্ন একত্ৰিত কৰা
+            let localFactory = JSON.parse(localStorage.getItem('master_factory_db') || '[]');
+            let jsonQuestions = [];
+            try {
+                const res = await fetch('questions.json?t=' + new Date().getTime());
+                if (res.ok) {
+                    const data = await res.json();
+                    jsonQuestions = data.questions || [];
+                }
+            } catch (e) {}
+
+            masterPool = [...localFactory, ...jsonQuestions, ...DEFAULT_POOL];
+            renderPackUI();
+
+            if (params.get('mode') === 'ebook') {
+                toggleEbookView();
+            }
+        }
+
+        function switchPack(newKey) {
+            currentPackKey = newKey;
+            window.history.replaceState({}, '', `?pack=${newKey}`);
+            backToPackDashboard();
+            renderPackUI();
+        }
+
+        function isPackPaid() {
+            return localStorage.getItem('paid_pack_' + currentPackKey) === 'true' || localStorage.getItem('unlocked_' + currentPackKey) === 'true';
+        }
+
+        // ২. ডেশ্বব'ৰ্ড আৰু ই-বুক ৰেণ্ডাৰ কৰা
+        function renderPackUI() {
+            const cfg = PACK_CONFIGS[currentPackKey];
+            const paid = isPackPaid();
+
+            document.getElementById('nav-pack-title').innerText = cfg.title;
+            document.getElementById('hero-title').innerText = cfg.title;
+            document.getElementById('hero-subtitle').innerText = cfg.subtitle;
+            document.getElementById('stat-total-tests').innerText = cfg.totalTests;
+            document.getElementById('stat-q-pool').innerText = masterPool.length + "+";
+            document.getElementById('bonus-ebook-title').innerText = cfg.ebookTitle;
+
+            const unlockArea = document.getElementById('unlock-action-area');
+            if (paid) {
+                unlockArea.innerHTML = `<span class="bg-green-100 text-green-800 text-xs font-extrabold px-3 py-1.5 rounded-xl border border-green-300">✔ UNLOCKED</span>`;
+            } else {
+                unlockArea.innerHTML = `
+                    <button onclick="payWithRazorpay()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-4 py-2 rounded-xl shadow flex items-center">
+                        <i class="fa-solid fa-bolt mr-1"></i> আনলক কৰক (₹${cfg.price})
+                    </button>
+                `;
+            }
+
+            // মক টেষ্ট কাৰ্ডসমূহ তৈয়াৰ কৰা
+            const grid = document.getElementById('tests-grid-container');
+            grid.innerHTML = '';
+            for (let i = 1; i <= cfg.totalTests; i++) {
+                const isFree = (i === 1);
+                const canOpen = isFree || paid;
+                const tName = cfg.testNames[i - 1] || `Full Mock Test #${i}`;
+
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border ${isFree ? 'border-green-400' : 'border-slate-200'} p-4 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-[11px] font-extrabold text-slate-400">MOCK #${String(i).padStart(2, '0')}</span>
+                                <span class="text-[10px] font-extrabold px-2 py-0.5 rounded ${isFree ? 'bg-green-100 text-green-700' : (paid ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-500')}">
+                                    ${isFree ? 'FREE DEMO' : (paid ? 'UNLOCKED' : '🔒 LOCKED')}
+                                </span>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">${tName}</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">সময়: ১৫ মিনিট • OMR Pattern</p>
+                        </div>
+                        <button onclick="${canOpen ? `startEngineQuiz(${i})` : `payWithRazorpay()`}" class="w-full mt-4 ${canOpen ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-slate-900 hover:bg-slate-800 text-amber-400'} text-xs font-extrabold py-2.5 rounded-xl transition">
+                            ${canOpen ? 'টেষ্ট আৰম্ভ কৰক' : `আনলক কৰক (₹${cfg.price})`}
+                        </button>
+                    </div>
+                `;
+            }
+
+            // বিষয়ভিত্তিক বাৰসমূহ দেখুওৱা
+            const subjects = [...new Set(masterPool.map(q => q.subject))].slice(0, 4);
+            document.getElementById('subject-bars-container').innerHTML = subjects.map(s => `
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs font-bold flex justify-between">
+                    <span>${s}</span>
+                    <span class="text-blue-600">সক্ৰিয়</span>
+                </div>
+            `).join('');
+
+            // PDF ই-বুক ভিউখনো সাজু কৰি থোৱা
+            renderPdfBook(cfg, paid);
+        }
+
+        function renderPdfBook(cfg, paid) {
+            document.getElementById('pdf-cover-title').innerText = cfg.ebookTitle;
+            document.getElementById('pdf-cover-sub').innerText = cfg.subtitle;
+            const listToShow = paid ? masterPool : masterPool.slice(0, 5);
+            const labels = ['ক', 'খ', 'গ', 'ঘ'];
+
+            let html = listToShow.map((item, idx) => `
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 avoid-break text-xs">
+                    <p class="font-bold text-slate-900 text-sm">${idx + 1}. [${item.subject}] ${item.q}</p>
+                    <p class="text-slate-600 my-1">${item.options.map((o, oi) => `(${labels[oi]})${o}`).join('  •  ')}</p>
+                    <p class="text-emerald-700 font-bold">✔ শুদ্ধ উত্তৰ: (${labels[item.ans]}) ${item.options[item.ans]}</p>
+                    <p class="text-slate-600 mt-0.5"><strong>ব্যাখ্যা:</strong> ${item.exp}</p>
+                </div>
+            `).join('');
+
+            if (!paid) {
+                html += `
+                    <div class="no-print p-6 rounded-2xl bg-amber-50 border-2 border-amber-300 text-center">
+                        <h4 class="font-extrabold text-base text-slate-900">সম্পূৰ্ণ ই-বুকখন আৰু ২০ টা মক টেষ্ট আনলক কৰক!</h4>
+                        <button onclick="payWithRazorpay()" class="mt-3 bg-blue-600 text-white text-xs font-extrabold px-6 py-3 rounded-xl shadow">
+                            Razorpay-ৰে আনলক কৰক (₹${cfg.price})
+                        </button>
+                    </div>
+                `;
+            }
+            document.getElementById('pdf-questions-container').innerHTML = html;
+        }
+
+        function toggleEbookView() {
+            const pdfSec = document.getElementById('ebook-printer-view');
+            const dashSec = document.getElementById('mock-dashboard-view');
+            const isHidden = pdfSec.classList.contains('hidden');
+            if (isHidden) {
+                pdfSec.classList.remove('hidden');
+                dashSec.classList.add('hidden');
+            } else {
+                pdfSec.classList.add('hidden');
+                dashSec.classList.remove('hidden');
+            }
+        }
+
+        // ৩. কুইজ ইঞ্জিন ফাংচনসমূহ
+        function startEngineQuiz(testNum) {
+            const cfg = PACK_CONFIGS[currentPackKey];
+            document.getElementById('mock-dashboard-view').classList.add('hidden');
+            document.getElementById('ebook-printer-view').classList.add('hidden');
+            document.getElementById('quiz-result-screen').classList.add('hidden');
+            document.getElementById('live-quiz-view').classList.remove('hidden');
+
+            document.getElementById('quiz-header-title').innerText = `${cfg.testNames[testNum - 1] || 'Mock Test #' + testNum}`;
+            activeQuestions = masterPool.slice(0, 15);
+            qIdx = 0;
+            userPicks = new Array(activeQuestions.length).fill(null);
+            secsLeft = 900;
+
+            renderLiveQuestion();
+            clearInterval(quizTimer);
+            quizTimer = setInterval(() => {
+                secsLeft--;
+                const m = String(Math.floor(secsLeft / 60)).padStart(2, '0');
+                const s = String(secsLeft % 60).padStart(2, '0');
+                document.getElementById('live-timer').innerText = `${m}:${s}`;
+                if (secsLeft <= 0) finishLiveQuiz();
+            }, 1000);
+        }
+
+        function renderLiveQuestion() {
+            const q = activeQuestions[qIdx];
+            document.getElementById('live-q-sub').innerText = q.subject;
+            document.getElementById('live-q-num').innerText = `প্রশ্ন ${qIdx + 1} / ${activeQuestions.length}`;
+            document.getElementById('live-q-text').innerText = `${qIdx + 1}. ${q.q}`;
+
+            const labels = ['ক', 'খ', 'গ', 'ঘ'];
+            document.getElementById('live-q-opts').innerHTML = q.options.map((opt, i) => `
+                <button onclick="userPicks[${qIdx}]=${i};renderLiveQuestion()" class="option-btn ${userPicks[qIdx]===i ? 'selected' : ''} w-full text-left p-3.5 rounded-xl border border-slate-200 flex items-center">
+                    <span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center mr-3">${labels[i]}</span>
+                    <span class="text-sm">${opt}</span>
+                </button>
+            `).join('');
+
+            document.getElementById('live-omr-grid').innerHTML = activeQuestions.map((_, i) => `
+                <button onclick="qIdx=${i};renderLiveQuestion()" class="h-9 rounded-lg text-xs font-bold ${userPicks[i]!==null ? 'bg-green-600 text-white' : 'bg-white border text-slate-700'} ${i===qIdx ? 'ring-2 ring-blue-600' : ''}">
+                    ${i + 1}
+                </button>
+            `).join('');
+        }
+
+        function prevLiveQ() { if (qIdx > 0) { qIdx--; renderLiveQuestion(); } }
+        function nextLiveQ() { if (qIdx < activeQuestions.length - 1) { qIdx++; renderLiveQuestion(); } else { finishLiveQuiz(); } }
+
+        function finishLiveQuiz() {
+            clearInterval(quizTimer);
+            document.getElementById('live-quiz-view').classList.add('hidden');
+            document.getElementById('quiz-result-screen').classList.remove('hidden');
+
+            let ok = 0, err = 0;
+            const solBox = document.getElementById('res-solutions-box');
+            solBox.innerHTML = '';
+
+            activeQuestions.forEach((q, i) => {
+                if (userPicks[i] === q.ans) ok++;
+                else if (userPicks[i] !== null) err++;
+
+                solBox.innerHTML += `
+                    <div class="p-3.5 rounded-xl bg-slate-50 border text-xs">
+                        <p class="font-bold text-slate-900">${i + 1}. ${q.q}</p>
+                        <p class="text-green-700 font-bold mt-1">✔ শুদ্ধ উত্তৰ: ${q.options[q.ans]}</p>
+                        <p class="text-slate-600 mt-0.5"><strong>ব্যাখ্যা:</strong> ${q.exp}</p>
+                    </div>
+                `;
+            });
+
+            const finalScore = (ok * 1.0 - err * 0.25).toFixed(2);
+            document.getElementById('res-score-val').innerText = `${finalScore} / ${activeQuestions.length}`;
+            document.getElementById('res-ok-val').innerText = ok;
+            document.getElementById('res-err-val').innerText = err;
+        }
+
+        function backToPackDashboard() {
+            clearInterval(quizTimer);
+            document.getElementById('live-quiz-view').classList.add('hidden');
+            document.getElementById('quiz-result-screen').classList.add('hidden');
+            document.getElementById('ebook-printer-view').classList.add('hidden');
+            document.getElementById('mock-dashboard-view').classList.remove('hidden');
+        }
+
+        // ৪. RAZORPAY AUTO-UNLOCK CHECKOUT
+        function payWithRazorpay() {
+            const cfg = PACK_CONFIGS[currentPackKey];
+            const options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": cfg.price * 100,
+                "currency": "INR",
+                "name": "অসম এক্সাম হাব",
+                "description": cfg.title,
+                "handler": function (response) {
+                    localStorage.setItem('paid_pack_' + currentPackKey, 'true');
+                    renderPackUI();
+                    alert("🎉 পেমেণ্ট সফল হ'ল! আপোনাৰ সম্পূৰ্ণ পেকেজ (সকলো মক টেষ্ট + পিডিএফ ই-বুক) আনলক হৈ গৈছে!");
+                },
+                "theme": { "color": "#1d4ed8" }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        window.onload = initEngine;
+    </script>
+</body>
+</html>
