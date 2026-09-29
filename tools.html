@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফটো ৰিচাইজাৰ, বয়স গণনাকাৰী আৰু টাইপিং টেষ্ট | অসম এক্সাম হাব</title>
+    <meta name="description" content="অসমৰ চৰকাৰী চাকৰিৰ (ADRE, Assam Police, APSC) ফৰ্ম ফিল-আপৰ বাবে ফ্ৰী ফটো আৰু চহী ৰিচাইজাৰ (20KB-50KB), চাকৰিৰ বয়স গণনাকাৰী আৰু কম্পিউটাৰ টাইপিং স্পীড টেষ্ট।">
+    <meta name="keywords" content="Assam Exam Photo Resizer, ADRE Photo Signature Resizer 50kb, Assam Govt Job Age Calculator, ADRE Typing Speed Test Assamese">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Noto Sans Assamese -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Assamese:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Assamese', sans-serif;
+            background-color: #f8fafc;
+        }
+        .tools-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+        }
+        .tool-tab.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- ================= 1. TOP NAVIGATION BAR ================= -->
+    <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 rounded-xl bg-blue-700 flex items-center justify-center text-white font-extrabold text-lg shadow-sm">অ</div>
+                <div>
+                    <span class="font-extrabold text-base md:text-lg text-slate-900 leading-none block">অসম এক্সাম হাব</span>
+                    <span class="text-[11px] text-blue-600 font-semibold">Student Free Utility Tools</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-xs md:text-sm font-bold text-slate-600 hover:text-blue-600">
+                    <i class="fa-solid fa-house mr-1"></i> হোমপেজ
+                </a>
+                <a href="adre.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-3.5 py-2 rounded-xl shadow-sm">
+                    ADRE পেক (₹99)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. HERO BANNER ================= -->
+    <section class="tools-hero text-white py-10 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full">
+                🛠️ 100% FREE STUDENT TOOLS
+            </span>
+            <h1 class="text-2xl md:text-4xl font-extrabold mt-3 leading-snug">
+                অসমৰ ছাত্ৰ-ছাত্ৰীৰ বাবে বিনামূলীয়া অনলাইন সহায়ক টুলছ
+            </h1>
+            <p class="text-blue-100 text-xs md:text-sm mt-2 max-w-2xl mx-auto">
+                অনলাইন ফৰ্ম ফিল-আপৰ বাবে ফটো-চহী ৰিচাইজাৰ, চৰকাৰী চাকৰিৰ বয়স গণনাকাৰী আৰু ADRE কম্পিউটাৰ স্কিল টেষ্টৰ লাইভ টাইপিং অনুশীলন—একেখন মঞ্চতে।
+            </p>
+
+            <!-- Tool Switcher Buttons -->
+            <div class="flex flex-wrap justify-center gap-2.5 mt-7">
+                <button onclick="switchTool('resizer', this)" class="tool-tab active bg-white text-slate-800 text-xs md:text-sm font-extrabold px-5 py-3 rounded-xl transition flex items-center">
+                    <i class="fa-solid fa-image mr-2"></i> ১. ফটো আৰু চহী ৰিচাইজাৰ
+                </button>
+                <button onclick="switchTool('age', this)" class="tool-tab bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs md:text-sm font-extrabold px-5 py-3 rounded-xl transition flex items-center">
+                    <i class="fa-solid fa-calendar-check mr-2"></i> ২. চাকৰিৰ বয়স গণনাকাৰী
+                </button>
+                <button onclick="switchTool('typing', this)" class="tool-tab bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs md:text-sm font-extrabold px-5 py-3 rounded-xl transition flex items-center">
+                    <i class="fa-solid fa-keyboard mr-2"></i> ৩. লাইভ টাইপিং স্পীড টেষ্ট
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. MAIN TOOLS CONTAINER ================= -->
+    <main class="max-w-5xl mx-auto px-4 py-10">
+
+        <!-- ================= TOOL 1: PHOTO & SIGNATURE RESIZER ================= -->
+        <section id="tool-resizer" class="bg-white rounded-2xl border border-slate-200 shadow-lg p-6 md:p-8">
+            <div class="border-b border-slate-200 pb-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <span class="text-xs font-extrabold text-blue-600 uppercase">ADRE • SLPRB Assam Police • APSC • SEBA</span>
+                    <h2 class="text-xl font-extrabold text-slate-900 mt-0.5">📸 চৰকাৰী ফৰ্মৰ ফটো আৰু চহী ৰিচাইজাৰ (KB & Pixel Resizer)</h2>
+                </div>
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">১০০% সুৰক্ষিত (Browser Based)</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Left Controls -->
+                <div class="space-y-4 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1.5">ধাপ ১: কি ৰিচাইজ কৰিব বিচাৰে বাছি লওক:</label>
+                        <select id="preset-select" onchange="applyPreset()" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 font-bold text-slate-800 focus:outline-none focus:border-blue-600">
+                            <option value="photo">পাছপ’ৰ্ট ফটো (Passport Photo: 350×450 px | লক্ষ্য: 20KB - 50KB)</option>
+                            <option value="sign">চহী / স্বাক্ষৰ (Signature: 300×120 px | লক্ষ্য: 10KB - 20KB)</option>
+                            <option value="doc">নথিপত্ৰ / মাৰ্কশ্বীট (Document: 800×1000 px | লক্ষ্য: 50KB - 100KB)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1.5">ধাপ ২: আপোনাৰ ম’বাইল বা কম্পিউটাৰৰ পৰা ফটো বাছি লওক:</label>
+                        <input type="file" id="img-upload" accept="image/*" onchange="processUploadedImage()" class="w-full bg-slate-50 border-2 border-dashed border-blue-300 rounded-xl p-4 text-slate-700 font-semibold cursor-pointer">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-600 mb-1">প্ৰস্থ (Width in px):</label>
+                            <input type="number" id="resize-width" value="350" oninput="recompressImage()" class="w-full border border-slate-300 rounded-xl p-2.5 font-bold">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-600 mb-1">উচ্চতা (Height in px):</label>
+                            <input type="number" id="resize-height" value="450" oninput="recompressImage()" class="w-full border border-slate-300 rounded-xl p-2.5 font-bold">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between font-bold text-slate-700 mb-1">
+                            <span>ফাইলৰ মানদণ্ড আৰু KB নিয়ন্ত্ৰণ (Quality Slider):</span>
+                            <span id="quality-val" class="text-blue-600">80%</span>
+                        </div>
+                        <input type="range" id="quality-slider" min="10" max="98" value="80" oninput="recompressImage()" class="w-full accent-blue-600 cursor-pointer">
+                        <p class="text-[11px] text-slate-400 mt-1">💡 টিপছ: যদি KB বেছি হয় তেন্তে স্লাইডাৰডাল বাওঁফালে কমাওক, আৰু KB কম হ'লে সোঁফালে বঢ়াওক।</p>
+                    </div>
+                </div>
+
+                <!-- Right Preview & Download -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col justify-between items-center text-center">
+                    <div class="w-full">
+                        <p class="text-xs font-bold text-slate-500 mb-3">ফটোৰ প্ৰিভিউ আৰু নতুন ফাইল চাইজ:</p>
+                        <div class="h-48 flex items-center justify-center bg-white border border-slate-200 rounded-xl overflow-hidden p-2">
+                            <img id="preview-img" src="" alt="Preview" class="hidden max-h-full max-w-full object-contain rounded">
+                            <p id="preview-placeholder" class="text-xs text-slate-400">ফটো আপলোড কৰিলে ইয়াত দেখা যাব</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full mt-4 pt-4 border-t border-slate-200">
+                        <div class="flex justify-between items-center bg-blue-50 border border-blue-200 px-4 py-2.5 rounded-xl mb-4">
+                            <span class="text-xs font-bold text-blue-900">নতুন ফাইল চাইজ (Output Size):</span>
+                            <span id="output-kb-badge" class="text-base font-extrabold text-blue-700">0 KB</span>
+                        </div>
+
+                        <a id="download-resized-btn" href="#" download="assam_exam_resized.jpg" class="pointer-events-none opacity-50 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold py-3.5 rounded-xl shadow flex items-center justify-center transition">
+                            <i class="fa-solid fa-download mr-2"></i> ৰিচাইজ কৰা ফটো ডাউনলোড কৰক
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TOOL 2: ASSAM GOVT JOB AGE CALCULATOR ================= -->
+        <section id="tool-age" class="hidden bg-white rounded-2xl border border-slate-200 shadow-lg p-6 md:p-8">
+            <div class="border-b border-slate-200 pb-4 mb-6">
+                <span class="text-xs font-extrabold text-emerald-600 uppercase">Age Limit & Relaxation Checker</span>
+                <h2 class="text-xl font-extrabold text-slate-900 mt-0.5">📅 অসম চৰকাৰী চাকৰিৰ বয়স আৰু যোগ্যতা গণনাকাৰী</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1.5">আপোনাৰ জন্ম তাৰিখ (Date of Birth):</label>
+                    <input type="date" id="dob-input" value="2000-01-01" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 font-bold text-slate-800">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1.5">গণনাৰ তাৰিখ (Cut-off Date):</label>
+                    <input type="date" id="cutoff-input" value="2026-01-01" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 font-bold text-slate-800">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1.5">আপোনাৰ শ্ৰেণী (Category):</label>
+                    <select id="cat-input" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 font-bold text-slate-800">
+                        <option value="0">General / Unreserved (কোনো ৰেহাই নাই)</option>
+                        <option value="3">OBC / MOBC (+৩ বছৰ বয়স ৰেহাই)</option>
+                        <option value="5">SC / ST(P) / ST(H) (+৫ বছৰ বয়স ৰেহাই)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="calculateJobAge()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-extrabold py-3.5 rounded-xl shadow transition mb-6">
+                <i class="fa-solid fa-calculator mr-2"></i> মোৰ বয়স আৰু চাকৰিৰ যোগ্যতা পৰীক্ষা কৰক
+            </button>
+
+            <!-- Age Result Box -->
+            <div id="age-result-box" class="hidden space-y-6">
+                <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-center">
+                    <p class="text-xs font-bold text-emerald-800">নির্ধাৰিত তাৰিখত আপোনাৰ মুঠ বয়স হৈছে:</p>
+                    <p id="exact-age-text" class="text-2xl md:text-3xl font-extrabold text-emerald-950 mt-1">26 বছৰ, 0 মাহ, 0 দিন</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-extrabold text-slate-900 mb-3">📋 অসমৰ প্রধান পৰীক্ষাসমূহত আপোনাৰ যোগ্যতা (Eligibility Status):</h3>
+                    <div id="eligibility-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TOOL 3: LIVE TYPING SPEED TESTER ================= -->
+        <section id="tool-typing" class="hidden bg-white rounded-2xl border border-slate-200 shadow-lg p-6 md:p-8">
+            <div class="border-b border-slate-200 pb-4 mb-6 flex flex-wrap justify-between items-center gap-3">
+                <div>
+                    <span class="text-xs font-extrabold text-purple-600 uppercase">ADRE Grade-III Computer Skill Test</span>
+                    <h2 class="text-xl font-extrabold text-slate-900 mt-0.5">⌨️ লাইভ কম্পিউটাৰ টাইপিং স্পীড টেষ্টাৰ (৬০ ছেকেণ্ড)</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="setTypingLang('en')" class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1.5 rounded-lg">English Typing</button>
+                    <button onclick="setTypingLang('as')" class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-lg">অসমীয়া টাইপিং</button>
+                </div>
+            </div>
+
+            <!-- Live Typing Metrics -->
+            <div class="grid grid-cols-3 gap-4 mb-5 text-center">
+                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl">
+                    <p class="text-[11px] text-slate-500 font-bold">বাকী থকা সময়</p>
+                    <p id="type-timer" class="text-2xl font-extrabold text-red-600">60s</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl">
+                    <p class="text-[11px] text-slate-500 font-bold">টাইপিং স্পীড (WPM)</p>
+                    <p id="type-wpm" class="text-2xl font-extrabold text-blue-600">0</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl">
+                    <p class="text-[11px] text-slate-500 font-bold">শুদ্ধতা (Accuracy)</p>
+                    <p id="type-acc" class="text-2xl font-extrabold text-emerald-600">100%</p>
+                </div>
+            </div>
+
+            <!-- Target Paragraph -->
+            <div id="typing-prompt-box" class="p-4 rounded-xl bg-slate-100 border border-slate-300 text-sm md:text-base font-medium text-slate-800 leading-relaxed mb-4 select-none"></div>
+
+            <!-- User Typing Input -->
+            <textarea id="typing-input" rows="4" oninput="handleTypingInput()" placeholder="ইয়াত টাইপ কৰা আৰম্ভ কৰক (প্রথম আখৰটো টাইপ কৰিলেই টাইমাৰ নিজে নিজে চলিব)..." class="w-full bg-white border-2 border-blue-400 rounded-xl p-4 text-sm md:text-base font-medium focus:outline-none focus:border-blue-600"></textarea>
+
+            <div class="mt-4 flex justify-end">
+                <button onclick="resetTypingTest()" class="bg-slate-800 hover:bg-slate-900 text-white text-xs font-extrabold px-5 py-2.5 rounded-xl">
+                    <i class="fa-solid fa-rotate-right mr-1.5"></i> নতুন পেৰাগ্ৰাফ লওক / ৰিছেট কৰক
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SMART CONVERSION BANNER (TURNS FREE USERS INTO BUYERS) ================= -->
+        <section class="mt-10 bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded">SPECIAL OFFER FOR ASPIRANTS</span>
+                <h3 class="text-xl md:text-2xl font-extrabold mt-2">ফৰ্ম ফিল-আপৰ কাম হ’ল নেকি? এতিয়া লিখিত পৰীক্ষাৰ প্ৰস্তুতি আৰম্ভ কৰক!</h3>
+                <p class="text-blue-200 text-xs md:text-sm mt-1">
+                    মাত্ৰ <strong>₹49</strong>-ত অসম সাধাৰণ জ্ঞান ১০০০+ MCQ ই-বুক আৰু <strong>₹99</strong>-ত ২০ টা ADRE Full Mock Test আনলক কৰক।
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-3 shrink-0">
+                <a href="adre.html" class="bg-amber-400 hover:bg-amber-500 text-slate-950 text-xs font-extrabold px-5 py-3 rounded-xl shadow">
+                    ADRE মক পেক (₹99)
+                </a>
+                <a href="ebook_gk.html" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs font-extrabold px-5 py-3 rounded-xl">
+                    অসম জি.কে. ই-বুক (₹49)
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= JAVASCRIPT FOR ALL 3 TOOLS ================= -->
+    <script>
+        // টুল সলনি কৰা ফাংচন
+        function switchTool(toolKey, btn) {
+            ['resizer', 'age', 'typing'].forEach(k => {
+                document.getElementById('tool-' + k).classList.add('hidden');
+            });
+            document.getElementById('tool-' + toolKey).classList.remove('hidden');
+
+            document.querySelectorAll('.tool-tab').forEach(b => {
+                b.className = "tool-tab bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs md:text-sm font-extrabold px-5 py-3 rounded-xl transition flex items-center";
+            });
+            btn.className = "tool-tab active bg-white text-slate-900 text-xs md:text-sm font-extrabold px-5 py-3 rounded-xl transition flex items-center shadow-lg";
+        }
+
+        // ================= 1. PHOTO & SIGNATURE RESIZER LOGIC =================
+        let uploadedImgObj = null;
+
+        function applyPreset() {
+            const preset = document.getElementById('preset-select').value;
+            if (preset === 'photo') {
+                document.getElementById('resize-width').value = 350;
+                document.getElementById('resize-height').value = 450;
+                document.getElementById('quality-slider').value = 82;
+            } else if (preset === 'sign') {
+                document.getElementById('resize-width').value = 300;
+                document.getElementById('resize-height').value = 120;
+                document.getElementById('quality-slider').value = 75;
+            } else {
+                document.getElementById('resize-width').value = 800;
+                document.getElementById('resize-height').value = 1000;
+                document.getElementById('quality-slider').value = 80;
+            }
+            recompressImage();
+        }
+
+        function processUploadedImage() {
+            const file = document.getElementById('img-upload').files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    uploadedImgObj = img;
+                    recompressImage();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function recompressImage() {
+            const qVal = document.getElementById('quality-slider').value;
+            document.getElementById('quality-val').innerText = qVal + '%';
+            if (!uploadedImgObj) return;
+
+            const targetW = parseInt(document.getElementById('resize-width').value) || 350;
+            const targetH = parseInt(document.getElementById('resize-height').value) || 450;
+            const quality = parseInt(qVal) / 100;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = targetW;
+            canvas.height = targetH;
+            const ctx = canvas.getContext('2d');
+
+            // বগা বেকগ্ৰাউণ্ড দি ফটোখন নিখুঁতভাৱে অঁকা
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, targetW, targetH);
+            ctx.drawImage(uploadedImgObj, 0, 0, targetW, targetH);
+
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+            const approxKb = Math.round((dataUrl.length * 3 / 4) / 1024);
+
+            const prevImg = document.getElementById('preview-img');
+            prevImg.src = dataUrl;
+            prevImg.classList.remove('hidden');
+            document.getElementById('preview-placeholder').classList.add('hidden');
+            document.getElementById('output-kb-badge').innerText = approxKb + ' KB';
+
+            const dlBtn = document.getElementById('download-resized-btn');
+            dlBtn.href = dataUrl;
+            dlBtn.classList.remove('pointer-events-none', 'opacity-50');
+        }
+
+        // ================= 2. GOVT JOB AGE CALCULATOR LOGIC =================
+        function calculateJobAge() {
+            const dob = new Date(document.getElementById('dob-input').value);
+            const cutoff = new Date(document.getElementById('cutoff-input').value);
+            const relax = parseInt(document.getElementById('cat-input').value) || 0;
+
+            if (isNaN(dob) || isNaN(cutoff) || dob >= cutoff) {
+                alert("অনুগ্ৰহ কৰি সঠিক জন্ম তাৰিখ বাছি লওক!");
+                return;
+            }
+
+            let years = cutoff.getFullYear() - dob.getFullYear();
+            let months = cutoff.getMonth() - dob.getMonth();
+            let days = cutoff.getDate() - dob.getDate();
+
+            if (days < 0) {
+                months--;
+                days += 30;
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('age-result-box').classList.remove('hidden');
+            document.getElementById('exact-age-text').innerText = `${years} বছৰ, ${months} মাহ, ${days} দিন`;
+
+            const exams = [
+                { name: "ADRE 3.0 (Grade III & IV)", min: 18, max: 40 + relax },
+                { name: "Assam Police Constable (AB/UB)", min: 18, max: 25 + relax },
+                { name: "Assam Police Sub-Inspector (SI)", min: 20, max: 26 + relax },
+                { name: "APSC CCE Prelims", min: 21, max: 38 + relax },
+                { name: "Assam TET (LP & UP Teacher)", min: 18, max: 40 + relax },
+                { name: "SSC GD & Central Defense", min: 18, max: 23 + relax }
+            ];
+
+            const grid = document.getElementById('eligibility-grid');
+            grid.innerHTML = exams.map(ex => {
+                const eligible = years >= ex.min && years <= ex.max;
+                return `
+                    <div class="p-3.5 rounded-xl border ${eligible ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-slate-900">${ex.name}</p>
+                            <p class="text-[11px] text-slate-500">বয়সৰ সীমা: ${ex.min} - ${ex.max} বছৰ</p>
+                        </div>
+                        <span class="font-extrabold px-2.5 py-1 rounded ${eligible ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">
+                            ${eligible ? '✔ যোগ্য' : '✖ অযোগ্য'}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ================= 3. LIVE TYPING SPEED TEST LOGIC =================
+        const typingTexts = {
+            en: "Assam is a state in northeastern India known for its wildlife, archeological sites and tea plantations. Kaziranga National Park is home to the world famous one-horned Indian rhinoceros and Charaideo Maidam is a UNESCO World Heritage Site.",
+            as: "অসম ভাৰতৰ উত্তৰ-পূব দিশত অৱস্থিত এখন অতি মনোমোহা ৰাজ্য। ব্ৰহ্মপুত্ৰ আৰু বৰাক নদীৰ উপত্যকাৰে গঠিত অসমখন চাহ শিল্প, এক খড়্গযুক্ত গঁড় আৰু চহকী সাংস্কৃতিক ঐতিহ্যৰ বাবে সমগ্ৰ বিশ্বতে বিখ্যাত।"
+        };
+
+        let currentLang = 'en';
+        let typeTimeLeft = 60;
+        let typeTimer = null;
+        let isTypingStarted = false;
+
+        function setTypingLang(lang) {
+            currentLang = lang;
+            resetTypingTest();
+        }
+
+        function resetTypingTest() {
+            clearInterval(typeTimer);
+            isTypingStarted = false;
+            typeTimeLeft = 60;
+            document.getElementById('type-timer').innerText = '60s';
+            document.getElementById('type-wpm').innerText = '0';
+            document.getElementById('type-acc').innerText = '100%';
+            document.getElementById('typing-input').value = '';
+            document.getElementById('typing-input').disabled = false;
+            document.getElementById('typing-prompt-box').innerText = typingTexts[currentLang];
+        }
+
+        function handleTypingInput() {
+            const input = document.getElementById('typing-input').value;
+            const target = typingTexts[currentLang];
+
+            if (!isTypingStarted && input.length > 0) {
+                isTypingStarted = true;
+                typeTimer = setInterval(() => {
+                    typeTimeLeft--;
+                    document.getElementById('type-timer').innerText = typeTimeLeft + 's';
+                    if (typeTimeLeft <= 0) {
+                        clearInterval(typeTimer);
+                        document.getElementById('typing-input').disabled = true;
+                        alert("⏰ সময় শেষ! আপোনাৰ টাইপিং স্পীড (WPM) আৰু শুদ্ধতা ওপৰত চাওক।");
+                    }
+                }, 1000);
+            }
+
+            // সঠিক আখৰ আৰু WPM গণনা কৰা
+            let correctChars = 0;
+            for (let i = 0; i < input.length; i++) {
+                if (input[i] === target[i]) correctChars++;
+            }
+
+            const accuracy = input.length > 0 ? Math.round((correctChars / input.length) * 100) : 100;
+            const elapsedMinutes = (60 - typeTimeLeft) / 60 || (1 / 60);
+            const wpm = Math.round((correctChars / 5) / elapsedMinutes);
+
+            document.getElementById('type-wpm').innerText = wpm;
+            document.getElementById('type-acc').innerText = accuracy + '%';
+        }
+
+        window.onload = () => {
+            resetTypingTest();
+        };
+    </script>
+</body>
+</html>
