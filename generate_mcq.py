@@ -7,6 +7,7 @@ import urllib.error
 # ফাইলৰ নাম আৰু API Key
 QUESTIONS_FILE = "questions.json"
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash").strip()
 
 # আজিৰ বাৰ অনুসৰি স্বয়ংক্ৰিয়ভাৱে বেলেগ বেলেগ পৰীক্ষা আৰু বিষয় বাছি লোৱা তালিকা
 DAILY_TOPICS = [
@@ -30,14 +31,13 @@ def load_existing_database():
 
 def generate_new_mcqs(topic_info, existing_questions):
     if not GEMINI_API_KEY:
-        raise ValueError("GEMINI_API_KEY পোৱা নগ'ল! অনুগ্ৰহ কৰি GitHub Secrets-ত API Key যোগ কৰক।")
+        raise ValueError("GEMINI_API_KEY পোৱা নগ'ল! GitHub Settings → Secrets and variables → Actions-ত GEMINI_API_KEY যোগ কৰক।")
 
-    # পুৰণি প্রশ্নৰ লগত যাতে মিল নাখায় তাৰ বাবে শেহতীয়া ১০ টা প্রশ্নৰ নমুনা লোৱা
-    recent_q_texts = [q.get("q", "") for q in existing_questions[:10]]
+    recent_q_texts = [q.get("q", "") for q in existing_questions[:20]]
     avoid_list = "\n".join(recent_q_texts)
 
     prompt = f"""You are an expert Assamese exam question paper setter for Assam Government Exams (ADRE, Assam Police, APSC, Assam TET, DHS, SSC GD, HSLC).
-Generate 5 brand-new, high-quality, 100% factually accurate Multiple Choice Questions (MCQs) in clear Assamese language (Assamese script).
+Generate 5 brand-new, high-quality, factually accurate Multiple Choice Questions (MCQs) in clear Assamese language (Assamese script).
 
 Target Exam Tag: "{topic_info['exam']}"
 Subject Name: "{topic_info['subject']}"
@@ -46,46 +46,57 @@ Topic Focus: {topic_info['focus']}
 Do NOT repeat these recent questions:
 {avoid_list}
 
-Return ONLY a valid JSON array containing 5 objects in this exact format (no markdown, no backticks, no extra text):
+Return ONLY a valid JSON array containing exactly 5 objects in this format:
 [
   {{
     "exam": "{topic_info['exam']}",
     "subject": "{topic_info['subject']}",
-    "q": "প্রশ্নটো ইয়াত অসমীয়াত লিখক?",
+    "q": "প্ৰশ্নটো ইয়াত অসমীয়াত লিখক?",
     "options": ["বিকল্প ১", "বিকল্প ২", "বিকল্প ৩", "বিকল্প ৪"],
     "ans": 0,
-    "exp": "ইয়াত চমু আৰু নিখুঁত অসমীয়া ব্যাখ্যা বা চৰ্টকাট সূত্র লিখক।"
+    "exp": "চমু আৰু নিখুঁত অসমীয়া ব্যাখ্যা লিখক।"
   }}
 ]"""
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
-            "temperature": 0.7,
+            "temperature": 0.4,
             "responseMimeType": "application/json"
         }
     }
 
     req = urllib.request.Request(
         url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_API_KEY},
         method="POST"
     )
 
-    with urllib.request.urlopen(req, timeout=60) as response:
-        res_data = json.loads(response.read().decode("utf-8"))
-        raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"].strip()
-        
-        # যদি ভুলতে markdown ```json থাকে তেন্তে পৰিষ্কাৰ কৰা
-        if raw_text.startswith("```"):
-            raw_text = raw_text.strip("`")
-            if raw_text.startswith("json"):
-                raw_text = raw_text[4:].strip()
+    try:
+        with urllib.request.urlopen(req, timeout=90) as response:
+            res_data = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Gemini API HTTP {e.code}: {body[:1000]}") from e
+    except urllib.error.URLError as e:
+        raise RuntimeError(f"Gemini API connection failed: {e}") from e
 
-        new_items = json.loads(raw_text)
-        return new_items
+    try:
+        raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    except (KeyError, IndexError, TypeError) as e:
+        raise RuntimeError(f"Gemini API returned no usable candidate: {json.dumps(res_data, ensure_ascii=False)[:1500]}") from e
+
+    if raw_text.startswith("```"):
+        raw_text = raw_text.strip("`")
+        if raw_text.startswith("json"):
+            raw_text = raw_text[4:].strip()
+
+    new_items = json.loads(raw_text)
+    if not isinstance(new_items, list):
+        raise ValueError("Gemini output is not a JSON array")
+    return new_items
 
 def main():
     db = load_existing_database()

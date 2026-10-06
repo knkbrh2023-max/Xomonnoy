@@ -634,6 +634,10 @@
                     </select>
                 </div>
             </div>
+            <div id="qb-status" class="mb-5 flex flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5"><i class="fa-solid fa-rotate text-blue-600"></i><span id="qb-count-status">প্রশ্ন লোড হৈ আছে...</span></span>
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5"><i class="fa-regular fa-calendar text-emerald-600"></i><span id="qb-updated-status">আপডেট চোৱা হৈছে...</span></span>
+            </div>
 
             <!-- 2-Column Grid -->
             <div id="qb-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -769,20 +773,36 @@
         }
 
         async function loadAutoQuestions() {
+            const countEl = document.getElementById('qb-count-status');
+            const updatedEl = document.getElementById('qb-updated-status');
             try {
-                const res = await fetch('questions.json?t=' + new Date().getTime());
-                if (!res.ok) throw new Error("JSON not found");
+                if (countEl) countEl.innerText = 'প্ৰশ্ন লোড হৈ আছে...';
+                const res = await fetch('questions.json?t=' + Date.now(), { cache: 'no-store' });
+                if (!res.ok) throw new Error(`questions.json HTTP ${res.status}`);
                 const data = await res.json();
-                allBankQuestions = (data.questions && data.questions.length > 0) ? data.questions : fallbackQuestions;
-                document.getElementById('stat-last-updated').innerText = data.last_updated || "আজি আপডেটেড";
+                const incoming = Array.isArray(data.questions) ? data.questions : [];
+                allBankQuestions = incoming.length ? incoming : fallbackQuestions;
+                const updated = data.last_updated || 'আজি আপডেটেড';
+                const updatedStat = document.getElementById('stat-last-updated');
+                const totalStat = document.getElementById('stat-total-q');
+                if (updatedStat) updatedStat.innerText = updated;
+                if (totalStat) totalStat.innerText = `${allBankQuestions.length}+ টা MCQ`;
+                if (countEl) countEl.innerText = `${allBankQuestions.length} টা প্রশ্ন উপলব্ধ`;
+                if (updatedEl) updatedEl.innerText = `শেষ আপডেট: ${updated}`;
             } catch (err) {
+                console.error('Question bank load failed:', err);
                 allBankQuestions = fallbackQuestions;
+                if (countEl) countEl.innerText = `${allBankQuestions.length} টা demo প্রশ্ন`;
+                if (updatedEl) updatedEl.innerText = 'Live question database লোড নহ’ল';
             }
 
             dailyQuestions = allBankQuestions.slice(0, 10);
-            document.getElementById('stat-total-q').innerText = `${allBankQuestions.length}+ টা MCQ`;
-            document.getElementById('q-total-num').innerText = dailyQuestions.length;
-            document.getElementById('daily-test-meta').innerText = `সময়: ৫ মিনিট | মুঠ প্রশ্ন: ${dailyQuestions.length} টা`;
+            const totalEl = document.getElementById('stat-total-q');
+            if (totalEl) totalEl.innerText = `${allBankQuestions.length}+ টা MCQ`;
+            const qTotalEl = document.getElementById('q-total-num');
+            if (qTotalEl) qTotalEl.innerText = dailyQuestions.length;
+            const metaEl = document.getElementById('daily-test-meta');
+            if (metaEl) metaEl.innerText = `সময়: ৫ মিনিট | মুঠ প্রশ্ন: ${dailyQuestions.length} টা`;
 
             populateSubjectFilter();
             renderQuestionBank(true);
@@ -791,7 +811,8 @@
 
         function populateSubjectFilter() {
             const select = document.getElementById('qb-subject-filter');
-            const subjects = [...new Set(allBankQuestions.map(item => item.subject))];
+            if (!select) return;
+            const subjects = [...new Set(allBankQuestions.map(item => item.subject).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'as'));
             select.innerHTML = '<option value="all">সকলো বিষয় (All Subjects)</option>';
             subjects.forEach(sub => {
                 select.innerHTML += `<option value="${sub}">${sub}</option>`;
@@ -806,7 +827,8 @@
 
             const filtered = allBankQuestions.filter(q => {
                 const matchSub = selectedSub === 'all' || q.subject === selectedSub;
-                const matchSearch = !searchQuery || q.q.toLowerCase().includes(searchQuery) || q.exp.toLowerCase().includes(searchQuery);
+                const haystack = [q.q, q.exp, q.subject, q.exam].filter(Boolean).join(' ').toLowerCase();
+                const matchSearch = !searchQuery || haystack.includes(searchQuery);
                 return matchSub && matchSearch;
             });
 
